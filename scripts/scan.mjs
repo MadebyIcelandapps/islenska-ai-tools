@@ -50,9 +50,15 @@ const EXTRA = extraFile
       })
   : [];
 
+// The copyright line names the holder on purpose: listed terms are not checked on a line that starts
+// "Copyright (c) 2026" or "© 2026", and only in LICENSE, LICENSE-DATA and README.md.
+const HOLDER_FILES = /(?:^|:)(?:LICENSE|LICENSE-DATA|README\.md)$/;
+const HOLDER_LINE = /^\s*(?:Copyright \(c\)|©) 2026 /;
+
 function scanText(where, text, hits) {
   text.split("\n").forEach((line, i) => {
-    for (const [name, re] of [...SECRETS, ...PERSONAL, ...EXTRA]) {
+    const holder = HOLDER_FILES.test(where) && HOLDER_LINE.test(line);
+    for (const [name, re] of [...SECRETS, ...PERSONAL, ...(holder ? [] : EXTRA)]) {
       const m = line.match(re);
       if (m) hits.push(`${where}:${i + 1} [${name}] ${name.startsWith("listed") ? "(term hidden)" : m[0].slice(0, 40)}`);
     }

@@ -92,3 +92,7 @@ Eval cases go in `evals/is-guest-replies.json`, with one good reply in `evals/re
 Code: MIT (`LICENSE`). The eval data in `evals/`: CC BY 4.0 (`LICENSE-DATA`). The data has its own licence because it is used differently from code (copied into other test sets and datasets), and CC BY is the usual licence for that: anyone may reuse it with credit. It is not ShareAlike, which is fine because no BÍN data (CC BY-SA 4.0) is in it. Every example is synthetic: the guesthouse is made up and no line comes from a real guest, company, e-mail or call.
 
 For grammar and spelling, use Miðeind's GreynirCorrect. For the forms of an existing Icelandic word, use BÍN from the Árni Magnússon Institute. See [RESEARCH.md](RESEARCH.md) for what exists and what this adds.
+
+---
+
+© 2026 Helgi Þór Jóhannsson (HTJ Studio).
