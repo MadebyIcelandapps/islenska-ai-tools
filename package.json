@@ -1,0 +1,22 @@
+{
+  "name": "islenska-ai-tools",
+  "version": "0.1.0",
+  "description": "Icelandic checks for AI replies and product copy: name declension, house style, answer evals. No model calls, no dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "bin": { "islenska": "bin/islenska.mjs" },
+  "exports": {
+    "./declension": "./src/declension.mjs",
+    "./style": "./src/style.mjs",
+    "./evals": "./src/evals.mjs",
+    "./language": "./src/language.mjs",
+    "./numbers": "./src/numbers.mjs"
+  },
+  "files": ["src", "rules", "evals", "bin", "LICENSE", "LICENSE-DATA", "README.md", "RESEARCH.md"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "scan": "node scripts/scan.mjs"
+  }
+}
