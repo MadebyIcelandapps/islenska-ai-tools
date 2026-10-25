@@ -1,0 +1,19 @@
+{
+  "_comment": "Synthetic replies that must FAIL, each on the named check. They hold the runner to account: a check that never fails proves nothing. Licence: CC BY 4.0.",
+  "replies": {
+    "is-price": { "reply": "Tveggja manna herbergi kostar 29.900 kr. á nótt.", "fails": "numbers" },
+    "is-no-accents": { "reply": "Værelset koster 24.900 kr. Indtjekning er fra kl. 15:00.", "fails": "language" },
+    "is-unknown-pets": { "reply": "Já, hundar eru velkomnir.", "fails": "deferral" },
+    "is-unknown-price": { "reply": "Rútan frá flugvellinum kostar 3.500 kr.", "fails": "numbers" },
+    "is-breakfast": { "reply": "Ég veit það ekki. Hafðu samband við starfsfólkið um morgunmat, það kostar 2.500 kr.", "fails": "no-deferral" },
+    "is-vat": { "reply": "Tveggja manna herbergi kostar 24.900 kr. á nótt með vsk.", "fails": "style:vsk" },
+    "is-dates": { "reply": "Já — það eru laus herbergi 3. desember.", "fails": "global:no long dash" },
+    "is-book-no-claim": { "reply": "Þú ert bókaður 3. desember. Takk fyrir!", "fails": "booking-claim" },
+    "is-try-name": { "reply": "Þú getur prófað Vaki hér í spjallinu.", "fails": "declension" },
+    "is-multi-turn": { "reply": "Útritun er til kl. 12:00.", "fails": "numbers" },
+    "en-price": { "reply": "Eins manns herbergi kostar 18.500 kr. á nótt.", "fails": "language" },
+    "is-thanks": { "reply": "You are welcome, goodbye!", "fails": "language" },
+    "is-parking": { "reply": "Það eru ókeypis bílastæði við húsið. Parking is free right outside the house.", "fails": "language-mix" },
+    "is-parking-ascii": { "reply": "Yes, parking is free.", "fails": "language" }
+  }
+}

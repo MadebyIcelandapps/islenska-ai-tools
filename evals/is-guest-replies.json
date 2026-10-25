@@ -1,0 +1,27 @@
+{
+  "_comment": "Icelandic answer evals for a guest-facing assistant. Every case, fact and reply here is synthetic, written for this repo: the guesthouse is made up, and no line comes from a real guest, company, e-mail or call. Licence: CC BY 4.0 (see LICENSE-DATA). Regex strings are JavaScript source, case-insensitive.",
+  "license": "CC-BY-4.0",
+  "facts": "Gistihúsið Sýnidæmi er skáldað gistihús, gert til prófunar. Tveggja manna herbergi kostar 24.900 kr. á nótt. Eins manns herbergi kostar 18.500 kr. á nótt. Morgunmatur er ekki innifalinn og kostar 2.500 kr. á mann. Innritun er frá kl. 15:00 og útritun til kl. 11:00. Ókeypis bílastæði eru við húsið. Laus herbergi eru 2. til 5. desember. Aðstoðarmaðurinn heitir Vaki og getur ekki bókað sjálfur: starfsfólkið gengur frá bókunum.",
+  "names": [{ "name": "Vaki", "pattern": "veikt-kk-i" }],
+  "styleRules": ["is", "en"],
+  "globalMustNot": [
+    { "name": "no long dash", "pattern": "—", "why": "The long dash reads as machine-made text." },
+    { "name": "no code block", "pattern": "```", "why": "A guest must never see a code block." }
+  ],
+  "cases": [
+    { "id": "is-price", "group": "facts", "language": "is", "message": "Hvað kostar tveggja manna herbergi?", "why": "The first question most guests ask. The price must be the one in the facts.", "must": ["24[.,]900"], "mustNotDefer": true },
+    { "id": "is-no-accents", "group": "language", "language": "is", "message": "Hvad kostar herbergid og hvenaer er innritun?", "why": "Icelandic typed without Icelandic letters. A detector that leans on þ, ð, æ and ö reads this as Danish.", "must": ["15[:.]00"] },
+    { "id": "is-unknown-pets", "group": "handover", "language": "is", "message": "Má ég koma með hundinn minn?", "why": "The facts say nothing about pets, so a person must answer.", "wantsDeferral": true },
+    { "id": "is-unknown-price", "group": "handover", "language": "is", "message": "Hvað kostar rútan frá flugvellinum?", "why": "No bus price in the facts. Any figure would be invented.", "wantsDeferral": true },
+    { "id": "is-breakfast", "group": "facts", "language": "is", "message": "Er morgunmatur innifalinn?", "why": "The facts answer it. Handing it over would be an over-refusal.", "must": ["2[.,]500"], "mustNotDefer": true },
+    { "id": "is-vat", "group": "style", "language": "is", "message": "Er virðisaukaskattur innifalinn í verðinu?", "why": "The guest uses the word; the reply gives the price as the price and says nothing about VAT.", "must": ["24[.,]900"] },
+    { "id": "is-dates", "group": "facts", "language": "is", "message": "Er laust 3. desember?", "why": "Dates in Icelandic form. 3 comes from the guest, 2 and 5 from the facts.", "must": ["desember"] },
+    { "id": "is-book-no-claim", "group": "booking", "language": "is", "message": "Getur þú bókað herbergi fyrir mig 3. desember?", "why": "The assistant cannot book. It must not say the room is booked.", "mustNotClaimBooking": true },
+    { "id": "is-try-name", "group": "declension", "language": "is", "message": "Hvernig get ég prófað þetta?", "why": "The assistant's own name after 'prófað' must be in the accusative: Vaka, not Vaki." },
+    { "id": "is-multi-turn", "group": "conversation", "language": "is", "turns": ["Halló", "Hvenær er útritun?"], "why": "A second turn still answered from the facts.", "must": ["11[:.]00"] },
+    { "id": "en-price", "group": "language", "language": "en", "message": "How much is a single room?", "why": "An English guest gets English, with the same price in English number form.", "must": ["18[.,]500"] },
+    { "id": "is-thanks", "group": "conversation", "language": "is", "message": "Takk fyrir, bless", "why": "A short goodbye still gets Icelandic back." },
+    { "id": "is-parking", "group": "language", "language": "is", "message": "Hvar get ég lagt bílnum?", "why": "No sentence of the reply may slip into English.", "must": ["bílastæð"] },
+    { "id": "is-parking-ascii", "group": "language", "language": "is", "message": "Er bilastaedi?", "why": "A two-word question without Icelandic letters." }
+  ]
+}

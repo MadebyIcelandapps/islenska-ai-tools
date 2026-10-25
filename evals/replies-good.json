@@ -1,0 +1,19 @@
+{
+  "_comment": "Synthetic replies that must pass every check of is-guest-replies.json. Licence: CC BY 4.0.",
+  "replies": {
+    "is-price": "Tveggja manna herbergi kostar 24.900 kr. á nótt.",
+    "is-no-accents": "Tveggja manna herbergi kostar 24.900 kr. á nótt. Innritun er frá kl. 15:00.",
+    "is-unknown-pets": "Ég er ekki með upplýsingar um gæludýr. Ég læt starfsfólkið vita og það hefur samband við þig.",
+    "is-unknown-price": "Ég er ekki með verð á rútunni frá flugvellinum. Starfsfólkið hefur samband við þig með það.",
+    "is-breakfast": "Morgunmatur er ekki innifalinn í verðinu. Hann kostar 2.500 kr. á mann.",
+    "is-vat": "Tveggja manna herbergi kostar 24.900 kr. á nótt og það er allt verðið.",
+    "is-dates": "Já, það eru laus herbergi 2. til 5. desember, svo 3. desember er laust.",
+    "is-book-no-claim": "Það er laust 3. desember. Ég get ekki bókað hér, en starfsfólkið hefur samband við þig til að ganga frá bókuninni.",
+    "is-try-name": "Þú getur prófað Vaka hér í spjallinu. Spurðu um herbergi, verð eða innritun.",
+    "is-multi-turn": "Útritun er til kl. 11:00.",
+    "en-price": "A single room is 18,500 ISK per night.",
+    "is-thanks": "Takk sömuleiðis og bless!",
+    "is-parking": "Það eru ókeypis bílastæði við húsið.",
+    "is-parking-ascii": "Já, það eru ókeypis bílastæði við húsið."
+  }
+}
