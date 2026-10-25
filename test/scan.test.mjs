@@ -23,6 +23,8 @@ function repoWith(files, message = "test") {
   g("init", "-q");
   g("config", "user.email", "t@example.com");
   g("config", "user.name", "t");
+  // The planted fake keys must reach the commit: a machine-wide git hook (core.hooksPath) is not used here.
+  g("config", "core.hooksPath", "/dev/null");
   for (const [name, text] of Object.entries(files)) fs.writeFileSync(path.join(dir, name), text);
   g("add", "-A");
   g("commit", "-q", "-m", message);
