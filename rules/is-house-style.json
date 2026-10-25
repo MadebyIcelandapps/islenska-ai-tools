@@ -1,0 +1,107 @@
+{
+  "_comment": "House style for Icelandic product copy and AI replies. Each rule: id, why, pattern (JavaScript regex source; {LB} and {RB} are letter-safe word edges), flags (default iu), scope (all = every text, product = marketing and product copy only), severity (error or warning), suggest, allowMarker (a line holding this text is allowed), replace (word map for rewriteStyle), examples (bad must hit, good must not). Edit this file to fit your own brand.",
+  "rules": [
+    {
+      "id": "long-dash",
+      "why": "The long dash reads as machine-made text in Icelandic. Use a comma, a colon, a full stop or brackets.",
+      "pattern": "—|\\s–\\s",
+      "scope": "all",
+      "severity": "error",
+      "suggest": "comma, colon, full stop or brackets",
+      "examples": { "bad": ["Verð — 24.900 kr.", "Opið – alla daga."], "good": ["Verð: 24.900 kr.", "Opið 2–5. desember."] }
+    },
+    {
+      "id": "smid",
+      "why": "'Smíðað' and 'smíði' sound stiff for software. Say 'gert' and 'gerð'.",
+      "pattern": "{LB}smíð\\p{L}*",
+      "scope": "all",
+      "severity": "error",
+      "suggest": "gert, gerður, gerð",
+      "replace": { "smíðað": "gert", "smíðaður": "gerður", "smíðuð": "gerð", "smíðaða": "gerða", "smíðaðir": "gerðir", "smíðaðar": "gerðar", "smíðaðan": "gerðan", "smíði": "gerð", "smíðin": "gerðin", "smíðinni": "gerðinni" },
+      "examples": { "bad": ["Þetta er smíðað á Íslandi.", "Smíði kerfisins tók viku."], "good": ["Þetta er gert á Íslandi."] }
+    },
+    {
+      "id": "skruna",
+      "why": "'Skrunaðu' is an awkward loan from 'scroll'. Say 'sjáðu neðar' or just point to the thing.",
+      "pattern": "{LB}skrun(?:aðu|ið|a){RB}",
+      "scope": "all",
+      "severity": "error",
+      "suggest": "sjáðu neðar, sjáðu ofar, farðu",
+      "replace": { "skrunaðu niður": "sjáðu neðar", "skrunaðu upp": "sjáðu ofar", "skrunið niður": "sjáið neðar", "skrunið upp": "sjáið ofar", "skrunaðu": "farðu", "skrunið": "farið" },
+      "examples": { "bad": ["Skrunaðu niður til að sjá verðin."], "good": ["Sjáðu neðar til að sjá verðin."] }
+    },
+    {
+      "id": "gervigreind",
+      "why": "Product copy says what the product does, not that it is AI. The word stays only in the legally required AI notice, marked on its line.",
+      "pattern": "gervigreind\\p{L}*",
+      "scope": "product",
+      "severity": "error",
+      "allowMarker": "[ai-disclosure]",
+      "suggest": "say what it does: svarar gestum, tekur bókanir",
+      "examples": { "bad": ["Gervigreindarmóttaka fyrir fyrirtæki."], "good": ["Þú ert að tala við sjálfvirkan aðstoðarmann sem notar gervigreind. [ai-disclosure]"] }
+    },
+    {
+      "id": "spjallmenni",
+      "why": "'Spjallmenni' sounds cheap and dated. Say 'aðstoðarmaður' or name the product.",
+      "pattern": "{LB}spjallmenn\\p{L}*",
+      "scope": "product",
+      "severity": "error",
+      "suggest": "aðstoðarmaður",
+      "examples": { "bad": ["Spjallmenni fyrir vefinn þinn."], "good": ["Aðstoðarmaður fyrir vefinn þinn."] }
+    },
+    {
+      "id": "litil",
+      "why": "'Lítil fyrirtæki' makes the customer and the product sound small. Leave the size out.",
+      "pattern": "{LB}(?:lítil|lítill|lítils|lítilli|litla|litlu|litlir|litlar|litlum|litlan){RB}",
+      "scope": "product",
+      "severity": "error",
+      "suggest": "drop the word: 'fyrir fyrirtæki'",
+      "examples": { "bad": ["Móttaka fyrir lítil fyrirtæki.", "Hentar litlum gistihúsum."], "good": ["Móttaka fyrir fyrirtæki.", "Það er lítið mál."] }
+    },
+    {
+      "id": "vsk",
+      "why": "In Iceland a price is quoted as the price. 'Án vsk' and 'með vsk' are never said to a customer.",
+      "pattern": "{LB}(?:v\\.?\\s?s\\.?\\s?k|virðisauka\\p{L}*){RB}",
+      "scope": "all",
+      "severity": "error",
+      "suggest": "give the price alone: 24.900 kr.",
+      "examples": { "bad": ["24.900 kr. án vsk.", "Verð með V.S.K.", "Verð með virðisaukaskatti."], "good": ["Verð: 24.900 kr."] }
+    },
+    {
+      "id": "honesty-as-selling-point",
+      "why": "Honesty is a given, not a feature. Copy says what the product does, never that it does not make things up.",
+      "pattern": "skáld(?:ar|a|að|uð){RB}|skáldskap|{LB}gisk\\p{L}*|sannreyn|{LB}sannað|{LB}sönnun|heiðarleg|hreint út|{LB}eingöngu{RB}|{LB}einungis{RB}",
+      "scope": "product",
+      "severity": "error",
+      "suggest": "say what it does for the customer",
+      "examples": { "bad": ["Skáldar aldrei.", "Hann giskar ekki á verð.", "Svörin eru sannreynd.", "Svarar eingöngu út frá þínum gögnum."], "good": ["Svarar gestum á þeirra máli."] }
+    },
+    {
+      "id": "easy-steps",
+      "why": "'Þrjú einföld skref' is a tired sales line.",
+      "pattern": "{LB}(?:\\d|þrj\\p{L}*|þrem\\p{L}*|fjór\\p{L}*|fjög\\p{L}*)\\s+(?:einföld|einfald|auðveld)\\p{L}*\\s+skref",
+      "scope": "product",
+      "severity": "error",
+      "suggest": "just list what happens",
+      "examples": { "bad": ["Byrjaðu í þremur einföldum skrefum. Í 3 einföldum skrefum."], "good": ["Byrjaðu í dag."] }
+    },
+    {
+      "id": "google-claim",
+      "why": "Being found on Google is a given, not a selling point.",
+      "pattern": "finn(?:st|ast|ur)\\s+(?:á|í|með)\\s+google",
+      "scope": "product",
+      "severity": "error",
+      "suggest": "sell what matters: hýsing, öryggi",
+      "examples": { "bad": ["Vefurinn finnst á Google."], "good": ["Vefurinn er hýstur á Íslandi."] }
+    },
+    {
+      "id": "bara-ja",
+      "why": "'Svaraðu bara já' reads as machine-made. Ask the question plainly.",
+      "pattern": "svar(?:aðu|ið|a)\\s+bara\\s+[„\"'“]?já",
+      "scope": "all",
+      "severity": "warning",
+      "suggest": "Viltu að ég bóki þetta?",
+      "examples": { "bad": ["Svaraðu bara „já“ og ég bóka."], "good": ["Viltu að ég bóki þetta?"] }
+    }
+  ]
+}

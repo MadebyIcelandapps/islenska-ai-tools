@@ -1,0 +1,45 @@
+{
+  "_comment": "The same house style for English copy next to Icelandic copy (a tourist site is often English first). Same format as is-house-style.json.",
+  "rules": [
+    {
+      "id": "long-dash",
+      "why": "The long dash reads as machine-made text. Use a comma, a colon, a full stop or brackets.",
+      "pattern": "—|\\s–\\s",
+      "scope": "all",
+      "severity": "error",
+      "examples": { "bad": ["Price — 24,900 ISK."], "good": ["Price: 24,900 ISK.", "Open 2–5 December."] }
+    },
+    {
+      "id": "vat-claim",
+      "why": "A price is just the price. No 'no VAT added' or 'incl. VAT' lines.",
+      "pattern": "{LB}(?:(?:excl|incl|excluding|including|ex|inc|plus)\\.?\\s*(?:the\\s+|any\\s+)?vat|vat\\s*(?:excl|incl|included|excluded|extra|added|is\\s+(?:added|included|excluded))\\p{L}*|no\\s+vat){RB}",
+      "scope": "all",
+      "severity": "error",
+      "examples": { "bad": ["24,900 ISK incl. VAT.", "No VAT added.", "VAT included."], "good": ["24,900 ISK per night."] }
+    },
+    {
+      "id": "honesty-as-selling-point",
+      "why": "Honesty is a given, not a feature.",
+      "pattern": "can'?t prove|cannot prove|{LB}never\\s+(?:guess|guesses|invents?|makes?\\s+(?:things|anything|it)\\s+up){RB}|{LB}honest(?:ly|y)?{RB}|{LB}honesty{RB}|{LB}no\\s+hallucinations?{RB}|{LB}verified\\s+answers?{RB}",
+      "scope": "product",
+      "severity": "error",
+      "examples": { "bad": ["If it can't prove it, it won't say it.", "It never guesses.", "An honest comparison.", "No hallucinations."], "good": ["It answers guests in their language."] }
+    },
+    {
+      "id": "easy-steps",
+      "why": "'Three easy steps' is a tired sales line.",
+      "pattern": "{LB}(?:\\d|three|four)\\s+(?:easy|simple)\\s+steps{RB}",
+      "scope": "product",
+      "severity": "error",
+      "examples": { "bad": ["Get started in 3 easy steps."], "good": ["Get started today."] }
+    },
+    {
+      "id": "pilot",
+      "why": "Name the product. Do not call it a pilot or a test.",
+      "pattern": "{LB}pilot{RB}",
+      "scope": "product",
+      "severity": "error",
+      "examples": { "bad": ["Join the pilot."], "good": ["Start today."] }
+    }
+  ]
+}
