@@ -1,0 +1,374 @@
+{
+ "_comment": "Grammar and spelling slips machines make. Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "grammar",
+ "rules": [
+  {
+   "id": "eg-vill",
+   "group": "grammar",
+   "why": "'Ég vill' is wrong: first person is 'Ég vil' ('vill' is he/she/it).",
+   "pattern": "{LB}ég\\s+vill{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ég vil",
+   "basis": "grammar",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"ég\" %c][word=\"vill\" %c]",
+    "natural": "[word=\"ég\" %c][word=\"vil\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ég vill ekki svara þessu sjálfur."
+    ],
+    "good": [
+     "Ég vil ekki svara þessu sjálfur."
+    ]
+   }
+  },
+  {
+   "id": "mer-langar",
+   "group": "grammar",
+   "why": "'Mér langar' is wrong in writing: it is 'Mig langar', 'Þig langar'.",
+   "pattern": "{LB}(?:mér|þér|honum|henni)\\s+langar{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Mig langar",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"mér\" %c][word=\"langar\" %c]",
+    "natural": "[word=\"mig\" %c][word=\"langar\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Mér langar að bóka."
+    ],
+    "good": [
+     "Mig langar að bóka."
+    ]
+   }
+  },
+  {
+   "id": "mer-hlakkar",
+   "group": "grammar",
+   "why": "'Mér hlakkar til' is wrong in writing: it is 'Ég hlakka til'.",
+   "pattern": "{LB}(?:mér|mig|þér|þig|okkur)\\s+hlakkar{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ég hlakka til",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"mér\" %c][word=\"hlakkar\" %c]",
+    "natural": "[word=\"ég\" %c][word=\"hlakka\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Mér hlakkar til að sjá þig."
+    ],
+    "good": [
+     "Ég hlakka til að sjá þig."
+    ]
+   }
+  },
+  {
+   "id": "vona-ad-hefur",
+   "group": "grammar",
+   "why": "After 'vona að' the verb takes the subjunctive: 'að þú hafir', not 'að þú hefur'.",
+   "pattern": "{LB}von(?:a|um|ast|andi)\\s+(?:\\p{L}+\\s+)?að\\s+þú\\s+hefur{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "að þú hafir",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"hefur\" %c]",
+    "natural": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"hafir\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ég vona að þú hefur gaman af ferðinni."
+    ],
+    "good": [
+     "Ég vona að þú hafir gaman af ferðinni."
+    ]
+   }
+  },
+  {
+   "id": "vona-ad-ert",
+   "group": "grammar",
+   "why": "After 'vona að' the verb takes the subjunctive: 'að þú sért', not 'að þú ert'.",
+   "pattern": "{LB}von(?:a|um|ast|andi)\\s+(?:\\p{L}+\\s+)?að\\s+þú\\s+ert{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "að þú sért",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"ert\" %c]",
+    "natural": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"sért\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við vonum að þú ert ánægður."
+    ],
+    "good": [
+     "Við vonum að þú sért sáttur."
+    ]
+   }
+  },
+  {
+   "id": "vona-ad-getur",
+   "group": "grammar",
+   "why": "After 'vona að' the verb takes the subjunctive: 'að þú getir', not 'að þú getur'.",
+   "pattern": "{LB}von(?:a|um|ast|andi)\\s+(?:\\p{L}+\\s+)?að\\s+þú\\s+getur{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "að þú getir",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"getur\" %c]",
+    "natural": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"getir\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við vonum að þú getur ánægður."
+    ],
+    "good": [
+     "Við vonum að þú getir sáttur."
+    ]
+   }
+  },
+  {
+   "id": "vona-ad-vilt",
+   "group": "grammar",
+   "why": "After 'vona að' the verb takes the subjunctive: 'að þú viljir', not 'að þú vilt'.",
+   "pattern": "{LB}von(?:a|um|ast|andi)\\s+(?:\\p{L}+\\s+)?að\\s+þú\\s+vilt{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "að þú viljir",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"vilt\" %c]",
+    "natural": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"viljir\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við vonum að þú vilt ánægður."
+    ],
+    "good": [
+     "Við vonum að þú viljir sáttur."
+    ]
+   }
+  },
+  {
+   "id": "vona-ad-átt",
+   "group": "grammar",
+   "why": "After 'vona að' the verb takes the subjunctive: 'að þú eigir', not 'að þú átt'.",
+   "pattern": "{LB}von(?:a|um|ast|andi)\\s+(?:\\p{L}+\\s+)?að\\s+þú\\s+átt{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "að þú eigir",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"átt\" %c]",
+    "natural": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"eigir\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við vonum að þú átt ánægður."
+    ],
+    "good": [
+     "Við vonum að þú eigir sáttur."
+    ]
+   }
+  },
+  {
+   "id": "vona-ad-nýtur",
+   "group": "grammar",
+   "why": "After 'vona að' the verb takes the subjunctive: 'að þú njótir', not 'að þú nýtur'.",
+   "pattern": "{LB}von(?:a|um|ast|andi)\\s+(?:\\p{L}+\\s+)?að\\s+þú\\s+nýtur{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "að þú njótir",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"nýtur\" %c]",
+    "natural": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"njótir\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við vonum að þú nýtur ánægður."
+    ],
+    "good": [
+     "Við vonum að þú njótir sáttur."
+    ]
+   }
+  },
+  {
+   "id": "tho-ad-indicative",
+   "group": "grammar",
+   "why": "After 'þó að' the verb takes the subjunctive: 'þó að það sé', not 'þó að það er'.",
+   "pattern": "{LB}þó\\s+(?:að\\s+)?(?:það|hann|hún|þú|ferðin|veðrið)\\s+(?:er|hefur|getur|verður){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þó að það sé",
+   "basis": "grammar",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"þó\" %c][word=\"að\" %c][word=\"það\" %c][word=\"er\" %c]",
+    "natural": "[word=\"þó\" %c][word=\"að\" %c][word=\"það\" %c][word=\"sé\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ferðin er farin þó að það er rigning."
+    ],
+    "good": [
+     "Ferðin er farin þó að það sé rigning."
+    ]
+   }
+  },
+  {
+   "id": "month-capital",
+   "group": "grammar",
+   "why": "Month and weekday names are lower case in Icelandic: 'í desember', 'á mánudaginn'.",
+   "pattern": "(?<=\\p{Ll}[,]?\\s)(?:Janúar|Febrúar|Mars|Apríl|Maí|Júní|Júlí|Ágúst|September|Október|Nóvember|Desember|Mánudag|Þriðjudag|Miðvikudag|Fimmtudag|Föstudag|Laugardag|Sunnudag)\\p{L}*",
+   "flags": "u",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "í desember, á mánudaginn",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Opið í Desember og á Mánudögum."
+    ],
+    "good": [
+     "Opið í desember og á mánudögum."
+    ]
+   }
+  },
+  {
+   "id": "language-capital",
+   "group": "grammar",
+   "why": "Names of languages are lower case in Icelandic: 'á ensku', 'á íslensku'.",
+   "pattern": "(?<=\\s(?:á|í|og|eða|frá|um|til|úr)\\s)(?:Ensk|Íslensk|Þýsk|Fransk|Dönsk|Spænsk|Pólsk|Sænsk|Norsk|Ítölsk|Japönsk|Kínversk|Kóresk|Rússnesk|Hollensk)\\p{L}*",
+   "flags": "u",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "á ensku",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Leiðsögn á Ensku og Þýsku."
+    ],
+    "good": [
+     "Leiðsögn á ensku og þýsku."
+    ]
+   }
+  },
+  {
+   "id": "date-order",
+   "group": "grammar",
+   "why": "Icelandic dates are '3. desember', not 'desember 3' or '3 desember'.",
+   "pattern": "{LB}(?:janúar|febrúar|mars|apríl|maí|júní|júlí|ágúst|september|október|nóvember|desember)\\s+\\d{1,2}(?:st|nd|rd|th)?(?!\\d)(?!\\.\\d)|(?<![\\d.])\\d{1,2}\\s+(?:janúar|febrúar|mars|apríl|maí|júní|júlí|ágúst|september|október|nóvember|desember){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "3. desember",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Laust desember 3.",
+     "Laust 3 desember."
+    ],
+    "good": [
+     "Laust 3. desember."
+    ]
+   }
+  },
+  {
+   "id": "am-pm",
+   "group": "grammar",
+   "why": "Icelandic uses the 24-hour clock: 'kl. 15:00', not '3pm'.",
+   "pattern": "(?<![\\p{L}])\\d{1,2}(?::\\d{2})?\\s*(?:am|pm|a\\.m\\.|p\\.m\\.)(?![\\p{L}])",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "kl. 15:00",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Brottför kl. 3pm."
+    ],
+    "good": [
+     "Brottför kl. 15:00."
+    ]
+   }
+  },
+  {
+   "id": "thousands-comma",
+   "group": "grammar",
+   "why": "In Icelandic krónur the thousands mark is a dot: '24.900 kr.'.",
+   "pattern": "(?<![\\d.,])\\d{1,3}(?:,\\d{3})+(?![\\d,])\\s*(?:kr|krónur)",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "24.900 kr.",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Verð: 24,900 kr."
+    ],
+    "good": [
+     "Verð: 24.900 kr."
+    ]
+   }
+  },
+  {
+   "id": "english-quotes",
+   "group": "grammar",
+   "why": "Icelandic quotes open low: „svona“. English “quotes” look foreign.",
+   "pattern": "(?:^|[\\s(])“(?=\\p{L})",
+   "flags": "u",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "„svona“",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Smelltu á “Bóka”."
+    ],
+    "good": [
+     "Smelltu á „Bóka“."
+    ]
+   }
+  },
+  {
+   "id": "english-possessive",
+   "group": "grammar",
+   "why": "'Vaki's' or 'Hraun's' is the English genitive. Icelandic declines the name: 'hjá Vaka'.",
+   "pattern": "(?<![\\p{L}])\\p{Lu}\\p{L}+['’]s(?![\\p{L}])",
+   "flags": "u",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "hjá ..., the genitive form",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Skoðaðu Vaki's verðskrá."
+    ],
+    "good": [
+     "Skoðaðu verðskrána hjá Vaka."
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,877 @@
+{
+ "_comment": "English said in Icelandic words: copied phrases, word order and chatbot habits. Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "calque",
+ "rules": [
+  {
+   "id": "preposed-possessive",
+   "group": "calque",
+   "why": "'Á þinni síðu' puts the possessive first, the English way. Icelandic says 'á síðunni þinni'; the first order is only for emphasis.",
+   "pattern": "{LB}(?:á|í|fyrir|frá|um|með|til)\\s+(?:þinni|þínum|þínu|þinnar|þíns)\\s+(?:síð|vef|fyrirtæk|rekstr|upplýsing|gögn|tungumál|þjónust)\\p{L}*",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "á síðunni þinni",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"á\" %c][word=\"þinni\" %c][word=\"síðu\" %c]",
+    "natural": "[word=\"á\" %c][word=\"síðunni\" %c][word=\"þinni\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Spjall á þinni síðu.",
+     "Hann svarar út frá þínum upplýsingum."
+    ],
+    "good": [
+     "Spjall á síðunni þinni.",
+     "Hann svarar eftir upplýsingunum þínum."
+    ]
+   }
+  },
+  {
+   "id": "i-gegnum-channel",
+   "group": "calque",
+   "why": "'Í gegnum formið' copies 'through/via'. Say 'í forminu', 'á vefnum', 'í tölvupósti'.",
+   "pattern": "{LB}í\\s+gegnum\\s+(?:formið|samskiptaformið|vefinn|síðuna|vefsíðuna|tölvupóst|appið|spjallið|símann){RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "í forminu, á vefnum, í tölvupósti",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"í\" %c][word=\"gegnum\" %c][word=\"tölvupóst\" %c]",
+    "natural": "[word=\"í\" %c][word=\"tölvupósti\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Sendu okkur línu í gegnum formið."
+    ],
+    "good": [
+     "Sendu okkur línu í forminu."
+    ]
+   }
+  },
+  {
+   "id": "reach-out",
+   "group": "calque",
+   "why": "'Ná til okkar' copies 'reach out'. Say 'hafa samband'.",
+   "pattern": "{LB}(?:að\\s+)?ná(?:ðir|ðuð)?\\s+til\\s+okkar{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "hafa samband",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ná\" %c][word=\"til\" %c][word=\"okkar\" %c]",
+    "natural": "[word=\"hafa\" %c][word=\"samband\" %c][word=\"við\" %c][word=\"okkur\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Takk fyrir að ná til okkar."
+    ],
+    "good": [
+     "Takk fyrir að hafa samband."
+    ]
+   }
+  },
+  {
+   "id": "have-a-day",
+   "group": "calque",
+   "why": "'Hafðu góðan dag' copies 'have a good day'. Icelandic says 'Eigðu góðan dag'.",
+   "pattern": "{LB}hafðu\\s+(?:góðan|frábæran|yndislegan|æðislegan)\\s+dag{RB}|{LB}eigðu\\s+frábæran\\s+dag{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Eigðu góðan dag",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hafðu\" %c][word=\"góðan\" %c][word=\"dag\" %c]",
+    "natural": "[word=\"eigðu\" %c][word=\"góðan\" %c][word=\"dag\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Hafðu góðan dag!"
+    ],
+    "good": [
+     "Eigðu góðan dag!"
+    ]
+   }
+  },
+  {
+   "id": "no-problem",
+   "group": "calque",
+   "why": "'Ekki vandamál' copies 'no problem'. Say 'Ekkert mál'.",
+   "pattern": "{LB}ekki\\s+vandamál{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ekkert mál",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ekki\" %c][word=\"vandamál\" %c]",
+    "natural": "[word=\"ekkert\" %c][word=\"mál\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ekki vandamál, ég laga það."
+    ],
+    "good": [
+     "Ekkert mál, ég laga það."
+    ]
+   }
+  },
+  {
+   "id": "welcome-to",
+   "group": "calque",
+   "why": "'Þú ert velkomin að' copies 'you're welcome to'. Say 'Endilega' or 'Þér er velkomið að'.",
+   "pattern": "{LB}(?:þú\\s+ert|þið\\s+eruð)\\s+(?:velkomin|velkominn|velkomnir|velkomnar)\\s+að{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Endilega ...",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ert\"][word=\"velkomin|velkominn\"][word=\"að\"]",
+    "natural": "[word=\"þér\" %c][word=\"er\" %c][word=\"velkomið\" %c][word=\"að\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Þú ert velkominn að koma með hundinn."
+    ],
+    "good": [
+     "Endilega komdu með hundinn."
+    ]
+   }
+  },
+  {
+   "id": "youre-welcome",
+   "group": "calque",
+   "why": "Answering thanks with 'Þú ert velkomin(n)' copies 'you're welcome'. Icelandic says 'Ekkert að þakka'.",
+   "pattern": "(?:^|[.!?]\\s+)Þú\\s+ert\\s+(?:alveg\\s+|svo\\s+)?(?:velkomin|velkominn)\\s*[.!]",
+   "flags": "iu",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ekkert að þakka",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"þú\" %c][word=\"ert\"][word=\"velkominn|velkomin\"][word=\"!|\\.\"]",
+    "natural": "[word=\"ekkert\" %c][word=\"að\" %c][word=\"þakka\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Takk sjálf. Þú ert velkominn!"
+    ],
+    "good": [
+     "Ekkert að þakka!"
+    ]
+   }
+  },
+  {
+   "id": "that-said",
+   "group": "calque",
+   "why": "'Að því sögðu' copies 'that said'. Say 'En' or 'Samt'.",
+   "pattern": "{LB}að\\s+því\\s+sögðu{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "En, Samt",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"að\" %c][word=\"því\" %c][word=\"sögðu\" %c]",
+    "natural": "[word=\"engu\" %c][word=\"að\" %c][word=\"síður\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Að því sögðu, þá er gott að bóka snemma."
+    ],
+    "good": [
+     "Samt er gott að bóka snemma."
+    ]
+   }
+  },
+  {
+   "id": "how-sounds",
+   "group": "calque",
+   "why": "'Hvernig hljómar það?' copies 'how does that sound?'. Ask 'Hentar það?' or 'Er það í lagi?'.",
+   "pattern": "{LB}hvernig\\s+hljómar\\s+(?:það|þetta){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Hentar það?",
+   "basis": "native",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"hvernig\" %c][word=\"hljómar\" %c][word=\"það\" %c]",
+    "natural": "[word=\"hentar\" %c][word=\"það\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Klukkan tíu á morgun, hvernig hljómar það?"
+    ],
+    "good": [
+     "Klukkan tíu á morgun, hentar það?"
+    ]
+   }
+  },
+  {
+   "id": "sounds-like",
+   "group": "calque",
+   "why": "'Það hljómar eins og' copies 'it sounds like'. Say 'Það virðist' or 'Mér heyrist'.",
+   "pattern": "{LB}það\\s+hljómar\\s+eins\\s+og{RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Það virðist, Mér heyrist",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hljómar\" %c][word=\"eins\" %c][word=\"og\" %c]",
+    "natural": "[word=\"virðist\" %c][word=\"vera\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Það hljómar eins og plantan sé of blaut."
+    ],
+    "good": [
+     "Plantan virðist vera of blaut."
+    ]
+   }
+  },
+  {
+   "id": "gera-sens",
+   "group": "calque",
+   "why": "'Það gerir sens' copies 'it makes sense'. People say 'það meikar sens', in copy 'það er skynsamlegt'.",
+   "pattern": "{LB}ger(?:ir|a|ði)\\s+(?:engan\\s+|ekki\\s+)?sens{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "það er skynsamlegt",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"gerir\" %c][word=\"sens\" %c]",
+    "natural": "[word=\"meikar\" %c][word=\"sens\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Það gerir sens að bóka snemma."
+    ],
+    "good": [
+     "Það er skynsamlegt að bóka snemma."
+    ]
+   }
+  },
+  {
+   "id": "gera-mun-fyrir",
+   "group": "calque",
+   "why": "'Gera mikinn mun fyrir' copies 'make a big difference for'. Say 'skipta miklu máli fyrir'.",
+   "pattern": "{LB}ger(?:a|ir|ði|t)\\s+(?:mikinn\\s+|allan\\s+|gríðarlegan\\s+)?mun\\s+fyrir{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "skipta miklu máli fyrir",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"gera\"][word=\"mikinn\"][word=\"mun\"][word=\"fyrir\"]",
+    "natural": "[lemma=\"skipta\"][word=\"miklu\"][word=\"máli\"]"
+   },
+   "examples": {
+    "bad": [
+     "Þetta gerir mikinn mun fyrir gesti."
+    ],
+    "good": [
+     "Þetta skiptir gesti miklu máli."
+    ]
+   }
+  },
+  {
+   "id": "would-love-to",
+   "group": "calque",
+   "why": "'Ég myndi elska að' copies 'I would love to'. Say 'Ég væri mjög til í að' or 'Það væri frábært'.",
+   "pattern": "{LB}(?:ég|við)\\s+myndi(?:r|m)?\\s+elska\\s+að{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ég væri til í að",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"myndi\" %c][word=\"elska\" %c][word=\"að\" %c]",
+    "natural": "[word=\"væri\" %c][word=\"til\" %c][word=\"í\" %c][word=\"að\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ég myndi elska að hjálpa þér."
+    ],
+    "good": [
+     "Ég hjálpa þér gjarnan."
+    ]
+   }
+  },
+  {
+   "id": "make-it-easy",
+   "group": "calque",
+   "why": "'Gerir það auðvelt að' copies 'makes it easy to'. Say 'auðveldar'.",
+   "pattern": "{LB}ger(?:ir|um|a)\\s+(?:það|þér|ykkur)?\\s*(?:auðvelt|einfalt)\\s+að{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "auðveldar",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"gerir\" %c][word=\"það\" %c][word=\"auðvelt\" %c][word=\"að\" %c]",
+    "natural": "[lemma=\"auðvelda\"]"
+   },
+   "examples": {
+    "bad": [
+     "Vaki gerir það auðvelt að svara gestum."
+    ],
+    "good": [
+     "Vaki auðveldar þér að svara gestum."
+    ]
+   }
+  },
+  {
+   "id": "basis",
+   "group": "calque",
+   "why": "'Á daglegum grundvelli' copies 'on a daily basis'. Say 'daglega'.",
+   "pattern": "{LB}á\\s+\\p{L}+(?:um|legum)\\s+grundvelli{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "daglega, reglulega",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"á\" %c][word=\"daglegum\" %c][word=\"grundvelli\" %c]",
+    "natural": "[word=\"daglega\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við uppfærum verðin á daglegum grundvelli."
+    ],
+    "good": [
+     "Við uppfærum verðin daglega."
+    ]
+   }
+  },
+  {
+   "id": "in-what-today",
+   "group": "calque",
+   "why": "'Hvernig get ég hjálpað þér í dag?' copies the English call-centre line. Say 'Hvað get ég gert fyrir þig?'.",
+   "pattern": "{LB}(?:hjálpað|aðstoðað)\\s+(?:þér|þig|ykkur)\\s+í\\s+dag{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Hvað get ég gert fyrir þig?",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"aðstoðað|hjálpað\"][word=\"þig|þér\"][word=\"í\"][word=\"dag\"]",
+    "natural": "[word=\"gert\" %c][word=\"fyrir\" %c][word=\"þig\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Hvernig get ég aðstoðað þig í dag?"
+    ],
+    "good": [
+     "Hvað get ég gert fyrir þig?"
+    ]
+   }
+  },
+  {
+   "id": "here-to-help",
+   "group": "calque",
+   "why": "'Ég er hér til að hjálpa' copies 'I'm here to help'. Say 'Spurðu bara' or nothing.",
+   "pattern": "{LB}(?:ég\\s+er|við\\s+erum)\\s+hér\\s+til\\s+að\\s+(?:hjálpa|aðstoða){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Spurðu bara",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hér\" %c][word=\"til\" %c][word=\"að\" %c][word=\"hjálpa\" %c]",
+    "natural": "[word=\"spurðu\" %c][word=\"bara\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ég er hér til að hjálpa þér."
+    ],
+    "good": [
+     "Spurðu bara."
+    ]
+   }
+  },
+  {
+   "id": "let-me",
+   "group": "calque",
+   "why": "'Leyfðu mér að' copies 'let me'. Say 'Ég skal' or just do it.",
+   "pattern": "{LB}leyfðu\\s+mér\\s+að\\s+(?:útskýra|athuga|skoða|hjálpa|sýna|segja){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ég skal",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"leyfðu\" %c][word=\"mér\"][word=\"að\"][word=\"athuga|skoða|útskýra|sýna\"]",
+    "natural": "[word=\"ég\" %c][word=\"skal\"][word=\"athuga|skoða|útskýra|sýna\"]"
+   },
+   "examples": {
+    "bad": [
+     "Leyfðu mér að athuga það."
+    ],
+    "good": [
+     "Ég skal athuga það."
+    ]
+   }
+  },
+  {
+   "id": "understand-perfectly",
+   "group": "calque",
+   "why": "'Ég skil fullkomlega' copies 'I completely understand'. Say 'Ég skil það vel'.",
+   "pattern": "{LB}skil\\s+(?:það\\s+)?fullkomlega{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ég skil það vel",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"skil\" %c][word=\"fullkomlega\" %c]",
+    "natural": "[word=\"skil\" %c][word=\"það\" %c][word=\"vel\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ég skil fullkomlega að þetta sé leiðinlegt."
+    ],
+    "good": [
+     "Ég skil það vel, þetta er leiðinlegt."
+    ]
+   }
+  },
+  {
+   "id": "summarize",
+   "group": "calque",
+   "why": "'Til að draga saman' copies 'to summarize'. Say 'Í stuttu máli'.",
+   "pattern": "{LB}til\\s+að\\s+draga\\s+(?:þetta\\s+)?saman{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Í stuttu máli",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"til\" %c][word=\"að\" %c][word=\"draga\" %c][word=\"saman\" %c]",
+    "natural": "[word=\"í\" %c][word=\"stuttu\" %c][word=\"máli\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Til að draga saman: ferðin tekur tvo tíma."
+    ],
+    "good": [
+     "Í stuttu máli: ferðin tekur tvo tíma."
+    ]
+   }
+  },
+  {
+   "id": "worth-mentioning",
+   "group": "calque",
+   "why": "'Það er vert að nefna' is chat filler. Say the thing.",
+   "pattern": "{LB}(?:það\\s+er\\s+)?vert\\s+að\\s+(?:nefna|minnast\\s+á|taka\\s+fram){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "say it directly",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vert\" %c][word=\"að\" %c][word=\"nefna\" %c]",
+    "natural": "[word=\"þess\" %c][word=\"má\" %c][word=\"geta\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Það er vert að nefna að morgunmatur fylgir."
+    ],
+    "good": [
+     "Morgunmatur fylgir."
+    ]
+   }
+  },
+  {
+   "id": "as-an-ai",
+   "group": "calque",
+   "why": "'Sem gervigreind get ég ekki' is a stock line from English chatbots. Say what you can do instead.",
+   "pattern": "{LB}sem\\s+(?:gervigreind|mállíkan|tungumálalíkan|sjálfvirkur\\s+aðstoðarmaður)\\s+(?:get|hef|er|má){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "say what you can do",
+   "basis": "house",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Sem gervigreind get ég ekki bókað."
+    ],
+    "good": [
+     "Ég get ekki bókað hér, en starfsfólkið getur það."
+    ]
+   }
+  },
+  {
+   "id": "great-question",
+   "group": "calque",
+   "why": "Opening with 'Frábær spurning!' is a chatbot tic. Answer the question.",
+   "pattern": "(?:^|[.!?]\\s+)(?:Frábær|Mjög\\s+góð|Góð|Æðisleg)\\s+spurning\\s*[!.]",
+   "flags": "iu",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "answer directly",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"frábær\" %c][word=\"spurning\" %c][word=\"!\" %c]",
+    "natural": "[word=\"góð\" %c][word=\"spurning\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Frábær spurning! Ferðin tekur tvo tíma."
+    ],
+    "good": [
+     "Ferðin tekur tvo tíma."
+    ]
+   }
+  },
+  {
+   "id": "great-choice",
+   "group": "calque",
+   "why": "'Frábært val!' is a chatbot tic. Just confirm.",
+   "pattern": "{LB}(?:frábært|gott|æðislegt)\\s+val\\s*[!.]",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Flott, ...",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"frábært\" %c][word=\"val\" %c]",
+    "natural": "[word=\"flott\" %c][word=\",\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Frábært val! Ég skrái það."
+    ],
+    "good": [
+     "Flott, ég skrái það."
+    ]
+   }
+  },
+  {
+   "id": "whether-you-are",
+   "group": "calque",
+   "why": "Opening with 'Hvort sem þú ert ... eða ...' is a stock sales opener from English.",
+   "pattern": "(?:^|[.!?]\\s+)Hvort\\s+sem\\s+þú\\s+ert{RB}",
+   "flags": "u",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "start with what it does",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hvort\" %c][word=\"sem\" %c][word=\"þú\" %c][word=\"ert\" %c]",
+    "natural": "[word=\"hvort\" %c][word=\"sem\" %c][word=\"er\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Hvort sem þú ert með hótel eða gistiheimili, þá svarar Vaki."
+    ],
+    "good": [
+     "Vaki svarar fyrir hótel og gistiheimili."
+    ]
+   }
+  },
+  {
+   "id": "not-just-but",
+   "group": "calque",
+   "why": "'Ekki bara X heldur líka Y' is overused in machine copy. Say 'bæði X og Y' or two sentences.",
+   "pattern": "{LB}ekki\\s+bara\\s+(?:\\p{L}+\\s+){1,4}heldur\\s+(?:líka|einnig)?",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "bæði X og Y",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ekki\"][word=\"bara\"][]{1,4}[word=\"heldur\"]",
+    "natural": "[word=\"bæði\"][]{1,3}[word=\"og\"]"
+   },
+   "examples": {
+    "bad": [
+     "Vaki svarar ekki bara gestum heldur líka starfsfólki."
+    ],
+    "good": [
+     "Vaki svarar bæði gestum og starfsfólki."
+    ]
+   }
+  },
+  {
+   "id": "both-gender-double",
+   "group": "calque",
+   "why": "'Sjálf eða sjálfur', 'kominn eða komin' doubles every word. Rewrite so gender does not show.",
+   "pattern": "{LB}(?:sjálf\\s+eða\\s+sjálfur|sjálfur\\s+eða\\s+sjálf|komin\\s+eða\\s+kominn|kominn\\s+eða\\s+komin|viss\\s+eða\\s+vissu|búin\\s+eða\\s+búinn|búinn\\s+eða\\s+búin){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "rewrite",
+   "basis": "house",
+   "origin": "ours",
+   "examples": {
+    "bad": [
+     "Hringdu í 112 ef þú kemst ekki sjálf eða sjálfur."
+    ],
+    "good": [
+     "Hringdu í 112 ef þú kemst ekki af stað."
+    ]
+   }
+  },
+  {
+   "id": "where-relative",
+   "group": "calque",
+   "why": "', hvar þú getur' copies 'where you can'. Icelandic says 'þar sem þú getur'.",
+   "pattern": ",\\s+hvar\\s+(?:þú|þið|við|gestir|fólk)\\s+(?:getur|getið|getum|geta|finnur|færð|sérð){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þar sem",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\",\"][word=\"hvar\"][word=\"þú\"][word=\"getur\"]",
+    "natural": "[word=\"þar\"][word=\"sem\"][word=\"þú\"][word=\"getur\"]"
+   },
+   "examples": {
+    "bad": [
+     "Við erum með verslun, hvar þú getur keypt minjagripi."
+    ],
+    "good": [
+     "Við erum með verslun þar sem þú getur keypt minjagripi."
+    ]
+   }
+  },
+  {
+   "id": "whose-relative",
+   "group": "calque",
+   "why": "', hvers' copies 'whose'. Icelandic uses 'sem' and rebuilds the sentence.",
+   "pattern": ",\\s+hvers\\s+(?:eigandi|eigendur|starfsfólk|verð|markmið|hlutverk){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "sem",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\",\"][word=\"hvers\"][word=\"eigandi|markmið|hlutverk\"]",
+    "natural": "[word=\"sem\"][word=\"eigandinn\"]"
+   },
+   "examples": {
+    "bad": [
+     "Gistihús, hvers eigandi býr á staðnum."
+    ],
+    "good": [
+     "Gistihús sem eigandinn rekur sjálfur."
+    ]
+   }
+  },
+  {
+   "id": "lifandi-leidsogn",
+   "group": "calque",
+   "why": "'Lifandi leiðsögn' copies 'live guide'. Say 'leiðsögn á ensku' or 'leiðsögumaður'.",
+   "pattern": "{LB}lifandi\\s+leiðsög\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "leiðsögn",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"lifandi\" %c][word=\"leiðsögn\" %c]",
+    "natural": "[word=\"með\" %c][word=\"leiðsögn\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ferðin er með lifandi leiðsögn."
+    ],
+    "good": [
+     "Ferðin er með leiðsögumanni."
+    ]
+   }
+  },
+  {
+   "id": "state-progressive",
+   "group": "calque",
+   "why": "'Ég er að skilja' copies the English -ing form. Verbs of knowing and needing take the plain form: 'Ég skil'.",
+   "pattern": "{LB}(?:ég\\s+er|við\\s+erum|þú\\s+ert)\\s+að\\s+(?:skilja|vita|þurfa|vilja|eiga)(?![\\p{L}])",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ég skil, Ég veit",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"er\"][word=\"að\"][word=\"skilja\"]",
+    "natural": "[word=\"ég\"][word=\"skil\"]"
+   },
+   "examples": {
+    "bad": [
+     "Ég er að skilja þetta núna."
+    ],
+    "good": [
+     "Ég skil þetta núna."
+    ]
+   }
+  },
+  {
+   "id": "per-unit",
+   "group": "calque",
+   "why": "'Per manneskju' and 'per nótt' copy English 'per'. Icelandic says 'á mann', 'á nótt', 'á mánuði'.",
+   "pattern": "{LB}per\\s+(?:manneskju|mann|einstakling|nótt|mánuð|mánuði|dag|klukkutíma|gest){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "á mann, á nótt, á mánuði",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"per\" %c][word=\"manneskju|mann|nótt|mánuð|dag\"]",
+    "natural": "[word=\"á\"][word=\"mann|nótt|mánuði|dag\"]"
+   },
+   "examples": {
+    "bad": [
+     "Verð per manneskju er 9.900 kr."
+    ],
+    "good": [
+     "Verðið er 9.900 kr. á mann."
+    ]
+   }
+  },
+  {
+   "id": "heyra-fra",
+   "group": "calque",
+   "why": "'Heyra frá þér' copies 'hear from you'. Icelandic says 'heyra í þér'.",
+   "pattern": "{LB}heyra\\s+frá\\s+(?:þér|ykkur){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "heyra í þér",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"heyra\" %c][word=\"frá\" %c][word=\"þér\" %c]",
+    "natural": "[word=\"heyra\" %c][word=\"í\" %c][word=\"þér\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við hlökkum til að heyra frá þér."
+    ],
+    "good": [
+     "Við hlökkum til að heyra í þér."
+    ]
+   }
+  },
+  {
+   "id": "vertu-viss",
+   "group": "calque",
+   "why": "'Vertu viss um að' copies 'make sure'. Say 'Passaðu að'.",
+   "pattern": "{LB}vertu\\s+viss\\s+um\\s+að{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Passaðu að",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vertu\" %c][word=\"viss\" %c][word=\"um\" %c][word=\"að\" %c]",
+    "natural": "[word=\"passaðu\" %c][word=\"að\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Vertu viss um að taka hlý föt með."
+    ],
+    "good": [
+     "Passaðu að taka hlý föt með."
+    ]
+   }
+  },
+  {
+   "id": "gakktu-ur-skugga",
+   "group": "calque",
+   "why": "'Gakktu úr skugga um að' is formal. Say 'Passaðu að' or 'Athugaðu að'.",
+   "pattern": "{LB}gakk(?:tu|ið)\\s+úr\\s+skugga\\s+um{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Passaðu að",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"gakktu\" %c][word=\"úr\" %c][word=\"skugga\" %c]",
+    "natural": "[word=\"passaðu\" %c][word=\"að\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Gakktu úr skugga um að netfangið sé rétt."
+    ],
+    "good": [
+     "Athugaðu hvort netfangið sé rétt."
+    ]
+   }
+  },
+  {
+   "id": "own-pace",
+   "group": "calque",
+   "why": "'Á þínum eigin hraða' copies 'at your own pace'. Say 'í rólegheitum' or 'þegar þér hentar'.",
+   "pattern": "{LB}á\\s+(?:þínum|ykkar|sínum)\\s+(?:eigin\\s+)?hraða{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "í rólegheitum, þegar þér hentar",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"á\"][word=\"þínum|sínum\"][]{0,1}[word=\"hraða\"]",
+    "natural": "[word=\"í\" %c][word=\"rólegheitum\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Skoðaðu bæinn á þínum eigin hraða."
+    ],
+    "good": [
+     "Skoðaðu bæinn í rólegheitum."
+    ]
+   }
+  },
+  {
+   "id": "eiga-godan-tima",
+   "group": "calque",
+   "why": "'Eigðu góðan tíma' copies 'have a good time'. Say 'Góða skemmtun' or 'Skemmtu þér vel'.",
+   "pattern": "{LB}(?:eigðu|eigið|hafðu|hafið)\\s+(?:góðan|frábæran|yndislegan)\\s+tíma{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Góða skemmtun",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"eigðu|hafðu\" %c][word=\"góðan\"][word=\"tíma\"]",
+    "natural": "[word=\"góða\" %c][word=\"skemmtun\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Eigðu góðan tíma í Reykjavík!"
+    ],
+    "good": [
+     "Góða skemmtun í Reykjavík!"
+    ]
+   }
+  },
+  {
+   "id": "hvar-get-eg-fundid",
+   "group": "calque",
+   "why": "'Hvar get ég fundið' copies 'where can I find'. Icelandic asks 'Hvar finn ég'.",
+   "pattern": "{LB}hvar\\s+(?:get|getur|getum)\\s+(?:ég|þú|við)\\s+fundið{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Hvar finn ég",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hvar\" %c][word=\"get\" %c][word=\"ég\" %c][word=\"fundið\" %c]",
+    "natural": "[word=\"hvar\" %c][word=\"finn\" %c][word=\"ég\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Hvar get ég fundið verðskrána?"
+    ],
+    "good": [
+     "Hvar finn ég verðskrána?"
+    ]
+   }
+  }
+ ]
+}

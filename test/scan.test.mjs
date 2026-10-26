@@ -59,3 +59,17 @@ test("commit messages are scanned, and listed terms from a private file", () => 
   assert.match(r.stdout, /\[listed term "Fy\*+"\] \(term hidden\)/);
   assert.doesNotMatch(r.stdout, /Fyrirtækinu/, "a listed term is never printed");
 });
+
+test("a corpus count line in rules/evidence.json is not a phone number, anything else there still is", () => {
+  const count = "56" + "72253";
+  const { dir, g } = repoWith({ "a.txt": `"all": ${count},\n` });
+  fs.mkdirSync(path.join(dir, "rules"));
+  fs.writeFileSync(path.join(dir, "rules", "evidence.json"), `{\n "all": ${count},\n "recent": ${count}\n "note": "hringdu í 567 ${"2253"}"\n}\n`);
+  g("add", "-A");
+  g("commit", "-q", "-m", "counts");
+  const r = spawnSync(process.execPath, [scan], { cwd: dir, encoding: "utf8" });
+  const phone = r.stdout.split("\n").filter((l) => l.includes("[icelandic phone number]"));
+  assert.equal(phone.length, 2, r.stdout);
+  assert.ok(phone.some((l) => /rules\/evidence\.json:4 /.test(l)), "the note line in evidence.json is still caught");
+  assert.ok(phone.some((l) => /:a\.txt:1 /.test(l)), "the same count line in another file is still caught");
+});

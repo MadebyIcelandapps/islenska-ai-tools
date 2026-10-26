@@ -1,0 +1,790 @@
+{
+ "_comment": "Overformal, official or old-fashioned words. Modern everyday Icelandic says it more simply. Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "stiff",
+ "rules": [
+  {
+   "id": "vinsamlegast",
+   "group": "stiff",
+   "why": "'Vinsamlegast' in every line sounds like a government notice. Drop it or say 'endilega'.",
+   "pattern": "{LB}vinsamlegast{RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "endilega, or drop it",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"vinsamlegast\" %c]",
+    "natural": "[word=\"endilega\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Vinsamlegast snúðu þér til fyrirtækisins."
+    ],
+    "good": [
+     "Hafðu endilega samband við fyrirtækið."
+    ]
+   }
+  },
+  {
+   "id": "eigi-ad-sidur",
+   "group": "stiff",
+   "why": "'Eigi að síður' is old-fashioned. Say 'samt'.",
+   "pattern": "{LB}eigi\\s+að\\s+síður{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "samt",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"eigi\" %c][word=\"að\" %c][word=\"síður\" %c]",
+    "natural": "[word=\"engu\" %c][word=\"að\" %c][word=\"síður\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Eigi að síður er gott að bóka."
+    ],
+    "good": [
+     "Samt er gott að bóka."
+    ]
+   }
+  },
+  {
+   "id": "ella",
+   "group": "stiff",
+   "why": "'Ella' (otherwise) is old-fashioned. Say 'annars'.",
+   "pattern": "(?<![\\p{L}\\p{N}_])ella(?![\\p{L}\\p{N}_])",
+   "flags": "u",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "annars",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ella\"]",
+    "natural": "[word=\"annars\"]"
+   },
+   "examples": {
+    "bad": [
+     "Bókaðu í dag, ella fyllist ferðin."
+    ],
+    "good": [
+     "Bókaðu í dag, annars fyllist ferðin."
+    ]
+   }
+  },
+  {
+   "id": "sokum",
+   "group": "stiff",
+   "why": "'Sökum' is formal. Say 'vegna'.",
+   "pattern": "{LB}sökum{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "vegna",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"sökum\" %c]",
+    "natural": "[word=\"vegna\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ferðinni er aflýst sökum veðurs."
+    ],
+    "good": [
+     "Ferðinni er aflýst vegna veðurs."
+    ]
+   }
+  },
+  {
+   "id": "ennfremur",
+   "group": "stiff",
+   "why": "'Ennfremur' is formal. Say 'líka' or 'auk þess'.",
+   "pattern": "{LB}enn\\s?fremur{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "líka, auk þess",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ennfremur\" %c]",
+    "natural": "[word=\"auk\" %c][word=\"þess\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ennfremur er morgunmatur innifalinn."
+    ],
+    "good": [
+     "Morgunmatur er líka innifalinn."
+    ]
+   }
+  },
+  {
+   "id": "jafnframt",
+   "group": "stiff",
+   "why": "'Jafnframt' is report language. In copy say 'líka'.",
+   "pattern": "{LB}jafnframt{RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "líka",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"jafnframt\" %c]",
+    "natural": "[word=\"líka\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við bjóðum jafnframt upp á akstur."
+    ],
+    "good": [
+     "Við bjóðum líka upp á akstur."
+    ]
+   }
+  },
+  {
+   "id": "thar-af-leidandi",
+   "group": "stiff",
+   "why": "'Þar af leiðandi' is formal. Say 'þess vegna'.",
+   "pattern": "{LB}þar\\s+af\\s+leiðandi{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þess vegna",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"þar\" %c][word=\"af\" %c][word=\"leiðandi\" %c]",
+    "natural": "[word=\"þess\" %c][word=\"vegna\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Þar af leiðandi er lokað."
+    ],
+    "good": [
+     "Þess vegna er lokað."
+    ]
+   }
+  },
+  {
+   "id": "yður",
+   "group": "stiff",
+   "why": "'Yður' is the old polite 'you'. Say 'þér' or 'ykkur'.",
+   "pattern": "{LB}yður{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þér, ykkur",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"yður\" %c]",
+    "natural": "[word=\"ykkur\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við þökkum yður fyrir."
+    ],
+    "good": [
+     "Takk fyrir."
+    ]
+   }
+  },
+  {
+   "id": "ver",
+   "group": "stiff",
+   "why": "'Vér' is the old 'we'. Say 'við'.",
+   "pattern": "{LB}vér{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "við",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vér\" %c]",
+    "natural": "[word=\"við\" %c][word=\"bjóðum\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Vér bjóðum ykkur velkomin."
+    ],
+    "good": [
+     "Við bjóðum ykkur velkomin."
+    ]
+   }
+  },
+  {
+   "id": "virdingarfyllst",
+   "group": "stiff",
+   "why": "'Virðingarfyllst' is a formal letter ending. Say 'Kveðja' or 'Bestu kveðjur'.",
+   "pattern": "{LB}virðingarfyllst{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Kveðja, Bestu kveðjur",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"virðingarfyllst\" %c]",
+    "natural": "[word=\"bestu\" %c][word=\"kveðjur\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Virðingarfyllst, starfsfólkið."
+    ],
+    "good": [
+     "Bestu kveðjur, starfsfólkið."
+    ]
+   }
+  },
+  {
+   "id": "vinsemd-og-virdingu",
+   "group": "stiff",
+   "why": "'Með vinsemd og virðingu' is a formal letter ending. Say 'Kveðja'.",
+   "pattern": "{LB}með\\s+vinsemd\\s+og\\s+virðingu{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Kveðja",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"vinsemd\" %c][word=\"og\" %c][word=\"virðingu\" %c]",
+    "natural": "[word=\"bestu\" %c][word=\"kveðjur\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Með vinsemd og virðingu, teymið."
+    ],
+    "good": [
+     "Kveðja, teymið."
+    ]
+   }
+  },
+  {
+   "id": "kaeri-vidskiptavinur",
+   "group": "stiff",
+   "why": "'Kæri viðskiptavinur' reads like a mass mailing. Use the name or 'Hæ'.",
+   "pattern": "{LB}kæri\\s+viðskiptavinur{RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "the name, or 'Hæ'",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"kæri\" %c][word=\"viðskiptavinur\" %c]",
+    "natural": "[word=\"kæru\" %c][word=\"viðskiptavinir\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Kæri viðskiptavinur, takk fyrir pöntunina."
+    ],
+    "good": [
+     "Hæ, takk fyrir pöntunina."
+    ]
+   }
+  },
+  {
+   "id": "ofangreint",
+   "group": "stiff",
+   "why": "'Ofangreint', 'framangreint' and 'neðangreint' are report words. Say 'þetta' or 'hér að ofan'.",
+   "pattern": "{LB}(?:ofan|fram|neðan)greind\\p{L}*|{LB}(?:ofan|fram|neðan)greint{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þetta, hér að ofan",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"ofangreindur\"]",
+    "natural": "[word=\"hér\" %c][word=\"að\" %c][word=\"ofan\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Sjá ofangreint verð."
+    ],
+    "good": [
+     "Sjá verðið hér að ofan."
+    ]
+   }
+  },
+  {
+   "id": "tedur",
+   "group": "stiff",
+   "why": "'Téður' is old-fashioned. Say 'þessi'.",
+   "pattern": "{LB}téð(?:ur|ri|um|an|s|a|ar|ir)?{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þessi",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"téður\"]",
+    "natural": "[lemma=\"þessi\"]"
+   },
+   "examples": {
+    "bad": [
+     "Téð ferð er uppseld."
+    ],
+    "good": [
+     "Þessi ferð er uppseld."
+    ]
+   }
+  },
+  {
+   "id": "thess-ma-geta",
+   "group": "stiff",
+   "why": "'Þess má geta' is newspaper language. Say the thing.",
+   "pattern": "{LB}þess\\s+má\\s+geta\\s+að{RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "say it directly",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"þess\" %c][word=\"má\" %c][word=\"geta\" %c]",
+    "natural": "[word=\"má\" %c][word=\"nefna\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Þess má geta að morgunmatur fylgir."
+    ],
+    "good": [
+     "Morgunmatur fylgir."
+    ]
+   }
+  },
+  {
+   "id": "skal",
+   "group": "stiff",
+   "why": "'Skal' is the language of terms and laws. In copy say 'þarf að' or 'á að'.",
+   "pattern": "{LB}skal\\s+(?:greiða|berast|tilkynna|senda|vera|liggja|fylgja|afhenda){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þarf að, á að",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"skal\"][word=\"greiða|berast|tilkynna\"]",
+    "natural": "[word=\"þarf\"][word=\"að\"][word=\"greiða|berast|tilkynna\"]"
+   },
+   "examples": {
+    "bad": [
+     "Greiðsla skal berast fyrir komu."
+    ],
+    "good": [
+     "Greiðslan þarf að berast fyrir komu."
+    ]
+   }
+  },
+  {
+   "id": "ber-ad",
+   "group": "stiff",
+   "why": "'Ber að' is officialese. Say 'þarf að'.",
+   "pattern": "{LB}(?:ber|bar)\\s+(?:gestum\\s+|þér\\s+|viðskiptavinum\\s+)?að\\s+(?:greiða|mæta|tilkynna|hafa|skila){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "þarf að",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ber\"][word=\"að\"][word=\"greiða|mæta|tilkynna\"]",
+    "natural": "[word=\"þarf\"][word=\"að\"][word=\"greiða|mæta|tilkynna\"]"
+   },
+   "examples": {
+    "bad": [
+     "Gestum ber að mæta tímanlega."
+    ],
+    "good": [
+     "Mættu tímanlega."
+    ]
+   }
+  },
+  {
+   "id": "framkvaema",
+   "group": "stiff",
+   "why": "'Framkvæma bókun' is report language. Say 'bóka', 'greiða', 'breyta'.",
+   "pattern": "{LB}framkvæm\\p{L}*\\s+(?:bókun|greiðslu|breytingu|pöntun|skráningu|leit|afbókun)\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "bóka, greiða, breyta",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"framkvæma\"][lemma=\"bókun|greiðsla|pöntun\"]",
+    "natural": "[lemma=\"bóka\"]"
+   },
+   "examples": {
+    "bad": [
+     "Þú getur framkvæmt bókun hér."
+    ],
+    "good": [
+     "Þú getur bókað hér."
+    ]
+   }
+  },
+  {
+   "id": "eftirleidis",
+   "group": "stiff",
+   "why": "'Eftirleiðis' is formal. Say 'héðan í frá' or 'framvegis'.",
+   "pattern": "{LB}eftirleiðis{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "héðan í frá",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"eftirleiðis\" %c]",
+    "natural": "[word=\"héðan\" %c][word=\"í\" %c][word=\"frá\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Eftirleiðis er opið á sunnudögum."
+    ],
+    "good": [
+     "Héðan í frá er opið á sunnudögum."
+    ]
+   }
+  },
+  {
+   "id": "ad-loknu",
+   "group": "stiff",
+   "why": "'Að ferð lokinni' is formal. Say 'eftir ferðina'.",
+   "pattern": "{LB}að\\s+\\p{L}+\\s+lok(?:inni|nu|num){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "eftir ...",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"að\" %c][word=\"ferð\" %c][word=\"lokinni\" %c]",
+    "natural": "[word=\"eftir\" %c][word=\"ferðina\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við göngum með þér til baka að túr loknum."
+    ],
+    "good": [
+     "Við göngum með þér til baka eftir túrinn."
+    ]
+   }
+  },
+  {
+   "id": "se-conditional",
+   "group": "stiff",
+   "why": "Starting a condition with 'Sé ...' is formal. Everyday Icelandic says 'Ef ... er'.",
+   "pattern": "(?:^|[.!?]\\s+)Sé\\s+(?:svarið|verðið|ferðin|plantan|moldin|opinber|þetta|það){RB}",
+   "flags": "u",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Ef ... er",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"Sé\"][word=\"svarið|verðið|ferðin|það\"]",
+    "natural": "[word=\"Ef\"][word=\"svarið|verðið|ferðin|það\"]"
+   },
+   "examples": {
+    "bad": [
+     "Sé svarið ekki í skránni lætur hann þig vita."
+    ],
+    "good": [
+     "Ef svarið er ekki í skránni lætur hann þig vita."
+    ]
+   }
+  },
+  {
+   "id": "eins-og-audid-er",
+   "group": "stiff",
+   "why": "'Eins fljótt og auðið er' is formal. Say 'eins fljótt og hægt er'.",
+   "pattern": "{LB}og\\s+auðið\\s+er{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "eins fljótt og hægt er",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"og\" %c][word=\"auðið\" %c][word=\"er\" %c]",
+    "natural": "[word=\"og\" %c][word=\"hægt\" %c][word=\"er\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við svörum eins fljótt og auðið er."
+    ],
+    "good": [
+     "Við svörum eins fljótt og hægt er."
+    ]
+   }
+  },
+  {
+   "id": "hvad-vardar",
+   "group": "stiff",
+   "why": "'Hvað varðar' is report language. Say 'um' or start with the thing.",
+   "pattern": "{LB}hvað\\s+varðar{RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "um ...",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hvað\" %c][word=\"varðar\" %c]",
+    "natural": "[word=\"varðandi\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Hvað varðar verðið, þá er það 24.900 kr."
+    ],
+    "good": [
+     "Verðið er 24.900 kr."
+    ]
+   }
+  },
+  {
+   "id": "med-tilliti-til",
+   "group": "stiff",
+   "why": "'Með tilliti til' is report language. Say 'miðað við'.",
+   "pattern": "{LB}með\\s+tilliti\\s+til{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "miðað við",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"með\" %c][word=\"tilliti\" %c][word=\"til\" %c]",
+    "natural": "[word=\"miðað\" %c][word=\"við\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Verð með tilliti til árstíma."
+    ],
+    "good": [
+     "Verð miðað við árstíma."
+    ]
+   }
+  },
+  {
+   "id": "i-ljosi-thess",
+   "group": "stiff",
+   "why": "'Í ljósi þess að' is formal. Say 'af því að' or 'þar sem'.",
+   "pattern": "{LB}í\\s+ljósi\\s+þess\\s+að{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "af því að",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"í\" %c][word=\"ljósi\" %c][word=\"þess\" %c][word=\"að\" %c]",
+    "natural": "[word=\"af\" %c][word=\"því\" %c][word=\"að\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Í ljósi þess að veðrið er slæmt er lokað."
+    ],
+    "good": [
+     "Það er lokað af því að veðrið er slæmt."
+    ]
+   }
+  },
+  {
+   "id": "kunngjora",
+   "group": "stiff",
+   "why": "'Kunngjöra' is old-fashioned. Say 'tilkynna' or 'segja frá'.",
+   "pattern": "{LB}kunngj(?:öra|örir|ört|örum|örðu|örði)\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "tilkynna",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"kunngjöra\"]",
+    "natural": "[lemma=\"tilkynna\"]"
+   },
+   "examples": {
+    "bad": [
+     "Við kunngjörum nýja ferð."
+    ],
+    "good": [
+     "Við kynnum nýja ferð."
+    ]
+   }
+  },
+  {
+   "id": "aeskja",
+   "group": "stiff",
+   "why": "'Æskja' is formal. Say 'óska eftir' or 'vilja'.",
+   "pattern": "{LB}æsk(?:ja|ir|ið|um|ti|tu)\\s+(?:þess|eftir)?",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "óska eftir",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"æskja\"]",
+    "natural": "[lemma=\"óska\"][word=\"eftir\"]"
+   },
+   "examples": {
+    "bad": [
+     "Æskir þú frekari upplýsinga?"
+    ],
+    "good": [
+     "Viltu vita meira?"
+    ]
+   }
+  },
+  {
+   "id": "hyggjast",
+   "group": "stiff",
+   "why": "'Hyggst' is news language. Say 'ætlar'.",
+   "pattern": "{LB}hygg(?:st|jast|ðist|ðust){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "ætlar",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hyggst|hyggjast\"]",
+    "natural": "[word=\"ætlar|ætla\"][word=\"að\"]"
+   },
+   "examples": {
+    "bad": [
+     "Hyggst þú dvelja lengur?"
+    ],
+    "good": [
+     "Ætlarðu að vera lengur?"
+    ]
+   }
+  },
+  {
+   "id": "aetid",
+   "group": "stiff",
+   "why": "'Ætíð' is old-fashioned. Say 'alltaf'.",
+   "pattern": "{LB}ætíð{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "alltaf",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"ætíð\" %c]",
+    "natural": "[word=\"alltaf\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við erum ætíð til staðar."
+    ],
+    "good": [
+     "Við erum alltaf við."
+    ]
+   }
+  },
+  {
+   "id": "hvarvetna",
+   "group": "stiff",
+   "why": "'Hvarvetna' is formal. Say 'alls staðar'.",
+   "pattern": "{LB}hvarvetna{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "alls staðar",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"hvarvetna\" %c]",
+    "natural": "[word=\"alls\" %c][word=\"staðar\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Hvarvetna má sjá norðurljós."
+    ],
+    "good": [
+     "Norðurljósin sjást víða."
+    ]
+   }
+  },
+  {
+   "id": "einungis",
+   "group": "stiff",
+   "why": "'Einungis' is formal. Say 'bara' or 'aðeins'.",
+   "pattern": "{LB}einungis{RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "bara, aðeins",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"einungis\" %c]",
+    "natural": "[word=\"bara\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Einungis tíu sæti eru laus."
+    ],
+    "good": [
+     "Það eru bara tíu sæti laus."
+    ]
+   }
+  },
+  {
+   "id": "velvirdingar",
+   "group": "stiff",
+   "why": "'Biðjumst velvirðingar á óþægindunum' is a form-letter apology. Say 'Afsakaðu þetta' or say what went wrong.",
+   "pattern": "{LB}velvirðingar{RB}|{LB}óþægindum\\s+sem\\s+þetta|{LB}á\\s+óþægindunum{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Afsakaðu þetta",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"biðjumst\" %c][word=\"velvirðingar\" %c]",
+    "natural": "[word=\"afsakið\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við biðjumst velvirðingar á óþægindunum."
+    ],
+    "good": [
+     "Afsakaðu þetta, við lögum það."
+    ]
+   }
+  },
+  {
+   "id": "ekur",
+   "group": "stiff",
+   "why": "'Ekur' is written style. Everyday Icelandic says 'keyrir'.",
+   "pattern": "{LB}(?:ekur|ekið|ók|óku|aka|ekur\\s+þér)\\s+(?:þér|þig|ykkur|beint|af\\s+stað){RB}",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "keyrir",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"ekur\"][word=\"þér|þig|ykkur\"]",
+    "natural": "[word=\"keyrir\"][word=\"þig|ykkur\"]"
+   },
+   "examples": {
+    "bad": [
+     "Bílstjórinn ekur þér á hótelið."
+    ],
+    "good": [
+     "Bílstjórinn keyrir þig á hótelið."
+    ]
+   }
+  },
+  {
+   "id": "snudu-ther-til",
+   "group": "stiff",
+   "why": "'Snúðu þér til' is formal. Say 'hafðu samband við'.",
+   "pattern": "{LB}snú(?:ðu|ið)\\s+(?:þér|ykkur)\\s+(?:beint\\s+)?til{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "hafðu samband við",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"snúðu\" %c][word=\"þér\" %c][word=\"til\" %c]",
+    "natural": "[word=\"hafðu\" %c][word=\"samband\" %c][word=\"við\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Snúðu þér til móttökunnar."
+    ],
+    "good": [
+     "Hafðu samband við móttökuna."
+    ]
+   }
+  }
+ ]
+}

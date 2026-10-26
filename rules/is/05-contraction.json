@@ -1,0 +1,266 @@
+{
+ "_comment": "Uncontracted questions ('Vilt þú ...?') that sound stiff or translated. Everyday Icelandic writes 'Viltu ...?'. Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "contraction",
+ "rules": [
+  {
+   "id": "uncontracted-vilt",
+   "group": "contraction",
+   "why": "In a question 'Vilt þú' sounds stiff or translated. Everyday Icelandic writes 'Viltu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)vilt\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Viltu",
+   "replace": {
+    "vilt þú": "viltu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"vilt\" %c][word=\"þú\"]",
+    "natural": "[word=\"viltu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Vilt þú bóka herbergi?"
+    ],
+    "good": [
+     "Viltu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-ert",
+   "group": "contraction",
+   "why": "In a question 'Ert þú' sounds stiff or translated. Everyday Icelandic writes 'Ertu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)ert\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Ertu",
+   "replace": {
+    "ert þú": "ertu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"ert\" %c][word=\"þú\"]",
+    "natural": "[word=\"ertu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Ert þú bóka herbergi?"
+    ],
+    "good": [
+     "Ertu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-veist",
+   "group": "contraction",
+   "why": "In a question 'Veist þú' sounds stiff or translated. Everyday Icelandic writes 'Veistu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)veist\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Veistu",
+   "replace": {
+    "veist þú": "veistu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"veist\" %c][word=\"þú\"]",
+    "natural": "[word=\"veistu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Veist þú bóka herbergi?"
+    ],
+    "good": [
+     "Veistu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-átt",
+   "group": "contraction",
+   "why": "In a question 'Átt þú' sounds stiff or translated. Everyday Icelandic writes 'Áttu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)átt\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Áttu",
+   "replace": {
+    "átt þú": "áttu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"átt\" %c][word=\"þú\"]",
+    "natural": "[word=\"áttu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Átt þú bóka herbergi?"
+    ],
+    "good": [
+     "Áttu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-kannt",
+   "group": "contraction",
+   "why": "In a question 'Kannt þú' sounds stiff or translated. Everyday Icelandic writes 'Kanntu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)kannt\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Kanntu",
+   "replace": {
+    "kannt þú": "kanntu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"kannt\" %c][word=\"þú\"]",
+    "natural": "[word=\"kanntu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Kannt þú bóka herbergi?"
+    ],
+    "good": [
+     "Kanntu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-þarft",
+   "group": "contraction",
+   "why": "In a question 'Þarft þú' sounds stiff or translated. Everyday Icelandic writes 'Þarftu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)þarft\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Þarftu",
+   "replace": {
+    "þarft þú": "þarftu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"þarft\" %c][word=\"þú\"]",
+    "natural": "[word=\"þarftu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Þarft þú bóka herbergi?"
+    ],
+    "good": [
+     "Þarftu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-mátt",
+   "group": "contraction",
+   "why": "In a question 'Mátt þú' sounds stiff or translated. Everyday Icelandic writes 'Máttu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)mátt\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Máttu",
+   "replace": {
+    "mátt þú": "máttu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"mátt\" %c][word=\"þú\"]",
+    "natural": "[word=\"máttu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Mátt þú bóka herbergi?"
+    ],
+    "good": [
+     "Máttu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-skalt",
+   "group": "contraction",
+   "why": "In a question 'Skalt þú' sounds stiff or translated. Everyday Icelandic writes 'Skaltu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)skalt\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Skaltu",
+   "replace": {
+    "skalt þú": "skaltu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"skalt\" %c][word=\"þú\"]",
+    "natural": "[word=\"skaltu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Skalt þú bóka herbergi?"
+    ],
+    "good": [
+     "Skaltu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-sérð",
+   "group": "contraction",
+   "why": "In a question 'Sérð þú' sounds stiff or translated. Everyday Icelandic writes 'Sérðu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)sérð\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Sérðu",
+   "replace": {
+    "sérð þú": "sérðu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"sérð\" %c][word=\"þú\"]",
+    "natural": "[word=\"sérðu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Sérð þú bóka herbergi?"
+    ],
+    "good": [
+     "Sérðu bóka herbergi?"
+    ]
+   }
+  },
+  {
+   "id": "uncontracted-manst",
+   "group": "contraction",
+   "why": "In a question 'Manst þú' sounds stiff or translated. Everyday Icelandic writes 'Manstu'.",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)manst\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Manstu",
+   "replace": {
+    "manst þú": "manstu"
+   },
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"manst\" %c][word=\"þú\"]",
+    "natural": "[word=\"manstu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Manst þú bóka herbergi?"
+    ],
+    "good": [
+     "Manstu bóka herbergi?"
+    ]
+   }
+  }
+ ]
+}

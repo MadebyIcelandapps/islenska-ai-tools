@@ -1,0 +1,529 @@
+{
+ "_comment": "House rules: the product owner's own decisions for brand copy, and Vaki-specific bans. Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "house",
+ "rules": [
+  {
+   "id": "long-dash",
+   "group": "house",
+   "why": "The long dash reads as machine-made text in Icelandic. Use a comma, a colon, a full stop or brackets.",
+   "pattern": "—|\\s–\\s",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "comma, colon, full stop or brackets",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Verð — 24.900 kr.",
+     "Opið – alla daga."
+    ],
+    "good": [
+     "Verð: 24.900 kr.",
+     "Opið 2–5. desember."
+    ]
+   }
+  },
+  {
+   "id": "smid",
+   "group": "house",
+   "why": "'Smíðað', 'smíðaði' and 'smíði' sound stiff for software. Say 'gert', 'bjó til' and 'gerð'.",
+   "pattern": "{LB}smíð\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "gert, bjó til, gerð",
+   "replace": {
+    "smíðað": "gert",
+    "smíðaður": "gerður",
+    "smíðuð": "gerð",
+    "smíðaða": "gerða",
+    "smíðaðir": "gerðir",
+    "smíðaðar": "gerðar",
+    "smíðaðan": "gerðan",
+    "smíðaði": "bjó til",
+    "smíðuðum": "bjuggum til",
+    "smíði": "gerð",
+    "smíðin": "gerðin",
+    "smíðinni": "gerðinni"
+   },
+   "basis": "house",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"smíðað\" %c]",
+    "natural": "[word=\"gert\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Þetta er smíðað á Íslandi.",
+     "Ég smíðaði þetta kerfi."
+    ],
+    "good": [
+     "Þetta er gert á Íslandi.",
+     "Ég bjó til þetta kerfi."
+    ]
+   }
+  },
+  {
+   "id": "skruna",
+   "group": "house",
+   "why": "'Skrunaðu' is a coined word for 'scroll' that people do not say; they say 'skrollaðu', or nothing at all. In copy, point to the thing: 'sjáðu neðar'.",
+   "pattern": "{LB}skrun(?:aðu|ið|a|ar|aði){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "sjáðu neðar, sjáðu ofar, farðu",
+   "replace": {
+    "skrunaðu niður": "sjáðu neðar",
+    "skrunaðu upp": "sjáðu ofar",
+    "skrunið niður": "sjáið neðar",
+    "skrunið upp": "sjáið ofar",
+    "skrunaðu": "farðu",
+    "skrunið": "farið"
+   },
+   "basis": "house",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"skrun(a|aðu|ið|ar|aði)\" %c]",
+    "natural": "[word=\"skroll(a|aðu|ið|ar|aði)\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Skrunaðu niður til að sjá verðin."
+    ],
+    "good": [
+     "Sjáðu neðar til að sjá verðin."
+    ]
+   }
+  },
+  {
+   "id": "sjalfa",
+   "group": "house",
+   "why": "'Sjálfa' is the coined word for a selfie; people say 'selfie'.",
+   "pattern": "{LB}(?:tak\\p{L}*|tók\\p{L}*|tekið)\\s+(?:eina\\s+|góða\\s+)?sjálf(?:u|una|ur){RB}|{LB}sjálfumynd\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "selfie",
+   "basis": "house",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[lemma=\"sjálfa\" & pos=\"n.*\"]",
+    "natural": "[lemma=\"selfie\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Taktu sjálfu við fossinn."
+    ],
+    "good": [
+     "Taktu selfie við fossinn."
+    ]
+   }
+  },
+  {
+   "id": "gervigreind",
+   "group": "house",
+   "why": "Product copy says what the product does, not that it is AI. The word stays only in the legally required AI notice, marked on its line.",
+   "pattern": "gervigreind\\p{L}*",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "say what it does: svarar gestum, tekur bókanir",
+   "allowMarker": "[ai-disclosure]",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Gervigreindarmóttaka fyrir fyrirtæki."
+    ],
+    "good": [
+     "Þú ert að tala við sjálfvirkan aðstoðarmann sem notar gervigreind. [ai-disclosure]"
+    ]
+   }
+  },
+  {
+   "id": "spjallmenni",
+   "group": "house",
+   "why": "'Spjallmenni' sounds cheap and dated. Name the product or say 'aðstoðarmaður'.",
+   "pattern": "{LB}spjallmenn\\p{L}*",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "aðstoðarmaður, or the product's name",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Spjallmenni fyrir vefinn þinn."
+    ],
+    "good": [
+     "Aðstoðarmaður fyrir vefinn."
+    ]
+   }
+  },
+  {
+   "id": "litil",
+   "group": "house",
+   "why": "'Lítil fyrirtæki' makes the customer and the product sound small. Leave the size out.",
+   "pattern": "{LB}(?:lítil|lítill|lítils|lítilli|litla|litlu|litlir|litlar|litlum|litlan){RB}",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "drop the word: 'fyrir fyrirtæki'",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Móttaka fyrir lítil fyrirtæki.",
+     "Hentar litlum gistihúsum."
+    ],
+    "good": [
+     "Móttaka fyrir fyrirtæki.",
+     "Það er lítið mál."
+    ]
+   }
+  },
+  {
+   "id": "vsk",
+   "group": "house",
+   "why": "In Iceland a price is quoted as the price. 'Án vsk' and 'með vsk' are never said to a customer.",
+   "pattern": "{LB}(?:v\\.?\\s?s\\.?\\s?k|virðisauka\\p{L}*){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "give the price alone: 24.900 kr.",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "24.900 kr. án vsk.",
+     "Verð með V.S.K.",
+     "Verð með virðisaukaskatti."
+    ],
+    "good": [
+     "Verð: 24.900 kr."
+    ]
+   }
+  },
+  {
+   "id": "honesty-as-selling-point",
+   "group": "house",
+   "why": "Honesty is a given, not a feature. Copy says what the product does, never that it does not make things up.",
+   "pattern": "skáld(?:ar|a|að|uð){RB}|skáldskap|{LB}gisk\\p{L}*|sannreyn|{LB}sannað|{LB}sönnun|heiðarleg|hreint út|{LB}eingöngu{RB}|{LB}einungis{RB}|réttu\\s+upplýsing",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "say what it does for the customer",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Skáldar aldrei.",
+     "Hann giskar ekki á verð.",
+     "Svörin eru sannreynd.",
+     "Svarar út frá þínum réttu upplýsingum."
+    ],
+    "good": [
+     "Svarar gestum á þeirra máli."
+    ]
+   }
+  },
+  {
+   "id": "easy-steps",
+   "group": "house",
+   "why": "'Þrjú einföld skref' is a tired sales line.",
+   "pattern": "{LB}(?:\\d|þrj\\p{L}*|þrem\\p{L}*|fjór\\p{L}*|fjög\\p{L}*)\\s+(?:einföld|einfald|auðveld)\\p{L}*\\s+skref",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "just list what happens",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Byrjaðu í þremur einföldum skrefum."
+    ],
+    "good": [
+     "Byrjaðu í dag."
+    ]
+   }
+  },
+  {
+   "id": "google-claim",
+   "group": "house",
+   "why": "Being found on Google is a given, not a selling point.",
+   "pattern": "finn(?:st|ast|ur)\\s+(?:á|í|með)\\s+google",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "sell what matters: hýsing, öryggi",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Vefurinn finnst á Google."
+    ],
+    "good": [
+     "Vefurinn er hýstur á Íslandi."
+    ]
+   }
+  },
+  {
+   "id": "bara-ja",
+   "group": "house",
+   "why": "'Svaraðu bara já' reads as machine-made. Ask the question plainly.",
+   "pattern": "svar(?:aðu|ið|a)\\s+bara\\s+[„\"'“]?já",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "Viltu að ég bóki þetta?",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Svaraðu bara „já“ og ég bóka."
+    ],
+    "good": [
+     "Viltu að ég bóki þetta?"
+    ]
+   }
+  },
+  {
+   "id": "pilot",
+   "group": "house",
+   "why": "Name the product. Do not call it a pilot or a trial project.",
+   "pattern": "{LB}(?:prufuverkefn|tilraunaverkefn|pilot)\\p{L}*",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "name it: 'Vaki fyrir gistihús'",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Taktu þátt í prufuverkefninu."
+    ],
+    "good": [
+     "Byrjaðu í dag."
+    ]
+   }
+  },
+  {
+   "id": "my-own-label",
+   "group": "house",
+   "why": "Do not label work as 'mitt eigið verkefni' or 'mitt eigið fyrirtæki'. Say what it is.",
+   "pattern": "{LB}mitt\\s+eigið\\s+(?:verkefni|fyrirtæki|app)",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "drop the label",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Þetta er mitt eigið verkefni."
+    ],
+    "good": [
+     "Þetta er vefur fyrir kaffihús."
+    ]
+   }
+  },
+  {
+   "id": "slash-gender",
+   "group": "house",
+   "why": "Forms like 'sjálf/ur', 'búin/n' and 'sátt(ur)' read like a form letter. Rewrite the sentence so the gender does not show.",
+   "pattern": "{LB}\\p{L}+(?:/(?:ur|n|nn|in|ir|a|ar)|\\((?:ur|n|in|ir|a)\\)){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Þarftu að koma þér á staðinn?",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Þarf ég að koma mér sjálf/ur?",
+     "Þú borgar þegar þú ert sátt(ur)."
+    ],
+    "good": [
+     "Þarftu að koma þér á staðinn?",
+     "Þú borgar þegar þér líkar útlitið."
+    ]
+   }
+  },
+  {
+   "id": "vaki-feminine",
+   "group": "house",
+   "why": "Vaki is a weak masculine noun (Vaki, Vaka, Vaka, Vaka). Feminine forms such as 'Vöku' are never a form of it.",
+   "pattern": "(?<![\\p{L}\\p{N}_])(?:Vöku|Vaku|Vakan|Vökuna|Vökunni|Vökunnar)(?![\\p{L}\\p{N}_])",
+   "flags": "u",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Vaka",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Kveðja frá Vöku.",
+     "Vakan svarar gestum."
+    ],
+    "good": [
+     "Kveðja frá Vaka.",
+     "Hún var á vöku."
+    ]
+   }
+  },
+  {
+   "id": "talk-to-us",
+   "group": "house",
+   "why": "'Talaðu við okkur' is 'Talk to us' word for word. Icelandic sites say 'Hafðu samband'.",
+   "pattern": "{LB}talaðu\\s+við\\s+okkur{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Hafðu samband",
+   "basis": "native",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"talaðu\" %c][word=\"við\" %c][word=\"okkur\" %c]",
+    "natural": "[word=\"hafðu\" %c][word=\"samband\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Talaðu við okkur í dag."
+    ],
+    "good": [
+     "Hafðu samband í dag."
+    ]
+   }
+  },
+  {
+   "id": "how-we-connect",
+   "group": "house",
+   "why": "'Hvernig við tengjumst' is a heading copied from English 'How we connect' and reads oddly. Say what happens: 'Svona tengist Vaki'.",
+   "pattern": "{LB}hvernig\\s+við\\s+tengjumst{RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Svona tengist Vaki",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Hvernig við tengjumst"
+    ],
+    "good": [
+     "Svona tengist Vaki"
+    ]
+   }
+  },
+  {
+   "id": "tol",
+   "group": "house",
+   "why": "For software, 'tól' is the default word. 'Verkfæri' sounds like a hammer.",
+   "pattern": "{LB}(?:hugbúnaðar|gervigreindar|stafræn\\p{L}*\\s+)?verkfær(?:i|ið|in|inu|um|anna){RB}(?=\\s+(?:fyrir|sem\\s+(?:svarar|hjálpar|býr)|á\\s+netinu))",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "tól",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Verkfæri sem svarar gestum."
+    ],
+    "good": [
+     "Tól sem svarar gestum."
+    ]
+   }
+  },
+  {
+   "id": "paste-limdu",
+   "group": "house",
+   "why": "Nobody says 'límdu' for paste. Say 'settu inn'.",
+   "pattern": "{LB}lím(?:du|ið){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "settu inn",
+   "basis": "native",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"límdu\" %c][word=\"inn\" %c]",
+    "natural": "[word=\"settu\" %c][word=\"inn\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Límdu slóðina hér."
+    ],
+    "good": [
+     "Settu slóðina inn hér."
+    ]
+   }
+  },
+  {
+   "id": "domain",
+   "group": "house",
+   "why": "Say 'lén', the word every Icelander knows, not 'domain'.",
+   "pattern": "{LB}domain\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "lén",
+   "basis": "native",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"domain.*\" %c]",
+    "natural": "[lemma=\"lén\"]"
+   },
+   "examples": {
+    "bad": [
+     "Við kaupum domain fyrir þig."
+    ],
+    "good": [
+     "Við kaupum lén fyrir þig."
+    ]
+   }
+  },
+  {
+   "id": "vendor",
+   "group": "house",
+   "why": "'Vendor' is an English word in an Icelandic sentence. Say 'söluaðili' or 'birgir'.",
+   "pattern": "{LB}vendor\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "söluaðili, birgir",
+   "basis": "native",
+   "origin": "owner",
+   "evidence": {
+    "flagged": "[word=\"vendor.*\" %c]",
+    "natural": "[lemma=\"birgir\"]"
+   },
+   "examples": {
+    "bad": [
+     "Þetta er fyrir einn vendor."
+    ],
+    "good": [
+     "Þetta er fyrir einn söluaðila."
+    ]
+   }
+  },
+  {
+   "id": "ascii-icelandic",
+   "group": "house",
+   "why": "Icelandic copy must have its own letters. 'Hvad', 'thu' and 'naesta' look broken.",
+   "pattern": "{LB}(?:thu|thad|thetta|thvi|thegar|aetla|aetlar|naesta|vaeri|hvad|hvenaer|tungumal|bilastaedi|herbergid|gaeti|faerd|fyrirtaekid|fyrirtaeki){RB}",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "þú, það, þetta, hvað, næsta",
+   "basis": "grammar",
+   "origin": "ours",
+   "examples": {
+    "bad": [
+     "Hvad kostar herbergid?"
+    ],
+    "good": [
+     "Hvað kostar herbergið?"
+    ]
+   }
+  },
+  {
+   "id": "exclaim-double",
+   "group": "house",
+   "why": "Two or more exclamation marks read as shouting or spam.",
+   "pattern": "!{2,}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "one '!' or none",
+   "basis": "grammar",
+   "origin": "ai",
+   "examples": {
+    "bad": [
+     "Velkomin!!"
+    ],
+    "good": [
+     "Velkomin!"
+    ]
+   }
+  }
+ ]
+}

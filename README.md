@@ -15,7 +15,7 @@ Engin líkanaköll, engin ytri forritasöfn, bara Node 20 eða nýrra. / No mode
 | Tól | Hvað það gerir |
 | --- | --- |
 | **Fallbeyging nafna** (`src/declension.mjs`) | Finnur vörumerki eða nafn í nefnifalli á eftir orði sem stýrir öðru falli: „prófa Vaki“ á að vera „prófa Vaka“, „frá Saga“ (kvk.) á að vera „frá Sögu“. Kvenkynsmyndir eins og „Vöku“ eða „Vakan“ eru alltaf villa fyrir karlkynsnafn eins og Vaki. Þú gefur nafnið og beygingarmynstur (veikt kk. á -i, veikt kvk. á -a) eða öll fjögur föllin. Lagar sjálfkrafa þar sem aðeins eitt svar er rétt. |
-| **Stílreglur og bannorð** (`src/style.mjs`, `rules/*.json`) | Orð sem eru rétt íslenska en eiga ekki heima í textanum þínum: „smíðað“, „skrunaðu“, „spjallmenni“, „án vsk“, langt strik, sölufrasar. Hver regla segir af hverju og hvað á að segja í staðinn. Þú átt listann og breytir honum. |
+| **Stílreglur og bannorð** (`src/style.mjs`, `rules/is/`) | 166 reglur í átta flokkum fyrir nútímaíslensku eins og fólk skrifar hana í dag: nýyrði sem enginn notar („skrunaðu“, „sjálfa“, „smáforrit“), enska í íslenskum búningi („Talaðu við okkur“, „per manneskju“, „heyra frá þér“), stirðbusalegt stofnanamál („vinsamlegast“, „eigi síðar en“, „Vilt þú“), málfarsvillur véla („Ég vill“, „mér langar“, „desember 3“), ensk orð („dashboard“, „booking“) og sölufrasar. Hver regla segir af hverju, hvað á að segja í staðinn, og hvað styður hana: talning í nýlegum íslenskum texta, ákvörðun eiganda eða málfræði. |
 | **Mat á svörum** (`src/evals.mjs`, `evals/`) | Prófar vistuð svör: er svarið á íslensku (líka þegar gesturinn skrifar án íslenskra stafa), koma allar tölur úr staðreyndunum, vísar það á starfsfólk þegar svarið vantar, segist það ekki hafa bókað þegar ekkert var bókað, eru stílreglur og fallbeyging í lagi. |
 | **Tungumál og tölur** (`src/language.mjs`, `src/numbers.mjs`) | Greinir íslensku frá dönsku og ensku í stuttum svörum, og les 24.900 og 24,900 sem sömu tölu. |
 
@@ -33,7 +33,7 @@ node scripts/scan.mjs                                         # leita að lyklum
 
 ### Að bæta við reglu
 
-Opnaðu `rules/is-house-style.json` og bættu við hlut með `id`, `why` (af hverju), `pattern` (JavaScript regex; `{LB}` og `{RB}` eru orðaskil sem virka á íslenska stafi), `scope` (`all` eða `product`), og `examples` með `bad` og `good`. Prófin keyra öll dæmin sjálf: slæmt dæmi verður að veiða regluna og gott dæmi má engu reglu veiða.
+Opnaðu skrá í `rules/is/` (ein skrá á flokk) og bættu við hlut með `id`, `why` (af hverju), `pattern` (JavaScript regex; `{LB}` og `{RB}` eru orðaskil sem virka á íslenska stafi), `suggest` (hvað á að segja í staðinn), `scope` (`all` eða `product`), `basis` (`native`, `house` eða `grammar`), `origin` og `examples` með `bad` og `good`. Prófin keyra öll dæmin sjálf: slæmt dæmi verður að veiða regluna og gott dæmi má enga reglu veiða. Regla með `basis: "native"` þarf `evidence` (CQP-leit að slæma forminu og því eðlilega); keyrðu `node scripts/native-evidence.mjs` og þá telur hann bæði í Risamálheildinni og prófin krefjast þess að eðlilega formið sé minnst tvöfalt algengara frá 2018. Reglur sem talningin studdi ekki eru í `rules/dropped.json`.
 
 Orð sem stýrir falli bætirðu í `rules/governors.json`. Merktu það `ambiguous` ef það hefur aðra merkingu þar sem nefnifall er rétt (eins og „við“ = „we“), þá verður það aðeins viðvörun.
 
@@ -52,7 +52,7 @@ Kóðinn er undir MIT-leyfi (`LICENSE`). Matsgögnin í `evals/` eru undir CC BY
 | Tool | What it does |
 | --- | --- |
 | **Name declension** (`src/declension.mjs`) | Finds a brand or name in the nominative after a word that governs another case: "prófa Vaki" should be "prófa Vaka", feminine "frá Saga" should be "frá Sögu". Feminine forms such as "Vöku" or "Vakan" are always an error for a masculine name like Vaki. You give the name and a pattern (weak masculine in -i, weak feminine in -a) or all four forms. It fixes the cases that have one right answer. |
-| **House style and banned phrases** (`src/style.mjs`, `rules/*.json`) | Words that are correct Icelandic but wrong for your copy: "smíðað", "skrunaðu", "spjallmenni", "án vsk", the long dash, tired sales lines. Each rule says why and what to say instead. The list is yours to edit. |
+| **House style and banned phrases** (`src/style.mjs`, `rules/is/`) | 166 rules in eight groups for modern Icelandic as people write it today: coined words nobody uses ("skrunaðu", "sjálfa", "smáforrit"), English in Icelandic clothes ("Talaðu við okkur", "per manneskju", "heyra frá þér"), stiff officialese ("vinsamlegast", "eigi síðar en", "Vilt þú"), machine grammar slips ("Ég vill", "mér langar", "desember 3"), English business words ("dashboard", "booking") and sales clichés. Each rule says why, what to say instead, and what backs it: counts in recent Icelandic text, the owner's decision, or grammar. |
 | **Answer evals** (`src/evals.mjs`, `evals/`) | Scores saved replies: is the reply Icelandic (also when the guest typed without Icelandic letters), does every number come from the facts, does it hand over to staff when the answer is missing, does it avoid claiming a booking that was not made, do style and declension pass. |
 | **Language and numbers** (`src/language.mjs`, `src/numbers.mjs`) | Tells Icelandic from Danish and English in short replies, and reads 24.900 and 24,900 as the same number. |
 
@@ -81,7 +81,7 @@ checkDeclension("Takk fyrir að prófa Vaki.", { names: [{ name: "Vaki", pattern
 
 ### Add a rule
 
-Open `rules/is-house-style.json` and add an entry with `id`, `why`, `pattern` (JavaScript regex; `{LB}` and `{RB}` are word edges that work on Icelandic letters, where `\b` does not), `scope` (`all` or `product`), and `examples` with `bad` and `good`. The tests run every example: a bad one must hit the rule, a good one must hit no rule.
+Open a file in `rules/is/` (one per group) and add an entry with `id`, `why`, `pattern` (JavaScript regex; `{LB}` and `{RB}` are word edges that work on Icelandic letters, where `\b` does not), `suggest` (what to say instead), `scope` (`all` or `product`), `basis` (`native`, `house` or `grammar`), `origin` and `examples` with `bad` and `good`. The tests run every example: a bad one must hit the rule, a good one must hit no rule. A `native` rule needs `evidence` (a CQP search for the flagged form and the natural one); run `node scripts/native-evidence.mjs` to count both in the Icelandic Gigaword Corpus, and the tests require the natural form to be at least twice as common since 2018. Candidates the counts did not back are kept in `rules/dropped.json`. Use `lang: "auto"` in `checkStyle` to keep Icelandic rules off English lines.
 
 Words that govern a case go in `rules/governors.json`. Mark one `ambiguous` when it has another use where the nominative is right (such as "við" = "we"); its hits are then warnings only.
 

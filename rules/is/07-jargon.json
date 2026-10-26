@@ -1,0 +1,328 @@
+{
+ "_comment": "English business words inside Icelandic copy, where Icelanders use an Icelandic word. Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "jargon",
+ "rules": [
+  {
+   "id": "en-booking",
+   "group": "jargon",
+   "why": "'booking' is an English word in an Icelandic sentence. Icelanders say 'bókun'.",
+   "pattern": "{LB}booking\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "bókun",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"booking.*\" %c]",
+    "natural": "[lemma=\"bókun\"]"
+   },
+   "examples": {
+    "bad": [
+     "Bookingin þín er staðfest."
+    ],
+    "good": [
+     "Bókunin þín er staðfest."
+    ]
+   }
+  },
+  {
+   "id": "en-pricing",
+   "group": "jargon",
+   "why": "'pricing' is an English word in an Icelandic sentence. Icelanders say 'verð, verðskrá'.",
+   "pattern": "{LB}pricing\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "verð, verðskrá",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"pricing.*\" %c]",
+    "natural": "[lemma=\"verðskrá\"]"
+   },
+   "examples": {
+    "bad": [
+     "Sjáðu pricing hér."
+    ],
+    "good": [
+     "Sjáðu verðskrána hér."
+    ]
+   }
+  },
+  {
+   "id": "en-onboarding",
+   "group": "jargon",
+   "why": "'onboarding' is an English word in an Icelandic sentence. Icelanders say 'uppsetning'.",
+   "pattern": "{LB}onboarding\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "uppsetning",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"onboarding.*\" %c]",
+    "natural": "[lemma=\"uppsetning\"]"
+   },
+   "examples": {
+    "bad": [
+     "Onboarding tekur einn dag."
+    ],
+    "good": [
+     "Uppsetningin tekur einn dag."
+    ]
+   }
+  },
+  {
+   "id": "en-workflow",
+   "group": "jargon",
+   "why": "'workflow' is an English word in an Icelandic sentence. Icelanders say 'vinnulag, ferli'.",
+   "pattern": "{LB}workflow\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "vinnulag, ferli",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"workflow.*\" %c]",
+    "natural": "[lemma=\"vinnulag\"]"
+   },
+   "examples": {
+    "bad": [
+     "Nýtt workflow fyrir bókanir."
+    ],
+    "good": [
+     "Nýtt vinnulag fyrir bókanir."
+    ]
+   }
+  },
+  {
+   "id": "en-feature",
+   "group": "jargon",
+   "why": "'feature' is an English word in an Icelandic sentence. Icelanders say 'eiginleiki, það sem hann gerir'.",
+   "pattern": "{LB}feature\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "eiginleiki, það sem hann gerir",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"feature.*\" %c]",
+    "natural": "[lemma=\"eiginleiki\"]"
+   },
+   "examples": {
+    "bad": [
+     "Nýtt feature í appinu."
+    ],
+    "good": [
+     "Ný virkni í appinu."
+    ]
+   }
+  },
+  {
+   "id": "en-insights",
+   "group": "jargon",
+   "why": "'insights' is an English word in an Icelandic sentence. Icelanders say 'innsýn, yfirlit'.",
+   "pattern": "{LB}insights\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "innsýn, yfirlit",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"insights.*\" %c]",
+    "natural": "[lemma=\"innsýn\"]"
+   },
+   "examples": {
+    "bad": [
+     "Fáðu insights um gestina."
+    ],
+    "good": [
+     "Fáðu yfirlit yfir gestina."
+    ]
+   }
+  },
+  {
+   "id": "en-newsletter",
+   "group": "jargon",
+   "why": "'newsletter' is an English word in an Icelandic sentence. Icelanders say 'fréttabréf'.",
+   "pattern": "{LB}newsletter\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "fréttabréf",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"newsletter.*\" %c]",
+    "natural": "[lemma=\"fréttabréf\"]"
+   },
+   "examples": {
+    "bad": [
+     "Skráðu þig á newsletterinn."
+    ],
+    "good": [
+     "Skráðu þig á fréttabréfið."
+    ]
+   }
+  },
+  {
+   "id": "en-subscription",
+   "group": "jargon",
+   "why": "'subscription' is an English word in an Icelandic sentence. Icelanders say 'áskrift'.",
+   "pattern": "{LB}subscription\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "áskrift",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"subscription.*\" %c]",
+    "natural": "[lemma=\"áskrift\"]"
+   },
+   "examples": {
+    "bad": [
+     "Mánaðarleg subscription."
+    ],
+    "good": [
+     "Mánaðarleg áskrift."
+    ]
+   }
+  },
+  {
+   "id": "en-chatbot",
+   "group": "jargon",
+   "why": "'chatbot' is an English word in an Icelandic sentence. Icelanders say 'spjall, aðstoðarmaður'.",
+   "pattern": "{LB}chatbot\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "spjall, aðstoðarmaður",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"chatbot.*\" %c]",
+    "natural": "[lemma=\"aðstoðarmaður\"]"
+   },
+   "examples": {
+    "bad": [
+     "Chatbot sem svarar gestum."
+    ],
+    "good": [
+     "Spjall sem svarar gestum."
+    ]
+   }
+  },
+  {
+   "id": "en-online",
+   "group": "jargon",
+   "why": "'online' is an English word in an Icelandic sentence. Icelanders say 'á netinu'.",
+   "pattern": "{LB}online\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "á netinu",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"online.*\" %c]",
+    "natural": "[word=\"á\"][word=\"netinu\"]"
+   },
+   "examples": {
+    "bad": [
+     "Bókaðu online."
+    ],
+    "good": [
+     "Bókaðu á netinu."
+    ]
+   }
+  },
+  {
+   "id": "en-website",
+   "group": "jargon",
+   "why": "'website' is an English word in an Icelandic sentence. Icelanders say 'vefur, vefsíða'.",
+   "pattern": "{LB}website\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "vefur, vefsíða",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"website.*\" %c]",
+    "natural": "[lemma=\"vefsíða\"]"
+   },
+   "examples": {
+    "bad": [
+     "Nýtt website fyrir fyrirtækið."
+    ],
+    "good": [
+     "Nýr vefur fyrir fyrirtækið."
+    ]
+   }
+  },
+  {
+   "id": "en-support",
+   "group": "jargon",
+   "why": "'support' is an English word in an Icelandic sentence. Icelanders say 'aðstoð, þjónusta'.",
+   "pattern": "{LB}support\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "aðstoð, þjónusta",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"support.*\" %c]",
+    "natural": "[lemma=\"aðstoð\"]"
+   },
+   "examples": {
+    "bad": [
+     "Hafðu samband við support."
+    ],
+    "good": [
+     "Hafðu samband við þjónustuna."
+    ]
+   }
+  },
+  {
+   "id": "en-deal",
+   "group": "jargon",
+   "why": "'deal' is an English word in an Icelandic sentence. Icelanders say 'tilboð, samningur'.",
+   "pattern": "{LB}deal\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "tilboð, samningur",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"deal.*\" %c]",
+    "natural": "[lemma=\"tilboð\"]"
+   },
+   "examples": {
+    "bad": [
+     "Frábært deal í janúar."
+    ],
+    "good": [
+     "Gott tilboð í janúar."
+    ]
+   }
+  },
+  {
+   "id": "en-free-trial",
+   "group": "jargon",
+   "why": "'free trial' is an English word in an Icelandic sentence. Icelanders say 'frítt í 14 daga'.",
+   "pattern": "{LB}free\\s+trial{RB}",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "frítt í 14 daga",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"free\" %c][word=\"trial\" %c]",
+    "natural": "[word=\"frítt\"][word=\"í\"]"
+   },
+   "examples": {
+    "bad": [
+     "Byrjaðu free trial í dag."
+    ],
+    "good": [
+     "Prófaðu frítt í 14 daga."
+    ]
+   }
+  }
+ ]
+}

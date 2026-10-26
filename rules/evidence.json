@@ -1,0 +1,2446 @@
+{
+ "_about": "Counts from the Icelandic Gigaword Corpus (CC BY 4.0 parts only), via malheildir.arnastofnun.is. recent = texts dated 2018 or later. Written by scripts/native-evidence.mjs; numbers only, no text.",
+ "_corpora": [
+  "IGC2410EXT_NEWS1_VISIR",
+  "IGC2410EXT_NEWS1_RUV",
+  "IGC2410EXT_NEWS1_FRETTABLADIDIS",
+  "IGC2410EXT_NEWS1_MANNLIF",
+  "IGC22_SOCIAL1_BLAND",
+  "IGC22_SOCIAL1_HUGI",
+  "IGC22_SOCIAL1_MALEFNIN",
+  "IGC22_SOCIAL3"
+ ],
+ "rules": {
+  "smid": {
+   "flaggedQuery": "[word=\"smíðað\" %c]",
+   "naturalQuery": "[word=\"gert\" %c]",
+   "flagged": {
+    "recent": 721,
+    "all": 2476
+   },
+   "natural": {
+    "recent": 139167,
+    "all": 629935
+   },
+   "checked": "2026-10-25"
+  },
+  "skruna": {
+   "flaggedQuery": "[word=\"skrun(a|aðu|ið|ar|aði)\" %c]",
+   "naturalQuery": "[word=\"skroll(a|aðu|ið|ar|aði)\" %c]",
+   "flagged": {
+    "recent": 96,
+    "all": 222
+   },
+   "natural": {
+    "recent": 790,
+    "all": 4869
+   },
+   "checked": "2026-10-25"
+  },
+  "sjalfa": {
+   "flaggedQuery": "[lemma=\"sjálfa\" & pos=\"n.*\"]",
+   "naturalQuery": "[lemma=\"selfie\" %c]",
+   "flagged": {
+    "recent": 1,
+    "all": 7
+   },
+   "natural": {
+    "recent": 730,
+    "all": 3299
+   },
+   "checked": "2026-10-25"
+  },
+  "talk-to-us": {
+   "flaggedQuery": "[word=\"talaðu\" %c][word=\"við\" %c][word=\"okkur\" %c]",
+   "naturalQuery": "[word=\"hafðu\" %c][word=\"samband\" %c]",
+   "flagged": {
+    "recent": 9,
+    "all": 80
+   },
+   "natural": {
+    "recent": 1228,
+    "all": 6971
+   },
+   "checked": "2026-10-25"
+  },
+  "how-we-heading": {
+   "flaggedQuery": "[word=\"hvernig\" %c][word=\"við\"][word=\"vinnum|tengjumst|gerum|hjálpum\"]",
+   "naturalQuery": "[word=\"svona\" %c][word=\"vinnum|tengjumst|gerum|hjálpum\"][word=\"við\"]",
+   "flagged": {
+    "recent": 270,
+    "all": 509
+   },
+   "natural": {
+    "recent": 40,
+    "all": 160
+   },
+   "checked": "2026-10-25"
+  },
+  "paste-limdu": {
+   "flaggedQuery": "[word=\"límdu\" %c][word=\"inn\" %c]",
+   "naturalQuery": "[word=\"settu\" %c][word=\"inn\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 2
+   },
+   "natural": {
+    "recent": 99,
+    "all": 1226
+   },
+   "checked": "2026-10-25"
+  },
+  "domain": {
+   "flaggedQuery": "[word=\"domain.*\" %c]",
+   "naturalQuery": "[lemma=\"lén\"]",
+   "flagged": {
+    "recent": 66,
+    "all": 825
+   },
+   "natural": {
+    "recent": 614,
+    "all": 3937
+   },
+   "checked": "2026-10-25"
+  },
+  "vendor": {
+   "flaggedQuery": "[word=\"vendor.*\" %c]",
+   "naturalQuery": "[lemma=\"birgir\"]",
+   "flagged": {
+    "recent": 9,
+    "all": 272
+   },
+   "natural": {
+    "recent": 1256,
+    "all": 3130
+   },
+   "checked": "2026-10-25"
+  },
+  "smaforrit": {
+   "flaggedQuery": "[lemma=\"smáforrit\"]",
+   "naturalQuery": "[lemma=\"app\"]",
+   "flagged": {
+    "recent": 1044,
+    "all": 2001
+   },
+   "natural": {
+    "recent": 10776,
+    "all": 24702
+   },
+   "checked": "2026-10-25"
+  },
+  "vefsetur": {
+   "flaggedQuery": "[lemma=\"vefsetur\"]",
+   "naturalQuery": "[lemma=\"vefsíða\"]",
+   "flagged": {
+    "recent": 43,
+    "all": 1429
+   },
+   "natural": {
+    "recent": 9624,
+    "all": 38389
+   },
+   "checked": "2026-10-25"
+  },
+  "veffang": {
+   "flaggedQuery": "[lemma=\"veffang\"]",
+   "naturalQuery": "[lemma=\"vefslóð\"]",
+   "flagged": {
+    "recent": 18,
+    "all": 253
+   },
+   "natural": {
+    "recent": 176,
+    "all": 948
+   },
+   "checked": "2026-10-25"
+  },
+  "heimilisfang-url": {
+   "flaggedQuery": "[lemma=\"vefheimilisfang\"]",
+   "naturalQuery": "[lemma=\"vefslóð\"]",
+   "flagged": {
+    "recent": 0,
+    "all": 0
+   },
+   "natural": {
+    "recent": 176,
+    "all": 948
+   },
+   "checked": "2026-10-25"
+  },
+  "tolvupostfang": {
+   "flaggedQuery": "[lemma=\"tölvupóstfang\"]",
+   "naturalQuery": "[lemma=\"netfang\"]",
+   "flagged": {
+    "recent": 230,
+    "all": 733
+   },
+   "natural": {
+    "recent": 1990,
+    "all": 10741
+   },
+   "checked": "2026-10-25"
+  },
+  "rafpostur": {
+   "flaggedQuery": "[lemma=\"rafpóstur\"]",
+   "naturalQuery": "[lemma=\"tölvupóstur\"]",
+   "flagged": {
+    "recent": 9,
+    "all": 182
+   },
+   "natural": {
+    "recent": 9931,
+    "all": 30083
+   },
+   "checked": "2026-10-25"
+  },
+  "veraldarvefur": {
+   "flaggedQuery": "[lemma=\"veraldarvefur\"]",
+   "naturalQuery": "[word=\"á\" %c][word=\"netinu\" %c]",
+   "flagged": {
+    "recent": 532,
+    "all": 2340
+   },
+   "natural": {
+    "recent": 14188,
+    "all": 125624
+   },
+   "checked": "2026-10-25"
+  },
+  "smaskilabod": {
+   "flaggedQuery": "[lemma=\"smáskilaboð\"]",
+   "naturalQuery": "[word=\"sms\" %c]",
+   "flagged": {
+    "recent": 582,
+    "all": 1323
+   },
+   "natural": {
+    "recent": 2356,
+    "all": 25402
+   },
+   "checked": "2026-10-25"
+  },
+  "adgangsord": {
+   "flaggedQuery": "[lemma=\"aðgangsorð\"]",
+   "naturalQuery": "[lemma=\"lykilorð\"]",
+   "flagged": {
+    "recent": 59,
+    "all": 836
+   },
+   "natural": {
+    "recent": 1388,
+    "all": 11927
+   },
+   "checked": "2026-10-25"
+  },
+  "fesbok": {
+   "flaggedQuery": "[lemma=\"fésbók\"]",
+   "naturalQuery": "[word=\"facebook\" %c]",
+   "flagged": {
+    "recent": 249,
+    "all": 1944
+   },
+   "natural": {
+    "recent": 39301,
+    "all": 124731
+   },
+   "checked": "2026-10-25"
+  },
+  "nidurhala": {
+   "flaggedQuery": "[lemma=\"niðurhala\"]",
+   "naturalQuery": "[word=\"hlaða\" %c][word=\"niður\" %c]",
+   "flagged": {
+    "recent": 34,
+    "all": 1072
+   },
+   "natural": {
+    "recent": 197,
+    "all": 1216
+   },
+   "checked": "2026-10-25"
+  },
+  "tolvupostlisti": {
+   "flaggedQuery": "[lemma=\"tölvupóstlisti\"]",
+   "naturalQuery": "[lemma=\"póstlisti\"]",
+   "flagged": {
+    "recent": 7,
+    "all": 22
+   },
+   "natural": {
+    "recent": 390,
+    "all": 2215
+   },
+   "checked": "2026-10-25"
+  },
+  "sjalfvirknivaeding": {
+   "flaggedQuery": "[lemma=\"sjálfvirknivæðing\"]",
+   "naturalQuery": "[lemma=\"sjálfvirkni\"]",
+   "flagged": {
+    "recent": 480,
+    "all": 516
+   },
+   "natural": {
+    "recent": 490,
+    "all": 722
+   },
+   "checked": "2026-10-25"
+  },
+  "eydublad-web": {
+   "flaggedQuery": "[word=\"eyðublaðið\" %c]",
+   "naturalQuery": "[word=\"formið\" %c]",
+   "flagged": {
+    "recent": 50,
+    "all": 370
+   },
+   "natural": {
+    "recent": 985,
+    "all": 3980
+   },
+   "checked": "2026-10-25"
+  },
+  "samskiptaupplysingar": {
+   "flaggedQuery": "[lemma=\"samskiptaupplýsingar\"]",
+   "naturalQuery": "[word=\"netfang\" %c][word=\"eða\" %c][word=\"símanúmer\" %c]",
+   "flagged": {
+    "recent": 6,
+    "all": 7
+   },
+   "natural": {
+    "recent": 0,
+    "all": 9
+   },
+   "checked": "2026-10-25"
+  },
+  "sokn-pickup": {
+   "flaggedQuery": "[lemma=\"sókn\"][word=\"frá|á|af\"][lemma=\"hótel|flugvöllur|gististaður\"]",
+   "naturalQuery": "[word=\"sótt|sækjum|sækja|sækir\"][word=\"á|frá|af\"][lemma=\"hótel|flugvöllur|gististaður\"]",
+   "flagged": {
+    "recent": 0,
+    "all": 0
+   },
+   "natural": {
+    "recent": 16,
+    "all": 41
+   },
+   "checked": "2026-10-25"
+  },
+  "innifela": {
+   "flaggedQuery": "[lemma=\"innifela\"]",
+   "naturalQuery": "[lemma=\"innifalinn\"]",
+   "flagged": {
+    "recent": 154,
+    "all": 675
+   },
+   "natural": {
+    "recent": 1035,
+    "all": 10045
+   },
+   "checked": "2026-10-25"
+  },
+  "preposed-possessive": {
+   "flaggedQuery": "[word=\"á\" %c][word=\"þinni\" %c][word=\"síðu\" %c]",
+   "naturalQuery": "[word=\"á\" %c][word=\"síðunni\" %c][word=\"þinni\" %c]",
+   "flagged": {
+    "recent": 2,
+    "all": 66
+   },
+   "natural": {
+    "recent": 12,
+    "all": 483
+   },
+   "checked": "2026-10-25"
+  },
+  "eigin-overuse": {
+   "flaggedQuery": "[word=\"á\" %c][word=\"þínu\" %c][word=\"eigin\" %c][word=\"tungumáli\" %c]",
+   "naturalQuery": "[word=\"á\" %c][word=\"þínu\" %c][word=\"tungumáli\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 4
+   },
+   "natural": {
+    "recent": 2,
+    "all": 15
+   },
+   "checked": "2026-10-25"
+  },
+  "i-gegnum-channel": {
+   "flaggedQuery": "[word=\"í\" %c][word=\"gegnum\" %c][word=\"tölvupóst\" %c]",
+   "naturalQuery": "[word=\"í\" %c][word=\"tölvupósti\" %c]",
+   "flagged": {
+    "recent": 139,
+    "all": 526
+   },
+   "natural": {
+    "recent": 1616,
+    "all": 4745
+   },
+   "checked": "2026-10-25"
+  },
+  "reason-why": {
+   "flaggedQuery": "[word=\"ástæðan\" %c][word=\"fyrir\" %c][word=\"því\" %c][word=\"að\" %c]",
+   "naturalQuery": "[word=\"og\" %c][word=\"þess\" %c][word=\"vegna\" %c]",
+   "flagged": {
+    "recent": 4979,
+    "all": 25008
+   },
+   "natural": {
+    "recent": 6221,
+    "all": 30759
+   },
+   "checked": "2026-10-25"
+  },
+  "ekki-hika": {
+   "flaggedQuery": "[word=\"ekki\" %c][word=\"hika\" %c][word=\"við\" %c]",
+   "naturalQuery": "[word=\"endilega\" %c][word=\"samband\" %c]",
+   "flagged": {
+    "recent": 455,
+    "all": 5821
+   },
+   "natural": {
+    "recent": 32,
+    "all": 550
+   },
+   "checked": "2026-10-25"
+  },
+  "reach-out": {
+   "flaggedQuery": "[word=\"ná\" %c][word=\"til\" %c][word=\"okkar\" %c]",
+   "naturalQuery": "[word=\"hafa\" %c][word=\"samband\" %c][word=\"við\" %c][word=\"okkur\" %c]",
+   "flagged": {
+    "recent": 30,
+    "all": 69
+   },
+   "natural": {
+    "recent": 207,
+    "all": 472
+   },
+   "checked": "2026-10-25"
+  },
+  "hope-helps": {
+   "flaggedQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þetta\" %c][word=\"hjálpi\" %c]",
+   "naturalQuery": "[word=\"vonandi\" %c][word=\"hjálpar\" %c][word=\"þetta\" %c]",
+   "flagged": {
+    "recent": 33,
+    "all": 2885
+   },
+   "natural": {
+    "recent": 36,
+    "all": 1612
+   },
+   "checked": "2026-10-25"
+  },
+  "have-a-day": {
+   "flaggedQuery": "[word=\"hafðu\" %c][word=\"góðan\" %c][word=\"dag\" %c]",
+   "naturalQuery": "[word=\"eigðu\" %c][word=\"góðan\" %c][word=\"dag\" %c]",
+   "flagged": {
+    "recent": 10,
+    "all": 77
+   },
+   "natural": {
+    "recent": 161,
+    "all": 754
+   },
+   "checked": "2026-10-25"
+  },
+  "no-problem": {
+   "flaggedQuery": "[word=\"ekki\" %c][word=\"vandamál\" %c]",
+   "naturalQuery": "[word=\"ekkert\" %c][word=\"mál\" %c]",
+   "flagged": {
+    "recent": 802,
+    "all": 4566
+   },
+   "natural": {
+    "recent": 4261,
+    "all": 66642
+   },
+   "checked": "2026-10-25"
+  },
+  "welcome-to": {
+   "flaggedQuery": "[word=\"ert\"][word=\"velkomin|velkominn\"][word=\"að\"]",
+   "naturalQuery": "[word=\"þér\" %c][word=\"er\" %c][word=\"velkomið\" %c][word=\"að\" %c]",
+   "flagged": {
+    "recent": 6,
+    "all": 63
+   },
+   "natural": {
+    "recent": 83,
+    "all": 2003
+   },
+   "checked": "2026-10-25"
+  },
+  "youre-welcome": {
+   "flaggedQuery": "[word=\"þú\" %c][word=\"ert\"][word=\"velkominn|velkomin\"][word=\"!|\\.\"]",
+   "naturalQuery": "[word=\"ekkert\" %c][word=\"að\" %c][word=\"þakka\" %c]",
+   "flagged": {
+    "recent": 3,
+    "all": 44
+   },
+   "natural": {
+    "recent": 376,
+    "all": 2414
+   },
+   "checked": "2026-10-25"
+  },
+  "at-this-point": {
+   "flaggedQuery": "[word=\"á\" %c][word=\"þessum\" %c][word=\"tímapunkti\" %c]",
+   "naturalQuery": "[word=\"eins\" %c][word=\"og\" %c][word=\"er\" %c]",
+   "flagged": {
+    "recent": 3276,
+    "all": 6471
+   },
+   "natural": {
+    "recent": 5375,
+    "all": 35699
+   },
+   "checked": "2026-10-25"
+  },
+  "that-said": {
+   "flaggedQuery": "[word=\"að\" %c][word=\"því\" %c][word=\"sögðu\" %c]",
+   "naturalQuery": "[word=\"engu\" %c][word=\"að\" %c][word=\"síður\" %c]",
+   "flagged": {
+    "recent": 1646,
+    "all": 2843
+   },
+   "natural": {
+    "recent": 8896,
+    "all": 31854
+   },
+   "checked": "2026-10-25"
+  },
+  "how-sounds": {
+   "flaggedQuery": "[word=\"hvernig\" %c][word=\"hljómar\" %c][word=\"það\" %c]",
+   "naturalQuery": "[word=\"hentar\" %c][word=\"það\" %c]",
+   "flagged": {
+    "recent": 36,
+    "all": 316
+   },
+   "natural": {
+    "recent": 102,
+    "all": 748
+   },
+   "checked": "2026-10-25"
+  },
+  "sounds-like": {
+   "flaggedQuery": "[word=\"hljómar\" %c][word=\"eins\" %c][word=\"og\" %c]",
+   "naturalQuery": "[word=\"virðist\" %c][word=\"vera\" %c]",
+   "flagged": {
+    "recent": 3106,
+    "all": 14705
+   },
+   "natural": {
+    "recent": 10840,
+    "all": 51559
+   },
+   "checked": "2026-10-25"
+  },
+  "gera-sens": {
+   "flaggedQuery": "[word=\"gerir\" %c][word=\"sens\" %c]",
+   "naturalQuery": "[word=\"meikar\" %c][word=\"sens\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 0
+   },
+   "natural": {
+    "recent": 701,
+    "all": 2445
+   },
+   "checked": "2026-10-25"
+  },
+  "gera-mun-fyrir": {
+   "flaggedQuery": "[lemma=\"gera\"][word=\"mikinn\"][word=\"mun\"][word=\"fyrir\"]",
+   "naturalQuery": "[lemma=\"skipta\"][word=\"miklu\"][word=\"máli\"]",
+   "flagged": {
+    "recent": 0,
+    "all": 3
+   },
+   "natural": {
+    "recent": 2891,
+    "all": 9172
+   },
+   "checked": "2026-10-25"
+  },
+  "spila-hlutverk": {
+   "flaggedQuery": "[lemma=\"spila\"][]{0,1}[lemma=\"hlutverk\"]",
+   "naturalQuery": "[lemma=\"leika\"][]{0,1}[lemma=\"hlutverk\"]",
+   "flagged": {
+    "recent": 768,
+    "all": 1606
+   },
+   "natural": {
+    "recent": 929,
+    "all": 2238
+   },
+   "checked": "2026-10-25"
+  },
+  "would-love-to": {
+   "flaggedQuery": "[word=\"myndi\" %c][word=\"elska\" %c][word=\"að\" %c]",
+   "naturalQuery": "[word=\"væri\" %c][word=\"til\" %c][word=\"í\" %c][word=\"að\" %c]",
+   "flagged": {
+    "recent": 120,
+    "all": 290
+   },
+   "natural": {
+    "recent": 3257,
+    "all": 25405
+   },
+   "checked": "2026-10-25"
+  },
+  "make-it-easy": {
+   "flaggedQuery": "[word=\"gerir\" %c][word=\"það\" %c][word=\"auðvelt\" %c][word=\"að\" %c]",
+   "naturalQuery": "[lemma=\"auðvelda\"]",
+   "flagged": {
+    "recent": 2,
+    "all": 12
+   },
+   "natural": {
+    "recent": 4812,
+    "all": 14213
+   },
+   "checked": "2026-10-25"
+  },
+  "perfect-for": {
+   "flaggedQuery": "[word=\"fullkomin\" %c][word=\"fyrir\" %c]",
+   "naturalQuery": "[word=\"hentar\" %c][word=\"vel\" %c][word=\"fyrir\" %c]",
+   "flagged": {
+    "recent": 95,
+    "all": 345
+   },
+   "natural": {
+    "recent": 154,
+    "all": 501
+   },
+   "checked": "2026-10-25"
+  },
+  "basis": {
+   "flaggedQuery": "[word=\"á\" %c][word=\"daglegum\" %c][word=\"grundvelli\" %c]",
+   "naturalQuery": "[word=\"daglega\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 5
+   },
+   "natural": {
+    "recent": 9167,
+    "all": 40469
+   },
+   "checked": "2026-10-25"
+  },
+  "in-what-today": {
+   "flaggedQuery": "[word=\"aðstoðað|hjálpað\"][word=\"þig|þér\"][word=\"í\"][word=\"dag\"]",
+   "naturalQuery": "[word=\"gert\" %c][word=\"fyrir\" %c][word=\"þig\" %c]",
+   "flagged": {
+    "recent": 1,
+    "all": 3
+   },
+   "natural": {
+    "recent": 89,
+    "all": 916
+   },
+   "checked": "2026-10-25"
+  },
+  "any-questions": {
+   "flaggedQuery": "[word=\"ef\" %c][word=\"þú\" %c][word=\"hefur\" %c][word=\"einhverjar\" %c][word=\"spurningar\" %c]",
+   "naturalQuery": "[word=\"ef\" %c][word=\"þú\" %c][word=\"hefur\" %c][word=\"spurningar\" %c]",
+   "flagged": {
+    "recent": 5,
+    "all": 591
+   },
+   "natural": {
+    "recent": 4,
+    "all": 91
+   },
+   "checked": "2026-10-25"
+  },
+  "excited-to": {
+   "flaggedQuery": "[word=\"spennt|spenntur\"][word=\"að\"][word=\"sjá|kynna|hitta\"]",
+   "naturalQuery": "[word=\"hlakka|hlökkum\"][word=\"til\"][word=\"að\"][word=\"sjá|kynna|hitta\"]",
+   "flagged": {
+    "recent": 950,
+    "all": 2917
+   },
+   "natural": {
+    "recent": 1017,
+    "all": 4828
+   },
+   "checked": "2026-10-25"
+  },
+  "here-to-help": {
+   "flaggedQuery": "[word=\"hér\" %c][word=\"til\" %c][word=\"að\" %c][word=\"hjálpa\" %c]",
+   "naturalQuery": "[word=\"spurðu\" %c][word=\"bara\" %c]",
+   "flagged": {
+    "recent": 34,
+    "all": 99
+   },
+   "natural": {
+    "recent": 122,
+    "all": 2028
+   },
+   "checked": "2026-10-25"
+  },
+  "let-me": {
+   "flaggedQuery": "[word=\"leyfðu\" %c][word=\"mér\"][word=\"að\"][word=\"athuga|skoða|útskýra|sýna\"]",
+   "naturalQuery": "[word=\"ég\" %c][word=\"skal\"][word=\"athuga|skoða|útskýra|sýna\"]",
+   "flagged": {
+    "recent": 10,
+    "all": 55
+   },
+   "natural": {
+    "recent": 119,
+    "all": 1420
+   },
+   "checked": "2026-10-25"
+  },
+  "let-us": {
+   "flaggedQuery": "[word=\"leyfðu\" %c][word=\"okkur\" %c][word=\"að\" %c]",
+   "naturalQuery": "[word=\"við\" %c][word=\"sjáum\" %c][word=\"um\" %c]",
+   "flagged": {
+    "recent": 70,
+    "all": 839
+   },
+   "natural": {
+    "recent": 127,
+    "all": 372
+   },
+   "checked": "2026-10-25"
+  },
+  "thanks-for-choosing": {
+   "flaggedQuery": "[word=\"takk\" %c][word=\"fyrir\" %c][word=\"að\" %c][word=\"velja\" %c]",
+   "naturalQuery": "[word=\"takk\" %c][word=\"fyrir\" %c][word=\"viðskiptin\" %c]",
+   "flagged": {
+    "recent": 22,
+    "all": 58
+   },
+   "natural": {
+    "recent": 17,
+    "all": 67
+   },
+   "checked": "2026-10-25"
+  },
+  "understand-perfectly": {
+   "flaggedQuery": "[word=\"skil\" %c][word=\"fullkomlega\" %c]",
+   "naturalQuery": "[word=\"skil\" %c][word=\"það\" %c][word=\"vel\" %c]",
+   "flagged": {
+    "recent": 34,
+    "all": 202
+   },
+   "natural": {
+    "recent": 432,
+    "all": 3460
+   },
+   "checked": "2026-10-25"
+  },
+  "summarize": {
+   "flaggedQuery": "[word=\"til\" %c][word=\"að\" %c][word=\"draga\" %c][word=\"saman\" %c]",
+   "naturalQuery": "[word=\"í\" %c][word=\"stuttu\" %c][word=\"máli\" %c]",
+   "flagged": {
+    "recent": 41,
+    "all": 104
+   },
+   "natural": {
+    "recent": 1742,
+    "all": 6912
+   },
+   "checked": "2026-10-25"
+  },
+  "important-to-note": {
+   "flaggedQuery": "[word=\"mikilvægt\" %c][word=\"að\" %c][word=\"hafa\" %c][word=\"í\" %c][word=\"huga\" %c][word=\"að\" %c]",
+   "naturalQuery": "[word=\"hafðu\" %c][word=\"í\" %c][word=\"huga\" %c][word=\"að\" %c]",
+   "flagged": {
+    "recent": 300,
+    "all": 515
+   },
+   "natural": {
+    "recent": 39,
+    "all": 351
+   },
+   "checked": "2026-10-25"
+  },
+  "worth-mentioning": {
+   "flaggedQuery": "[word=\"vert\" %c][word=\"að\" %c][word=\"nefna\" %c]",
+   "naturalQuery": "[word=\"þess\" %c][word=\"má\" %c][word=\"geta\" %c]",
+   "flagged": {
+    "recent": 210,
+    "all": 362
+   },
+   "natural": {
+    "recent": 2210,
+    "all": 8995
+   },
+   "checked": "2026-10-25"
+  },
+  "great-question": {
+   "flaggedQuery": "[word=\"frábær\" %c][word=\"spurning\" %c][word=\"!\" %c]",
+   "naturalQuery": "[word=\"góð\" %c][word=\"spurning\" %c]",
+   "flagged": {
+    "recent": 8,
+    "all": 17
+   },
+   "natural": {
+    "recent": 1304,
+    "all": 5185
+   },
+   "checked": "2026-10-25"
+  },
+  "great-choice": {
+   "flaggedQuery": "[word=\"frábært\" %c][word=\"val\" %c]",
+   "naturalQuery": "[word=\"flott\" %c][word=\",\" %c]",
+   "flagged": {
+    "recent": 21,
+    "all": 61
+   },
+   "natural": {
+    "recent": 976,
+    "all": 12881
+   },
+   "checked": "2026-10-25"
+  },
+  "here-is-the-thing": {
+   "flaggedQuery": "[word=\"svarið\" %c][word=\"er\" %c][word=\"einfalt\" %c]",
+   "naturalQuery": "[word=\"einfaldlega\" %c][word=\"já\" %c]",
+   "flagged": {
+    "recent": 109,
+    "all": 454
+   },
+   "natural": {
+    "recent": 4,
+    "all": 27
+   },
+   "checked": "2026-10-25"
+  },
+  "whether-you-are": {
+   "flaggedQuery": "[word=\"hvort\" %c][word=\"sem\" %c][word=\"þú\" %c][word=\"ert\" %c]",
+   "naturalQuery": "[word=\"hvort\" %c][word=\"sem\" %c][word=\"er\" %c]",
+   "flagged": {
+    "recent": 196,
+    "all": 1309
+   },
+   "natural": {
+    "recent": 3545,
+    "all": 25089
+   },
+   "checked": "2026-10-25"
+  },
+  "in-a-world": {
+   "flaggedQuery": "[word=\"í\" %c][word=\"heimi\" %c][word=\"þar\" %c][word=\"sem\" %c]",
+   "naturalQuery": "[word=\"nú\" %c][word=\"á\" %c][word=\"dögum\" %c]",
+   "flagged": {
+    "recent": 382,
+    "all": 1069
+   },
+   "natural": {
+    "recent": 233,
+    "all": 1125
+   },
+   "checked": "2026-10-25"
+  },
+  "not-just-but": {
+   "flaggedQuery": "[word=\"ekki\"][word=\"bara\"][]{1,4}[word=\"heldur\"]",
+   "naturalQuery": "[word=\"bæði\"][]{1,3}[word=\"og\"]",
+   "flagged": {
+    "recent": 6779,
+    "all": 23565
+   },
+   "natural": {
+    "recent": 65204,
+    "all": 233100
+   },
+   "checked": "2026-10-25"
+  },
+  "where-relative": {
+   "flaggedQuery": "[word=\",\"][word=\"hvar\"][word=\"þú\"][word=\"getur\"]",
+   "naturalQuery": "[word=\"þar\"][word=\"sem\"][word=\"þú\"][word=\"getur\"]",
+   "flagged": {
+    "recent": 1,
+    "all": 4
+   },
+   "natural": {
+    "recent": 288,
+    "all": 2899
+   },
+   "checked": "2026-10-25"
+  },
+  "whose-relative": {
+   "flaggedQuery": "[word=\",\"][word=\"hvers\"][word=\"eigandi|markmið|hlutverk\"]",
+   "naturalQuery": "[word=\"sem\"][word=\"eigandinn\"]",
+   "flagged": {
+    "recent": 10,
+    "all": 15
+   },
+   "natural": {
+    "recent": 66,
+    "all": 456
+   },
+   "checked": "2026-10-25"
+  },
+  "velkomin-objects": {
+   "flaggedQuery": "[word=\"hundar|kerrur|gæludýr\"][word=\"eru\"][word=\"velkomnir|velkomnar|velkomin\"]",
+   "naturalQuery": "[word=\"má\"][word=\"koma\"][word=\"með\"][word=\"hunda|kerrur|gæludýr\"]",
+   "flagged": {
+    "recent": 1,
+    "all": 16
+   },
+   "natural": {
+    "recent": 0,
+    "all": 3
+   },
+   "checked": "2026-10-25"
+  },
+  "lifandi-leidsogn": {
+   "flaggedQuery": "[word=\"lifandi\" %c][word=\"leiðsögn\" %c]",
+   "naturalQuery": "[word=\"með\" %c][word=\"leiðsögn\" %c]",
+   "flagged": {
+    "recent": 3,
+    "all": 7
+   },
+   "natural": {
+    "recent": 111,
+    "all": 316
+   },
+   "checked": "2026-10-25"
+  },
+  "ad-eigin-vali": {
+   "flaggedQuery": "[word=\"að\" %c][word=\"eigin\" %c][word=\"vali\" %c]",
+   "naturalQuery": "[word=\"sem\" %c][word=\"þú\" %c][word=\"velur\" %c]",
+   "flagged": {
+    "recent": 493,
+    "all": 2399
+   },
+   "natural": {
+    "recent": 77,
+    "all": 1074
+   },
+   "checked": "2026-10-25"
+  },
+  "take-to-next-level": {
+   "flaggedQuery": "[word=\"á\" %c][word=\"næsta\" %c][word=\"stig\" %c]",
+   "naturalQuery": "[word=\"á\" %c][word=\"hærra\" %c][word=\"plan\" %c]",
+   "flagged": {
+    "recent": 436,
+    "all": 890
+   },
+   "natural": {
+    "recent": 181,
+    "all": 615
+   },
+   "checked": "2026-10-25"
+  },
+  "take-control": {
+   "flaggedQuery": "[word=\"taktu\" %c][word=\"stjórnina\" %c]",
+   "naturalQuery": "[word=\"taktu\" %c][word=\"stjórn\" %c]",
+   "flagged": {
+    "recent": 2,
+    "all": 22
+   },
+   "natural": {
+    "recent": 1,
+    "all": 17
+   },
+   "checked": "2026-10-25"
+  },
+  "state-progressive": {
+   "flaggedQuery": "[word=\"er\"][word=\"að\"][word=\"skilja\"]",
+   "naturalQuery": "[word=\"ég\"][word=\"skil\"]",
+   "flagged": {
+    "recent": 281,
+    "all": 1692
+   },
+   "natural": {
+    "recent": 7083,
+    "all": 82313
+   },
+   "checked": "2026-10-25"
+  },
+  "vinsamlegast": {
+   "flaggedQuery": "[word=\"vinsamlegast\" %c]",
+   "naturalQuery": "[word=\"endilega\" %c]",
+   "flagged": {
+    "recent": 2744,
+    "all": 19134
+   },
+   "natural": {
+    "recent": 21984,
+    "all": 241387
+   },
+   "checked": "2026-10-25"
+  },
+  "eigi-sidar": {
+   "flaggedQuery": "[word=\"eigi\" %c][word=\"síðar\" %c][word=\"en\" %c]",
+   "naturalQuery": "[word=\"í\" %c][word=\"síðasta\" %c][word=\"lagi\" %c]",
+   "flagged": {
+    "recent": 717,
+    "all": 1825
+   },
+   "natural": {
+    "recent": 805,
+    "all": 3107
+   },
+   "checked": "2026-10-25"
+  },
+  "eigi-ad-sidur": {
+   "flaggedQuery": "[word=\"eigi\" %c][word=\"að\" %c][word=\"síður\" %c]",
+   "naturalQuery": "[word=\"engu\" %c][word=\"að\" %c][word=\"síður\" %c]",
+   "flagged": {
+    "recent": 326,
+    "all": 1151
+   },
+   "natural": {
+    "recent": 8896,
+    "all": 31854
+   },
+   "checked": "2026-10-25"
+  },
+  "ella": {
+   "flaggedQuery": "[word=\"ella\"]",
+   "naturalQuery": "[word=\"annars\"]",
+   "flagged": {
+    "recent": 2738,
+    "all": 9736
+   },
+   "natural": {
+    "recent": 129950,
+    "all": 543715
+   },
+   "checked": "2026-10-25"
+  },
+  "sokum": {
+   "flaggedQuery": "[word=\"sökum\" %c]",
+   "naturalQuery": "[word=\"vegna\" %c]",
+   "flagged": {
+    "recent": 9642,
+    "all": 29525
+   },
+   "natural": {
+    "recent": 333641,
+    "all": 1128704
+   },
+   "checked": "2026-10-25"
+  },
+  "ennfremur": {
+   "flaggedQuery": "[word=\"ennfremur\" %c]",
+   "naturalQuery": "[word=\"auk\" %c][word=\"þess\" %c]",
+   "flagged": {
+    "recent": 2916,
+    "all": 12341
+   },
+   "natural": {
+    "recent": 34512,
+    "all": 104761
+   },
+   "checked": "2026-10-25"
+  },
+  "jafnframt": {
+   "flaggedQuery": "[word=\"jafnframt\" %c]",
+   "naturalQuery": "[word=\"líka\" %c]",
+   "flagged": {
+    "recent": 30983,
+    "all": 73459
+   },
+   "natural": {
+    "recent": 244219,
+    "all": 1822451
+   },
+   "checked": "2026-10-25"
+  },
+  "einnig": {
+   "flaggedQuery": "[word=\"einnig\" %c]",
+   "naturalQuery": "[word=\"líka\" %c]",
+   "flagged": {
+    "recent": 226223,
+    "all": 538179
+   },
+   "natural": {
+    "recent": 244219,
+    "all": 1822451
+   },
+   "checked": "2026-10-25"
+  },
+  "thar-af-leidandi": {
+   "flaggedQuery": "[word=\"þar\" %c][word=\"af\" %c][word=\"leiðandi\" %c]",
+   "naturalQuery": "[word=\"þess\" %c][word=\"vegna\" %c]",
+   "flagged": {
+    "recent": 6281,
+    "all": 29376
+   },
+   "natural": {
+    "recent": 27328,
+    "all": 143345
+   },
+   "checked": "2026-10-25"
+  },
+  "yður": {
+   "flaggedQuery": "[word=\"yður\" %c]",
+   "naturalQuery": "[word=\"ykkur\" %c]",
+   "flagged": {
+    "recent": 551,
+    "all": 3690
+   },
+   "natural": {
+    "recent": 46712,
+    "all": 487204
+   },
+   "checked": "2026-10-25"
+  },
+  "ver": {
+   "flaggedQuery": "[word=\"vér\" %c]",
+   "naturalQuery": "[word=\"við\" %c][word=\"bjóðum\" %c]",
+   "flagged": {
+    "recent": 833,
+    "all": 3523
+   },
+   "natural": {
+    "recent": 2002,
+    "all": 3827
+   },
+   "checked": "2026-10-25"
+  },
+  "virdingarfyllst": {
+   "flaggedQuery": "[word=\"virðingarfyllst\" %c]",
+   "naturalQuery": "[word=\"bestu\" %c][word=\"kveðjur\" %c]",
+   "flagged": {
+    "recent": 209,
+    "all": 802
+   },
+   "natural": {
+    "recent": 722,
+    "all": 2803
+   },
+   "checked": "2026-10-25"
+  },
+  "vinsemd-og-virdingu": {
+   "flaggedQuery": "[word=\"vinsemd\" %c][word=\"og\" %c][word=\"virðingu\" %c]",
+   "naturalQuery": "[word=\"bestu\" %c][word=\"kveðjur\" %c]",
+   "flagged": {
+    "recent": 81,
+    "all": 407
+   },
+   "natural": {
+    "recent": 722,
+    "all": 2803
+   },
+   "checked": "2026-10-25"
+  },
+  "kaeri-vidskiptavinur": {
+   "flaggedQuery": "[word=\"kæri\" %c][word=\"viðskiptavinur\" %c]",
+   "naturalQuery": "[word=\"kæru\" %c][word=\"viðskiptavinir\" %c]",
+   "flagged": {
+    "recent": 11,
+    "all": 36
+   },
+   "natural": {
+    "recent": 27,
+    "all": 122
+   },
+   "checked": "2026-10-25"
+  },
+  "ofangreint": {
+   "flaggedQuery": "[lemma=\"ofangreindur\"]",
+   "naturalQuery": "[word=\"hér\" %c][word=\"að\" %c][word=\"ofan\" %c]",
+   "flagged": {
+    "recent": 2180,
+    "all": 6856
+   },
+   "natural": {
+    "recent": 6099,
+    "all": 26685
+   },
+   "checked": "2026-10-25"
+  },
+  "tedur": {
+   "flaggedQuery": "[lemma=\"téður\"]",
+   "naturalQuery": "[lemma=\"þessi\"]",
+   "flagged": {
+    "recent": 1484,
+    "all": 3134
+   },
+   "natural": {
+    "recent": 2328980,
+    "all": 13394160
+   },
+   "checked": "2026-10-25"
+  },
+  "thess-ma-geta": {
+   "flaggedQuery": "[word=\"þess\" %c][word=\"má\" %c][word=\"geta\" %c]",
+   "naturalQuery": "[word=\"má\" %c][word=\"nefna\" %c]",
+   "flagged": {
+    "recent": 2210,
+    "all": 8995
+   },
+   "natural": {
+    "recent": 5122,
+    "all": 13370
+   },
+   "checked": "2026-10-25"
+  },
+  "skal": {
+   "flaggedQuery": "[word=\"skal\"][word=\"greiða|berast|tilkynna\"]",
+   "naturalQuery": "[word=\"þarf\"][word=\"að\"][word=\"greiða|berast|tilkynna\"]",
+   "flagged": {
+    "recent": 86,
+    "all": 473
+   },
+   "natural": {
+    "recent": 960,
+    "all": 4060
+   },
+   "checked": "2026-10-25"
+  },
+  "ber-ad": {
+   "flaggedQuery": "[word=\"ber\"][word=\"að\"][word=\"greiða|mæta|tilkynna\"]",
+   "naturalQuery": "[word=\"þarf\"][word=\"að\"][word=\"greiða|mæta|tilkynna\"]",
+   "flagged": {
+    "recent": 140,
+    "all": 553
+   },
+   "natural": {
+    "recent": 1294,
+    "all": 5546
+   },
+   "checked": "2026-10-25"
+  },
+  "framkvaema": {
+   "flaggedQuery": "[lemma=\"framkvæma\"][lemma=\"bókun|greiðsla|pöntun\"]",
+   "naturalQuery": "[lemma=\"bóka\"]",
+   "flagged": {
+    "recent": 12,
+    "all": 23
+   },
+   "natural": {
+    "recent": 6488,
+    "all": 21180
+   },
+   "checked": "2026-10-25"
+  },
+  "veita-thjonustu": {
+   "flaggedQuery": "[lemma=\"veita\"][lemma=\"þjónusta\"]",
+   "naturalQuery": "[lemma=\"bjóða\"][word=\"upp\"][word=\"á\"][lemma=\"þjónusta\"]",
+   "flagged": {
+    "recent": 571,
+    "all": 1129
+   },
+   "natural": {
+    "recent": 133,
+    "all": 327
+   },
+   "checked": "2026-10-25"
+  },
+  "eftirleidis": {
+   "flaggedQuery": "[word=\"eftirleiðis\" %c]",
+   "naturalQuery": "[word=\"héðan\" %c][word=\"í\" %c][word=\"frá\" %c]",
+   "flagged": {
+    "recent": 120,
+    "all": 498
+   },
+   "natural": {
+    "recent": 1269,
+    "all": 5080
+   },
+   "checked": "2026-10-25"
+  },
+  "ad-loknu": {
+   "flaggedQuery": "[word=\"að\" %c][word=\"ferð\" %c][word=\"lokinni\" %c]",
+   "naturalQuery": "[word=\"eftir\" %c][word=\"ferðina\" %c]",
+   "flagged": {
+    "recent": 6,
+    "all": 17
+   },
+   "natural": {
+    "recent": 119,
+    "all": 365
+   },
+   "checked": "2026-10-25"
+  },
+  "haegt-er-ad": {
+   "flaggedQuery": "[word=\"Hægt\"][word=\"er\"][word=\"að\"]",
+   "naturalQuery": "[word=\"Það\"][word=\"er\"][word=\"hægt\"][word=\"að\"]",
+   "flagged": {
+    "recent": 11065,
+    "all": 26082
+   },
+   "natural": {
+    "recent": 3756,
+    "all": 24310
+   },
+   "checked": "2026-10-25"
+  },
+  "se-conditional": {
+   "flaggedQuery": "[word=\"Sé\"][word=\"svarið|verðið|ferðin|það\"]",
+   "naturalQuery": "[word=\"Ef\"][word=\"svarið|verðið|ferðin|það\"]",
+   "flagged": {
+    "recent": 541,
+    "all": 2883
+   },
+   "natural": {
+    "recent": 9664,
+    "all": 58201
+   },
+   "checked": "2026-10-25"
+  },
+  "eins-og-audid-er": {
+   "flaggedQuery": "[word=\"og\" %c][word=\"auðið\" %c][word=\"er\" %c]",
+   "naturalQuery": "[word=\"og\" %c][word=\"hægt\" %c][word=\"er\" %c]",
+   "flagged": {
+    "recent": 598,
+    "all": 1301
+   },
+   "natural": {
+    "recent": 4582,
+    "all": 17406
+   },
+   "checked": "2026-10-25"
+  },
+  "hvad-vardar": {
+   "flaggedQuery": "[word=\"hvað\" %c][word=\"varðar\" %c]",
+   "naturalQuery": "[word=\"varðandi\" %c]",
+   "flagged": {
+    "recent": 8584,
+    "all": 29029
+   },
+   "natural": {
+    "recent": 27767,
+    "all": 108483
+   },
+   "checked": "2026-10-25"
+  },
+  "med-tilliti-til": {
+   "flaggedQuery": "[word=\"með\" %c][word=\"tilliti\" %c][word=\"til\" %c]",
+   "naturalQuery": "[word=\"miðað\" %c][word=\"við\" %c]",
+   "flagged": {
+    "recent": 3802,
+    "all": 9536
+   },
+   "natural": {
+    "recent": 34913,
+    "all": 170377
+   },
+   "checked": "2026-10-25"
+  },
+  "i-ljosi-thess": {
+   "flaggedQuery": "[word=\"í\" %c][word=\"ljósi\" %c][word=\"þess\" %c][word=\"að\" %c]",
+   "naturalQuery": "[word=\"af\" %c][word=\"því\" %c][word=\"að\" %c]",
+   "flagged": {
+    "recent": 5137,
+    "all": 13798
+   },
+   "natural": {
+    "recent": 50550,
+    "all": 251198
+   },
+   "checked": "2026-10-25"
+  },
+  "hafa-ber-i-huga": {
+   "flaggedQuery": "[word=\"hafa\" %c][word=\"ber\" %c][word=\"í\" %c][word=\"huga\" %c]",
+   "naturalQuery": "[word=\"hafðu\" %c][word=\"í\" %c][word=\"huga\" %c]",
+   "flagged": {
+    "recent": 345,
+    "all": 906
+   },
+   "natural": {
+    "recent": 47,
+    "all": 411
+   },
+   "checked": "2026-10-25"
+  },
+  "ther-er-bent": {
+   "flaggedQuery": "[word=\"er\" %c][word=\"bent\" %c][word=\"á\" %c]",
+   "naturalQuery": "[word=\"athugaðu\" %c]",
+   "flagged": {
+    "recent": 2600,
+    "all": 6757
+   },
+   "natural": {
+    "recent": 309,
+    "all": 10398
+   },
+   "checked": "2026-10-25"
+  },
+  "kunngjora": {
+   "flaggedQuery": "[lemma=\"kunngjöra\"]",
+   "naturalQuery": "[lemma=\"tilkynna\"]",
+   "flagged": {
+    "recent": 288,
+    "all": 743
+   },
+   "natural": {
+    "recent": 52616,
+    "all": 139274
+   },
+   "checked": "2026-10-25"
+  },
+  "gjordu-svo-vel": {
+   "flaggedQuery": "[word=\"gjörðu\" %c][word=\"svo\" %c][word=\"vel\" %c]",
+   "naturalQuery": "[word=\"gerðu\" %c][word=\"svo\" %c][word=\"vel\" %c]",
+   "flagged": {
+    "recent": 353,
+    "all": 2810
+   },
+   "natural": {
+    "recent": 24,
+    "all": 303
+   },
+   "checked": "2026-10-25"
+  },
+  "aeskja": {
+   "flaggedQuery": "[lemma=\"æskja\"]",
+   "naturalQuery": "[lemma=\"óska\"][word=\"eftir\"]",
+   "flagged": {
+    "recent": 27,
+    "all": 185
+   },
+   "natural": {
+    "recent": 17653,
+    "all": 54983
+   },
+   "checked": "2026-10-25"
+  },
+  "hyggjast": {
+   "flaggedQuery": "[word=\"hyggst|hyggjast\"]",
+   "naturalQuery": "[word=\"ætlar|ætla\"][word=\"að\"]",
+   "flagged": {
+    "recent": 8152,
+    "all": 21833
+   },
+   "natural": {
+    "recent": 52245,
+    "all": 341316
+   },
+   "checked": "2026-10-25"
+  },
+  "aetid": {
+   "flaggedQuery": "[word=\"ætíð\" %c]",
+   "naturalQuery": "[word=\"alltaf\" %c]",
+   "flagged": {
+    "recent": 1567,
+    "all": 4890
+   },
+   "natural": {
+    "recent": 195193,
+    "all": 1370547
+   },
+   "checked": "2026-10-25"
+  },
+  "hvarvetna": {
+   "flaggedQuery": "[word=\"hvarvetna\" %c]",
+   "naturalQuery": "[word=\"alls\" %c][word=\"staðar\" %c]",
+   "flagged": {
+    "recent": 405,
+    "all": 1171
+   },
+   "natural": {
+    "recent": 6225,
+    "all": 20100
+   },
+   "checked": "2026-10-25"
+  },
+  "einungis": {
+   "flaggedQuery": "[word=\"einungis\" %c]",
+   "naturalQuery": "[word=\"bara\" %c]",
+   "flagged": {
+    "recent": 28096,
+    "all": 87120
+   },
+   "natural": {
+    "recent": 607075,
+    "all": 5672253
+   },
+   "checked": "2026-10-25"
+  },
+  "velvirdingar": {
+   "flaggedQuery": "[word=\"biðjumst\" %c][word=\"velvirðingar\" %c]",
+   "naturalQuery": "[word=\"afsakið\" %c]",
+   "flagged": {
+    "recent": 156,
+    "all": 453
+   },
+   "natural": {
+    "recent": 2816,
+    "all": 18312
+   },
+   "checked": "2026-10-25"
+  },
+  "ekur": {
+   "flaggedQuery": "[word=\"ekur\"][word=\"þér|þig|ykkur\"]",
+   "naturalQuery": "[word=\"keyrir\"][word=\"þig|ykkur\"]",
+   "flagged": {
+    "recent": 0,
+    "all": 6
+   },
+   "natural": {
+    "recent": 16,
+    "all": 63
+   },
+   "checked": "2026-10-25"
+  },
+  "snudu-ther-til": {
+   "flaggedQuery": "[word=\"snúðu\" %c][word=\"þér\" %c][word=\"til\" %c]",
+   "naturalQuery": "[word=\"hafðu\" %c][word=\"samband\" %c][word=\"við\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 22
+   },
+   "natural": {
+    "recent": 227,
+    "all": 3073
+   },
+   "checked": "2026-10-25"
+  },
+  "passive-lokad-hefur": {
+   "flaggedQuery": "[word=\"Lokað\"][word=\"hefur\"][word=\"verið\"]",
+   "naturalQuery": "[word=\"Það\"][word=\"er\"][word=\"lokað\"]",
+   "flagged": {
+    "recent": 100,
+    "all": 208
+   },
+   "natural": {
+    "recent": 58,
+    "all": 327
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-vilt": {
+   "flaggedQuery": "[word=\"vilt\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"viltu\" %c]",
+   "flagged": {
+    "recent": 806,
+    "all": 6040
+   },
+   "natural": {
+    "recent": 7332,
+    "all": 70150
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-getur": {
+   "flaggedQuery": "[word=\"getur\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"geturðu\" %c]",
+   "flagged": {
+    "recent": 3541,
+    "all": 38634
+   },
+   "natural": {
+    "recent": 3763,
+    "all": 50919
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-ert": {
+   "flaggedQuery": "[word=\"ert\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"ertu\" %c]",
+   "flagged": {
+    "recent": 5804,
+    "all": 71205
+   },
+   "natural": {
+    "recent": 42237,
+    "all": 508483
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-hefur": {
+   "flaggedQuery": "[word=\"hefur\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"hefurðu\" %c]",
+   "flagged": {
+    "recent": 3520,
+    "all": 39139
+   },
+   "natural": {
+    "recent": 3430,
+    "all": 39088
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-veist": {
+   "flaggedQuery": "[word=\"veist\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"veistu\" %c]",
+   "flagged": {
+    "recent": 755,
+    "all": 9429
+   },
+   "natural": {
+    "recent": 5112,
+    "all": 89802
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-átt": {
+   "flaggedQuery": "[word=\"átt\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"áttu\" %c]",
+   "flagged": {
+    "recent": 687,
+    "all": 9069
+   },
+   "natural": {
+    "recent": 25886,
+    "all": 129804
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-kannt": {
+   "flaggedQuery": "[word=\"kannt\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"kanntu\" %c]",
+   "flagged": {
+    "recent": 41,
+    "all": 533
+   },
+   "natural": {
+    "recent": 309,
+    "all": 4184
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-þarft": {
+   "flaggedQuery": "[word=\"þarft\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"þarftu\" %c]",
+   "flagged": {
+    "recent": 372,
+    "all": 4094
+   },
+   "natural": {
+    "recent": 3863,
+    "all": 48380
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-ætlar": {
+   "flaggedQuery": "[word=\"ætlar\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"ætlarðu\" %c]",
+   "flagged": {
+    "recent": 1218,
+    "all": 10307
+   },
+   "natural": {
+    "recent": 1344,
+    "all": 12695
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-mátt": {
+   "flaggedQuery": "[word=\"mátt\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"máttu\" %c]",
+   "flagged": {
+    "recent": 82,
+    "all": 1358
+   },
+   "natural": {
+    "recent": 2837,
+    "all": 21722
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-skalt": {
+   "flaggedQuery": "[word=\"skalt\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"skaltu\" %c]",
+   "flagged": {
+    "recent": 81,
+    "all": 1165
+   },
+   "natural": {
+    "recent": 1219,
+    "all": 23892
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-vildir": {
+   "flaggedQuery": "[word=\"vildir\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"vildirðu\" %c]",
+   "flagged": {
+    "recent": 73,
+    "all": 603
+   },
+   "natural": {
+    "recent": 42,
+    "all": 499
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-gætir": {
+   "flaggedQuery": "[word=\"gætir\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"gætirðu\" %c]",
+   "flagged": {
+    "recent": 534,
+    "all": 4776
+   },
+   "natural": {
+    "recent": 489,
+    "all": 6325
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-myndir": {
+   "flaggedQuery": "[word=\"myndir\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"myndirðu\" %c]",
+   "flagged": {
+    "recent": 1945,
+    "all": 12522
+   },
+   "natural": {
+    "recent": 989,
+    "all": 8113
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-hefðir": {
+   "flaggedQuery": "[word=\"hefðir\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"hefðirðu\" %c]",
+   "flagged": {
+    "recent": 342,
+    "all": 3171
+   },
+   "natural": {
+    "recent": 182,
+    "all": 1996
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-sérð": {
+   "flaggedQuery": "[word=\"sérð\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"sérðu\" %c]",
+   "flagged": {
+    "recent": 202,
+    "all": 1777
+   },
+   "natural": {
+    "recent": 1943,
+    "all": 23951
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-manst": {
+   "flaggedQuery": "[word=\"manst\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"manstu\" %c]",
+   "flagged": {
+    "recent": 93,
+    "all": 341
+   },
+   "natural": {
+    "recent": 1123,
+    "all": 8649
+   },
+   "checked": "2026-10-25"
+  },
+  "uncontracted-kemur": {
+   "flaggedQuery": "[word=\"kemur\" %c][word=\"þú\"]",
+   "naturalQuery": "[word=\"kemurðu\" %c]",
+   "flagged": {
+    "recent": 262,
+    "all": 2920
+   },
+   "natural": {
+    "recent": 247,
+    "all": 1938
+   },
+   "checked": "2026-10-25"
+  },
+  "eg-vill": {
+   "flaggedQuery": "[word=\"ég\" %c][word=\"vill\" %c]",
+   "naturalQuery": "[word=\"ég\" %c][word=\"vil\" %c]",
+   "flagged": {
+    "recent": 1636,
+    "all": 26700
+   },
+   "natural": {
+    "recent": 26149,
+    "all": 185920
+   },
+   "checked": "2026-10-25"
+  },
+  "mer-langar": {
+   "flaggedQuery": "[word=\"mér\" %c][word=\"langar\" %c]",
+   "naturalQuery": "[word=\"mig\" %c][word=\"langar\" %c]",
+   "flagged": {
+    "recent": 239,
+    "all": 10824
+   },
+   "natural": {
+    "recent": 15555,
+    "all": 184813
+   },
+   "checked": "2026-10-25"
+  },
+  "mer-hlakkar": {
+   "flaggedQuery": "[word=\"mér\" %c][word=\"hlakkar\" %c]",
+   "naturalQuery": "[word=\"ég\" %c][word=\"hlakka\" %c]",
+   "flagged": {
+    "recent": 36,
+    "all": 1048
+   },
+   "natural": {
+    "recent": 3631,
+    "all": 15849
+   },
+   "checked": "2026-10-25"
+  },
+  "vona-ad-hefur": {
+   "flaggedQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"hefur\" %c]",
+   "naturalQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"hafir\" %c]",
+   "flagged": {
+    "recent": 1,
+    "all": 8
+   },
+   "natural": {
+    "recent": 221,
+    "all": 2249
+   },
+   "checked": "2026-10-25"
+  },
+  "vona-ad-ert": {
+   "flaggedQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"ert\" %c]",
+   "naturalQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"sért\" %c]",
+   "flagged": {
+    "recent": 3,
+    "all": 45
+   },
+   "natural": {
+    "recent": 192,
+    "all": 2792
+   },
+   "checked": "2026-10-25"
+  },
+  "vona-ad-getur": {
+   "flaggedQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"getur\" %c]",
+   "naturalQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"getir\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 25
+   },
+   "natural": {
+    "recent": 25,
+    "all": 624
+   },
+   "checked": "2026-10-25"
+  },
+  "vona-ad-vilt": {
+   "flaggedQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"vilt\" %c]",
+   "naturalQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"viljir\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 0
+   },
+   "natural": {
+    "recent": 1,
+    "all": 16
+   },
+   "checked": "2026-10-25"
+  },
+  "vona-ad-átt": {
+   "flaggedQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"átt\" %c]",
+   "naturalQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"eigir\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 9
+   },
+   "natural": {
+    "recent": 47,
+    "all": 600
+   },
+   "checked": "2026-10-25"
+  },
+  "vona-ad-nýtur": {
+   "flaggedQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"nýtur\" %c]",
+   "naturalQuery": "[word=\"vona\" %c][word=\"að\" %c][word=\"þú\" %c][word=\"njótir\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 0
+   },
+   "natural": {
+    "recent": 34,
+    "all": 142
+   },
+   "checked": "2026-10-25"
+  },
+  "tho-ad-indicative": {
+   "flaggedQuery": "[word=\"þó\" %c][word=\"að\" %c][word=\"það\" %c][word=\"er\" %c]",
+   "naturalQuery": "[word=\"þó\" %c][word=\"að\" %c][word=\"það\" %c][word=\"sé\" %c]",
+   "flagged": {
+    "recent": 23,
+    "all": 277
+   },
+   "natural": {
+    "recent": 1054,
+    "all": 7231
+   },
+   "checked": "2026-10-25"
+  },
+  "en-booking": {
+   "flaggedQuery": "[word=\"booking.*\" %c]",
+   "naturalQuery": "[lemma=\"bókun\"]",
+   "flagged": {
+    "recent": 222,
+    "all": 526
+   },
+   "natural": {
+    "recent": 4074,
+    "all": 8434
+   },
+   "checked": "2026-10-25"
+  },
+  "en-dashboard": {
+   "flaggedQuery": "[word=\"dashboard.*\" %c]",
+   "naturalQuery": "[lemma=\"stjórnborð\"]",
+   "flagged": {
+    "recent": 46,
+    "all": 182
+   },
+   "natural": {
+    "recent": 68,
+    "all": 699
+   },
+   "checked": "2026-10-25"
+  },
+  "en-pricing": {
+   "flaggedQuery": "[word=\"pricing.*\" %c]",
+   "naturalQuery": "[lemma=\"verðskrá\"]",
+   "flagged": {
+    "recent": 26,
+    "all": 63
+   },
+   "natural": {
+    "recent": 505,
+    "all": 3102
+   },
+   "checked": "2026-10-25"
+  },
+  "en-checkout": {
+   "flaggedQuery": "[word=\"checkout.*\" %c]",
+   "naturalQuery": "[lemma=\"greiðslusíða\"]",
+   "flagged": {
+    "recent": 32,
+    "all": 145
+   },
+   "natural": {
+    "recent": 24,
+    "all": 44
+   },
+   "checked": "2026-10-25"
+  },
+  "en-onboarding": {
+   "flaggedQuery": "[word=\"onboarding.*\" %c]",
+   "naturalQuery": "[lemma=\"uppsetning\"]",
+   "flagged": {
+    "recent": 10,
+    "all": 10
+   },
+   "natural": {
+    "recent": 3329,
+    "all": 11416
+   },
+   "checked": "2026-10-25"
+  },
+  "en-workflow": {
+   "flaggedQuery": "[word=\"workflow.*\" %c]",
+   "naturalQuery": "[lemma=\"vinnulag\"]",
+   "flagged": {
+    "recent": 19,
+    "all": 34
+   },
+   "natural": {
+    "recent": 445,
+    "all": 1268
+   },
+   "checked": "2026-10-25"
+  },
+  "en-feature": {
+   "flaggedQuery": "[word=\"feature.*\" %c]",
+   "naturalQuery": "[lemma=\"eiginleiki\"]",
+   "flagged": {
+    "recent": 304,
+    "all": 1054
+   },
+   "natural": {
+    "recent": 3636,
+    "all": 12619
+   },
+   "checked": "2026-10-25"
+  },
+  "en-insights": {
+   "flaggedQuery": "[word=\"insights.*\" %c]",
+   "naturalQuery": "[lemma=\"innsýn\"]",
+   "flagged": {
+    "recent": 17,
+    "all": 42
+   },
+   "natural": {
+    "recent": 2926,
+    "all": 6210
+   },
+   "checked": "2026-10-25"
+  },
+  "en-newsletter": {
+   "flaggedQuery": "[word=\"newsletter.*\" %c]",
+   "naturalQuery": "[lemma=\"fréttabréf\"]",
+   "flagged": {
+    "recent": 13,
+    "all": 57
+   },
+   "natural": {
+    "recent": 635,
+    "all": 2392
+   },
+   "checked": "2026-10-25"
+  },
+  "en-subscription": {
+   "flaggedQuery": "[word=\"subscription.*\" %c]",
+   "naturalQuery": "[lemma=\"áskrift\"]",
+   "flagged": {
+    "recent": 28,
+    "all": 162
+   },
+   "natural": {
+    "recent": 6651,
+    "all": 20458
+   },
+   "checked": "2026-10-25"
+  },
+  "en-chatbot": {
+   "flaggedQuery": "[word=\"chatbot.*\" %c]",
+   "naturalQuery": "[lemma=\"aðstoðarmaður\"]",
+   "flagged": {
+    "recent": 10,
+    "all": 24
+   },
+   "natural": {
+    "recent": 5617,
+    "all": 16163
+   },
+   "checked": "2026-10-25"
+  },
+  "en-online": {
+   "flaggedQuery": "[word=\"online.*\" %c]",
+   "naturalQuery": "[word=\"á\"][word=\"netinu\"]",
+   "flagged": {
+    "recent": 1628,
+    "all": 15384
+   },
+   "natural": {
+    "recent": 13751,
+    "all": 122763
+   },
+   "checked": "2026-10-25"
+  },
+  "en-website": {
+   "flaggedQuery": "[word=\"website.*\" %c]",
+   "naturalQuery": "[lemma=\"vefsíða\"]",
+   "flagged": {
+    "recent": 49,
+    "all": 318
+   },
+   "natural": {
+    "recent": 9624,
+    "all": 38389
+   },
+   "checked": "2026-10-25"
+  },
+  "en-email": {
+   "flaggedQuery": "[word=\"email.*\" %c]",
+   "naturalQuery": "[lemma=\"tölvupóstur\"]",
+   "flagged": {
+    "recent": 5096,
+    "all": 22505
+   },
+   "natural": {
+    "recent": 9931,
+    "all": 30083
+   },
+   "checked": "2026-10-25"
+  },
+  "en-support": {
+   "flaggedQuery": "[word=\"support.*\" %c]",
+   "naturalQuery": "[lemma=\"aðstoð\"]",
+   "flagged": {
+    "recent": 659,
+    "all": 4105
+   },
+   "natural": {
+    "recent": 25371,
+    "all": 89915
+   },
+   "checked": "2026-10-25"
+  },
+  "en-deal": {
+   "flaggedQuery": "[word=\"deal.*\" %c]",
+   "naturalQuery": "[lemma=\"tilboð\"]",
+   "flagged": {
+    "recent": 894,
+    "all": 4795
+   },
+   "natural": {
+    "recent": 14262,
+    "all": 86493
+   },
+   "checked": "2026-10-25"
+  },
+  "en-free-trial": {
+   "flaggedQuery": "[word=\"free\" %c][word=\"trial\" %c]",
+   "naturalQuery": "[word=\"frítt\"][word=\"í\"]",
+   "flagged": {
+    "recent": 15,
+    "all": 150
+   },
+   "natural": {
+    "recent": 718,
+    "all": 4576
+   },
+   "checked": "2026-10-25"
+  },
+  "vegferd": {
+   "flaggedQuery": "[lemma=\"vegferð\"]",
+   "naturalQuery": "[lemma=\"leið\"]",
+   "flagged": {
+    "recent": 4931,
+    "all": 6734
+   },
+   "natural": {
+    "recent": 160442,
+    "all": 596188
+   },
+   "checked": "2026-10-25"
+  },
+  "heildarlausn": {
+   "flaggedQuery": "[lemma=\"heildarlausn\"]",
+   "naturalQuery": "[lemma=\"lausn\"]",
+   "flagged": {
+    "recent": 208,
+    "all": 482
+   },
+   "natural": {
+    "recent": 29341,
+    "all": 94508
+   },
+   "checked": "2026-10-25"
+  },
+  "snidin-ad-thorfum": {
+   "flaggedQuery": "[word=\"sniðin\" %c][word=\"að\" %c][word=\"þínum\" %c][word=\"þörfum\" %c]",
+   "naturalQuery": "[word=\"eftir\" %c][word=\"þínum\" %c][word=\"óskum\" %c]",
+   "flagged": {
+    "recent": 1,
+    "all": 4
+   },
+   "natural": {
+    "recent": 3,
+    "all": 38
+   },
+   "checked": "2026-10-25"
+  },
+  "byltingarkennd": {
+   "flaggedQuery": "[lemma=\"byltingarkenndur\"]",
+   "naturalQuery": "[lemma=\"nýr\"]",
+   "flagged": {
+    "recent": 531,
+    "all": 1221
+   },
+   "natural": {
+    "recent": 296197,
+    "all": 1062043
+   },
+   "checked": "2026-10-25"
+  },
+  "oadfinnanleg": {
+   "flaggedQuery": "[lemma=\"óaðfinnanlegur\"]",
+   "naturalQuery": "[lemma=\"góður\"]",
+   "flagged": {
+    "recent": 405,
+    "all": 1400
+   },
+   "natural": {
+    "recent": 647190,
+    "all": 3438757
+   },
+   "checked": "2026-10-25"
+  },
+  "leidandi": {
+   "flaggedQuery": "[word=\"leiðandi\" %c][word=\"fyrirtæki\" %c]",
+   "naturalQuery": "[word=\"fyrirtæki\" %c][word=\"í\" %c]",
+   "flagged": {
+    "recent": 174,
+    "all": 304
+   },
+   "natural": {
+    "recent": 3508,
+    "all": 9290
+   },
+   "checked": "2026-10-25"
+  },
+  "nystarleg": {
+   "flaggedQuery": "[lemma=\"nýstárlegur\"][lemma=\"lausn\"]",
+   "naturalQuery": "[lemma=\"nýr\"][lemma=\"lausn\"]",
+   "flagged": {
+    "recent": 12,
+    "all": 24
+   },
+   "natural": {
+    "recent": 560,
+    "all": 882
+   },
+   "checked": "2026-10-25"
+  },
+  "lyftu": {
+   "flaggedQuery": "[word=\"lyftu\" %c][lemma=\"fyrirtæki|rekstur|þjónusta\"]",
+   "naturalQuery": "[word=\"bættu\" %c][lemma=\"fyrirtæki|rekstur|þjónusta\"]",
+   "flagged": {
+    "recent": 0,
+    "all": 2
+   },
+   "natural": {
+    "recent": 2,
+    "all": 8
+   },
+   "checked": "2026-10-25"
+  },
+  "umbreyta": {
+   "flaggedQuery": "[lemma=\"umbreyta\"][lemma=\"rekstur|fyrirtæki|þjónusta\"]",
+   "naturalQuery": "[lemma=\"breyta\"][lemma=\"rekstur|fyrirtæki|þjónusta\"]",
+   "flagged": {
+    "recent": 19,
+    "all": 21
+   },
+   "natural": {
+    "recent": 47,
+    "all": 137
+   },
+   "checked": "2026-10-25"
+  },
+  "valdefla": {
+   "flaggedQuery": "[lemma=\"valdefla\"]",
+   "naturalQuery": "[lemma=\"styrkja\"]",
+   "flagged": {
+    "recent": 402,
+    "all": 461
+   },
+   "natural": {
+    "recent": 21634,
+    "all": 75956
+   },
+   "checked": "2026-10-25"
+  },
+  "uppgotvadu": {
+   "flaggedQuery": "[word=\"uppgötvaðu\" %c]",
+   "naturalQuery": "[word=\"kynntu\" %c][word=\"þér\" %c]",
+   "flagged": {
+    "recent": 9,
+    "all": 30
+   },
+   "natural": {
+    "recent": 435,
+    "all": 3178
+   },
+   "checked": "2026-10-25"
+  },
+  "kannadu": {
+   "flaggedQuery": "[word=\"kannaðu\" %c]",
+   "naturalQuery": "[word=\"skoðaðu\" %c]",
+   "flagged": {
+    "recent": 65,
+    "all": 864
+   },
+   "natural": {
+    "recent": 888,
+    "all": 14287
+   },
+   "checked": "2026-10-25"
+  },
+  "kafadu": {
+   "flaggedQuery": "[word=\"kafaðu\" %c][word=\"ofan\" %c][word=\"í\" %c]",
+   "naturalQuery": "[word=\"kynntu\" %c][word=\"þér\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 0
+   },
+   "natural": {
+    "recent": 435,
+    "all": 3178
+   },
+   "checked": "2026-10-25"
+  },
+  "toframir-gerast": {
+   "flaggedQuery": "[word=\"töfrarnir\" %c][word=\"gerast\" %c]",
+   "naturalQuery": "[word=\"gerast\" %c][word=\"töfrarnir\" %c]",
+   "flagged": {
+    "recent": 15,
+    "all": 25
+   },
+   "natural": {
+    "recent": 16,
+    "all": 21
+   },
+   "checked": "2026-10-25"
+  },
+  "spennandi-taekifaeri": {
+   "flaggedQuery": "[word=\"spennandi\" %c][word=\"tækifæri\" %c]",
+   "naturalQuery": "[word=\"gott\" %c][word=\"tækifæri\" %c]",
+   "flagged": {
+    "recent": 262,
+    "all": 480
+   },
+   "natural": {
+    "recent": 524,
+    "all": 1729
+   },
+   "checked": "2026-10-25"
+  },
+  "ad-veruleika": {
+   "flaggedQuery": "[lemma=\"draumur\"][word=\"að\"][word=\"veruleika\"]",
+   "naturalQuery": "[lemma=\"draumur\"][word=\"rætist\"]",
+   "flagged": {
+    "recent": 30,
+    "all": 90
+   },
+   "natural": {
+    "recent": 53,
+    "all": 189
+   },
+   "checked": "2026-10-25"
+  },
+  "an-fyrirhafnar": {
+   "flaggedQuery": "[word=\"án\" %c][word=\"fyrirhafnar\" %c]",
+   "naturalQuery": "[word=\"lítil\" %c][word=\"fyrirhöfn\" %c]",
+   "flagged": {
+    "recent": 38,
+    "all": 234
+   },
+   "natural": {
+    "recent": 16,
+    "all": 77
+   },
+   "checked": "2026-10-25"
+  },
+  "svo-einfalt": {
+   "flaggedQuery": "[word=\"svo\" %c][word=\"einfalt\" %c][word=\"er\" %c][word=\"það\" %c]",
+   "naturalQuery": "[word=\"einfalt\" %c][word=\"mál\" %c]",
+   "flagged": {
+    "recent": 313,
+    "all": 3513
+   },
+   "natural": {
+    "recent": 368,
+    "all": 2326
+   },
+   "checked": "2026-10-25"
+  },
+  "stolt-ad-kynna": {
+   "flaggedQuery": "[word=\"stolt|stoltir\"][word=\"af\"][word=\"því\"][word=\"að\"][word=\"kynna\"]",
+   "naturalQuery": "[word=\"kynnum\"][word=\"nýja|nýjan|nýtt\"]",
+   "flagged": {
+    "recent": 7,
+    "all": 18
+   },
+   "natural": {
+    "recent": 10,
+    "all": 42
+   },
+   "checked": "2026-10-25"
+  },
+  "imyndadu-ther": {
+   "flaggedQuery": "[word=\"ímyndaðu\" %c][word=\"þér\" %c]",
+   "naturalQuery": "[word=\"hugsaðu\" %c][word=\"þér\" %c]",
+   "flagged": {
+    "recent": 419,
+    "all": 2301
+   },
+   "natural": {
+    "recent": 256,
+    "all": 2530
+   },
+   "checked": "2026-10-25"
+  },
+  "per-unit": {
+   "flaggedQuery": "[word=\"per\" %c][word=\"manneskju|mann|nótt|mánuð|dag\"]",
+   "naturalQuery": "[word=\"á\"][word=\"mann|nótt|mánuði|dag\"]",
+   "flagged": {
+    "recent": 135,
+    "all": 1109
+   },
+   "natural": {
+    "recent": 26717,
+    "all": 181254
+   },
+   "checked": "2026-10-25"
+  },
+  "heyra-fra": {
+   "flaggedQuery": "[word=\"heyra\" %c][word=\"frá\" %c][word=\"þér\" %c]",
+   "naturalQuery": "[word=\"heyra\" %c][word=\"í\" %c][word=\"þér\" %c]",
+   "flagged": {
+    "recent": 71,
+    "all": 534
+   },
+   "natural": {
+    "recent": 150,
+    "all": 984
+   },
+   "checked": "2026-10-25"
+  },
+  "vertu-viss": {
+   "flaggedQuery": "[word=\"vertu\" %c][word=\"viss\" %c][word=\"um\" %c][word=\"að\" %c]",
+   "naturalQuery": "[word=\"passaðu\" %c][word=\"að\" %c]",
+   "flagged": {
+    "recent": 40,
+    "all": 612
+   },
+   "natural": {
+    "recent": 107,
+    "all": 2724
+   },
+   "checked": "2026-10-25"
+  },
+  "gakktu-ur-skugga": {
+   "flaggedQuery": "[word=\"gakktu\" %c][word=\"úr\" %c][word=\"skugga\" %c]",
+   "naturalQuery": "[word=\"passaðu\" %c][word=\"að\" %c]",
+   "flagged": {
+    "recent": 6,
+    "all": 38
+   },
+   "natural": {
+    "recent": 107,
+    "all": 2724
+   },
+   "checked": "2026-10-25"
+  },
+  "cant-wait": {
+   "flaggedQuery": "[word=\"ekki\"][word=\"beðið\"][word=\"eftir\"][word=\"að\"]",
+   "naturalQuery": "[word=\"hlakka|hlökkum\"][word=\"svo\"][word=\"til\"]",
+   "flagged": {
+    "recent": 1254,
+    "all": 6502
+   },
+   "natural": {
+    "recent": 520,
+    "all": 3674
+   },
+   "checked": "2026-10-25"
+  },
+  "own-pace": {
+   "flaggedQuery": "[word=\"á\"][word=\"þínum|sínum\"][]{0,1}[word=\"hraða\"]",
+   "naturalQuery": "[word=\"í\" %c][word=\"rólegheitum\" %c]",
+   "flagged": {
+    "recent": 116,
+    "all": 593
+   },
+   "natural": {
+    "recent": 644,
+    "all": 4889
+   },
+   "checked": "2026-10-25"
+  },
+  "eiga-godan-tima": {
+   "flaggedQuery": "[word=\"eigðu|hafðu\" %c][word=\"góðan\"][word=\"tíma\"]",
+   "naturalQuery": "[word=\"góða\" %c][word=\"skemmtun\" %c]",
+   "flagged": {
+    "recent": 0,
+    "all": 4
+   },
+   "natural": {
+    "recent": 786,
+    "all": 6987
+   },
+   "checked": "2026-10-25"
+  },
+  "hvar-get-eg-fundid": {
+   "flaggedQuery": "[word=\"hvar\" %c][word=\"get\" %c][word=\"ég\" %c][word=\"fundið\" %c]",
+   "naturalQuery": "[word=\"hvar\" %c][word=\"finn\" %c][word=\"ég\" %c]",
+   "flagged": {
+    "recent": 48,
+    "all": 1261
+   },
+   "natural": {
+    "recent": 297,
+    "all": 5334
+   },
+   "checked": "2026-10-25"
+  }
+ }
+}

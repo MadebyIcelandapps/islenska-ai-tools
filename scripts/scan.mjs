@@ -30,13 +30,14 @@ const SECRETS = [
 const PERSONAL = [
   ["e-mail address", /[\p{L}\p{N}._%+-]+@(?!example\.(?:com|org|net)\b)(?<!\bnoreply@(?=anthropic\.com))[\p{L}\p{N}-]+\.[\p{L}\p{N}.-]*\p{L}/u],
   ["phone number with country code", /(?:\+|00)\d{1,3}[ -]?\d{2,4}[ -]?\d{3,4}/],
-  ["icelandic phone number", /(?<![\d.,:])[4-8]\d{2}[ -]?\d{4}(?![\d.,])/],
-  ["kennitala", /(?<![\d.,])(?:[0-3]\d[01]\d\d{2})-?\d{4}(?![\d.,])/],
+  // A comma or full stop right after a number still counts (end of a sentence); one with more digits after is a longer number.
+  ["icelandic phone number", /(?<![\d.,:])[4-8]\d{2}[ -]?\d{4}(?!\d|[.,]\d)/],
+  ["kennitala", /(?<![\d.,])(?:[0-3]\d[01]\d\d{2})-?\d{4}(?!\d|[.,]\d)/],
   ["ip address", /(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])/],
 ];
 // Web addresses must point to a known public source or our own public site. Anything else could be a client system.
 // The commit attribution address noreply@anthropic.com is a public no-reply address and is allowed.
-const OK_HOSTS = /^(?:vaki\.chat|example\.(?:com|org|net)|github\.com|raw\.githubusercontent\.com|huggingface\.co|bin\.arnastofnun\.is|almannaromur\.is|stadagervigreindar\.is|repository\.clarin\.is|clarin\.is|creativecommons\.org|opensource\.org|mideind\.is|greynir\.is|spdx\.org)$/i;
+const OK_HOSTS = /^(?:vaki\.chat|example\.(?:com|org|net)|github\.com|raw\.githubusercontent\.com|huggingface\.co|bin\.arnastofnun\.is|igc\.arnastofnun\.is|malheildir\.arnastofnun\.is(?::1234)?|almannaromur\.is|stadagervigreindar\.is|repository\.clarin\.is|clarin\.is|creativecommons\.org|opensource\.org|mideind\.is|greynir\.is|spdx\.org)$/i;
 
 const extraFile = process.argv.includes("--extra") ? process.argv[process.argv.indexOf("--extra") + 1] : null;
 const EXTRA = extraFile
@@ -55,10 +56,17 @@ const EXTRA = extraFile
 const HOLDER_FILES = /(?:^|:)(?:LICENSE|LICENSE-DATA|README\.md)$/;
 const HOLDER_LINE = /^\s*(?:Copyright \(c\)|©) 2026 /;
 
+// rules/evidence.json holds corpus word counts, and a seven-digit count looks like an Icelandic phone number.
+// Only a line that is nothing but one count field ("recent": N) skips the phone-number pattern.
+const COUNT_FILE = /(?:^|:)rules\/evidence\.json$/;
+const COUNT_LINE = /^\s*"(?:recent|all)":\s*\d+,?\s*$/;
+
 function scanText(where, text, hits) {
   text.split("\n").forEach((line, i) => {
     const holder = HOLDER_FILES.test(where) && HOLDER_LINE.test(line);
+    const count = COUNT_FILE.test(where) && COUNT_LINE.test(line);
     for (const [name, re] of [...SECRETS, ...PERSONAL, ...(holder ? [] : EXTRA)]) {
+      if (count && name === "icelandic phone number") continue;
       const m = line.match(re);
       if (m) hits.push(`${where}:${i + 1} [${name}] ${name.startsWith("listed") ? "(term hidden)" : m[0].slice(0, 40)}`);
     }

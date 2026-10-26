@@ -1,0 +1,353 @@
+{
+ "_comment": "Coined or dictionary words that people do not use. Use the word people say (sometimes a common loan word). Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "coinage",
+ "rules": [
+  {
+   "id": "smaforrit",
+   "group": "coinage",
+   "why": "'Smáforrit' is the official word for an app; people say 'app'.",
+   "pattern": "{LB}smáforrit\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "app",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"smáforrit\"]",
+    "natural": "[lemma=\"app\"]"
+   },
+   "examples": {
+    "bad": [
+     "Sæktu smáforritið okkar."
+    ],
+    "good": [
+     "Sæktu appið okkar."
+    ]
+   }
+  },
+  {
+   "id": "vefsetur",
+   "group": "coinage",
+   "why": "'Vefsetur' is officialese for a website. Say 'vefur' or 'vefsíða'.",
+   "pattern": "{LB}vefset(?:ur|ri|urs|rið|rinu|ursins|rum){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "vefur, vefsíða",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"vefsetur\"]",
+    "natural": "[lemma=\"vefsíða\"]"
+   },
+   "examples": {
+    "bad": [
+     "Á vefsetri okkar finnurðu verðin."
+    ],
+    "good": [
+     "Á vefnum okkar finnurðu verðin."
+    ]
+   }
+  },
+  {
+   "id": "veffang",
+   "group": "coinage",
+   "why": "'Veffang' is a dictionary word for a web address. Say 'slóð' or 'vefslóð'.",
+   "pattern": "{LB}veff(?:ang|angi|angið|anginu|angs|öng)\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "slóð, vefslóð",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"veffang\"]",
+    "natural": "[lemma=\"vefslóð\"]"
+   },
+   "examples": {
+    "bad": [
+     "Settu inn veffangið þitt."
+    ],
+    "good": [
+     "Settu inn slóðina á vefinn."
+    ]
+   }
+  },
+  {
+   "id": "heimilisfang-url",
+   "group": "coinage",
+   "why": "A web address is 'slóð', not 'heimilisfang' (a street address). Calque of English 'address'.",
+   "pattern": "{LB}(?:vef|net)heimilisfang\\p{L}*|{LB}heimilisfang\\p{L}*\\s+(?:síðunnar|vefsins|vefsíðunnar|er\\s+rangt)",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "slóð",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[lemma=\"vefheimilisfang\"]",
+    "natural": "[lemma=\"vefslóð\"]"
+   },
+   "examples": {
+    "bad": [
+     "Heimilisfangið er rangt eða síðan er farin."
+    ],
+    "good": [
+     "Slóðin er röng eða síðan er farin."
+    ]
+   }
+  },
+  {
+   "id": "tolvupostfang",
+   "group": "coinage",
+   "why": "'Tölvupóstfang' is long and stiff. Everyone says 'netfang'.",
+   "pattern": "{LB}tölvupóstf(?:ang|angi|angið|anginu|angs|öng)\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "netfang",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"tölvupóstfang\"]",
+    "natural": "[lemma=\"netfang\"]"
+   },
+   "examples": {
+    "bad": [
+     "Skráðu tölvupóstfangið þitt."
+    ],
+    "good": [
+     "Skráðu netfangið þitt."
+    ]
+   }
+  },
+  {
+   "id": "rafpostur",
+   "group": "coinage",
+   "why": "'Rafpóstur' is an old coinage. Say 'tölvupóstur', or 'póstur'.",
+   "pattern": "{LB}rafpóst\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "tölvupóstur",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"rafpóstur\"]",
+    "natural": "[lemma=\"tölvupóstur\"]"
+   },
+   "examples": {
+    "bad": [
+     "Sendu okkur rafpóst."
+    ],
+    "good": [
+     "Sendu okkur tölvupóst."
+    ]
+   }
+  },
+  {
+   "id": "veraldarvefur",
+   "group": "coinage",
+   "why": "'Veraldarvefurinn' sounds like the 1990s. Say 'netið'.",
+   "pattern": "{LB}veraldarvef\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "netið",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"veraldarvefur\"]",
+    "natural": "[word=\"á\" %c][word=\"netinu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Finndu okkur á veraldarvefnum."
+    ],
+    "good": [
+     "Finndu okkur á netinu."
+    ]
+   }
+  },
+  {
+   "id": "smaskilabod",
+   "group": "coinage",
+   "why": "'Smáskilaboð' is the official word for a text message; people say 'SMS' or 'skilaboð'.",
+   "pattern": "{LB}smáskilaboð\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "SMS, skilaboð",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"smáskilaboð\"]",
+    "natural": "[word=\"sms\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Við sendum þér smáskilaboð."
+    ],
+    "good": [
+     "Við sendum þér SMS."
+    ]
+   }
+  },
+  {
+   "id": "adgangsord",
+   "group": "coinage",
+   "why": "'Aðgangsorð' is officialese. Everyone says 'lykilorð'.",
+   "pattern": "{LB}aðgangsorð\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "lykilorð",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"aðgangsorð\"]",
+    "natural": "[lemma=\"lykilorð\"]"
+   },
+   "examples": {
+    "bad": [
+     "Sláðu inn aðgangsorðið þitt."
+    ],
+    "good": [
+     "Sláðu inn lykilorðið þitt."
+    ]
+   }
+  },
+  {
+   "id": "fesbok",
+   "group": "coinage",
+   "why": "'Fésbók' is a joke name. Say 'Facebook'.",
+   "pattern": "{LB}fésbók\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Facebook",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"fésbók\"]",
+    "natural": "[word=\"facebook\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Fylgdu okkur á Fésbókinni."
+    ],
+    "good": [
+     "Fylgdu okkur á Facebook."
+    ]
+   }
+  },
+  {
+   "id": "nidurhala",
+   "group": "coinage",
+   "why": "'Niðurhala' is a clumsy back-formation. Say 'sækja' or 'hlaða niður'.",
+   "pattern": "{LB}niðurhal(?:a|aðu|ið|ar|aði|að){RB}",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "sækja, hlaða niður",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"niðurhala\"]",
+    "natural": "[word=\"hlaða\" %c][word=\"niður\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Niðurhalaðu appinu hér."
+    ],
+    "good": [
+     "Sæktu appið hér."
+    ]
+   }
+  },
+  {
+   "id": "tolvupostlisti",
+   "group": "coinage",
+   "why": "'Tölvupóstlisti' is long. Say 'póstlisti'.",
+   "pattern": "{LB}tölvupóstlist\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "póstlisti",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"tölvupóstlisti\"]",
+    "natural": "[lemma=\"póstlisti\"]"
+   },
+   "examples": {
+    "bad": [
+     "Skráðu þig á tölvupóstlistann."
+    ],
+    "good": [
+     "Skráðu þig á póstlistann."
+    ]
+   }
+  },
+  {
+   "id": "eydublad-web",
+   "group": "coinage",
+   "why": "On the web it is 'formið'. 'Eyðublað' is a paper form.",
+   "pattern": "{LB}eyðublað\\p{L}*",
+   "scope": "all",
+   "severity": "warning",
+   "suggest": "formið",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[word=\"eyðublaðið\" %c]",
+    "natural": "[word=\"formið\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Fylltu út eyðublaðið hér fyrir neðan."
+    ],
+    "good": [
+     "Fylltu út formið hér fyrir neðan."
+    ]
+   }
+  },
+  {
+   "id": "sokn-pickup",
+   "group": "coinage",
+   "why": "'Sókn' means attack or parish, not a pickup. Say 'sótt', 'akstur frá hótelinu' or 'pick-up'.",
+   "pattern": "{LB}(?:er|fá|fæ|með|án|innifalin\\p{L}*)\\s+sókn{RB}|{LB}sókn(?:in|ina|inni)?\\s+(?:frá|á|af|innifalin\\p{L}*)\\s+(?:hótel|flugvell|flugvöll|BSÍ)\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "Sækið þið á hótelið?",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[lemma=\"sókn\"][word=\"frá|á|af\"][lemma=\"hótel|flugvöllur|gististaður\"]",
+    "natural": "[word=\"sótt|sækjum|sækja|sækir\"][word=\"á|frá|af\"][lemma=\"hótel|flugvöllur|gististaður\"]"
+   },
+   "examples": {
+    "bad": [
+     "Er sókn innifalin?",
+     "Er hægt að fá sókn frá flugvelli?"
+    ],
+    "good": [
+     "Er sótt á hótelið?",
+     "Er hægt að láta sækja sig á flugvöllinn?"
+    ]
+   }
+  },
+  {
+   "id": "innifela",
+   "group": "coinage",
+   "why": "'Innifela' copies the English verb 'include'. Say 'innifalið er' or 'með í verðinu'.",
+   "pattern": "{LB}innifel(?:a|ur|ja|ji|ast)\\p{L}*",
+   "scope": "all",
+   "severity": "error",
+   "suggest": "innifalið er",
+   "basis": "native",
+   "origin": "ours",
+   "evidence": {
+    "flagged": "[lemma=\"innifela\"]",
+    "natural": "[lemma=\"innifalinn\"]"
+   },
+   "examples": {
+    "bad": [
+     "Dagsferðirnar innifela akstur."
+    ],
+    "good": [
+     "Akstur er innifalinn í dagsferðunum."
+    ]
+   }
+  }
+ ]
+}

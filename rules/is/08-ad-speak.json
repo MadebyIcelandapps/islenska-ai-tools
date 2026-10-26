@@ -1,0 +1,321 @@
+{
+ "_comment": "Sales clichés and hype, mostly copied from English ads. Format: see README. basis: native = recent Icelandic text backs the rule (counts in rules/evidence.json); house = the product owner's decision; grammar = standard spelling and grammar.",
+ "group": "ad-speak",
+ "rules": [
+  {
+   "id": "vegferd",
+   "group": "ad-speak",
+   "why": "'Vegferð' is corporate jargon. Say what happens.",
+   "pattern": "{LB}vegferð\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "say what happens",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"vegferð\"]",
+    "natural": "[lemma=\"leið\"]"
+   },
+   "examples": {
+    "bad": [
+     "Vertu með okkur á þessari vegferð."
+    ],
+    "good": [
+     "Vertu með."
+    ]
+   }
+  },
+  {
+   "id": "heildarlausn",
+   "group": "ad-speak",
+   "why": "'Heildarlausn' says nothing. Say what it does.",
+   "pattern": "{LB}heildarlausn\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "say what it does",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"heildarlausn\"]",
+    "natural": "[lemma=\"lausn\"]"
+   },
+   "examples": {
+    "bad": [
+     "Heildarlausn fyrir ferðaþjónustu."
+    ],
+    "good": [
+     "Svarar gestum og tekur bókanir."
+    ]
+   }
+  },
+  {
+   "id": "byltingarkennd",
+   "group": "ad-speak",
+   "why": "'Byltingarkennd' is hype. Say what changes.",
+   "pattern": "{LB}byltingarkennd\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "say what changes",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"byltingarkenndur\"]",
+    "natural": "[lemma=\"nýr\"]"
+   },
+   "examples": {
+    "bad": [
+     "Byltingarkennd móttaka."
+    ],
+    "good": [
+     "Móttaka sem svarar á nóttunni."
+    ]
+   }
+  },
+  {
+   "id": "oadfinnanleg",
+   "group": "ad-speak",
+   "why": "'Óaðfinnanleg' is hype.",
+   "pattern": "{LB}óaðfinnanleg\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "drop it",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"óaðfinnanlegur\"]",
+    "natural": "[lemma=\"góður\"]"
+   },
+   "examples": {
+    "bad": [
+     "Óaðfinnanleg þjónusta."
+    ],
+    "good": [
+     "Góð þjónusta."
+    ]
+   }
+  },
+  {
+   "id": "leidandi",
+   "group": "ad-speak",
+   "why": "'Leiðandi fyrirtæki' is a claim nobody believes. Say what you do.",
+   "pattern": "{LB}leiðandi\\s+(?:fyrirtæki|lausn|þjónust|aðili|afl)\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "say what you do",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"leiðandi\" %c][word=\"fyrirtæki\" %c]",
+    "natural": "[word=\"fyrirtæki\" %c][word=\"í\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Leiðandi fyrirtæki í ferðaþjónustu."
+    ],
+    "good": [
+     "Fyrirtæki í ferðaþjónustu."
+    ]
+   }
+  },
+  {
+   "id": "nystarleg",
+   "group": "ad-speak",
+   "why": "'Nýstárleg lausn' is hype.",
+   "pattern": "{LB}nýstárleg\\p{L}*\\s+(?:lausn|nálgun|tækni)\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "drop it",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"nýstárlegur\"][lemma=\"lausn\"]",
+    "natural": "[lemma=\"nýr\"][lemma=\"lausn\"]"
+   },
+   "examples": {
+    "bad": [
+     "Nýstárleg lausn fyrir hótel."
+    ],
+    "good": [
+     "Svarar gestum hótela."
+    ]
+   }
+  },
+  {
+   "id": "umbreyta",
+   "group": "ad-speak",
+   "why": "'Umbreyttu rekstrinum' is hype from English 'transform'.",
+   "pattern": "{LB}umbreyt\\p{L}*\\s+(?:fyrirtæk|rekstr|þjónust|upplifun|bókun)\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "breyta, bæta",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"umbreyta\"][lemma=\"rekstur|fyrirtæki|þjónusta\"]",
+    "natural": "[lemma=\"breyta\"][lemma=\"rekstur|fyrirtæki|þjónusta\"]"
+   },
+   "examples": {
+    "bad": [
+     "Umbreyttu rekstrinum með Vaka."
+    ],
+    "good": [
+     "Svaraðu gestum á nóttunni með Vaka."
+    ]
+   }
+  },
+  {
+   "id": "valdefla",
+   "group": "ad-speak",
+   "why": "'Valdefla' is a buzzword. Say 'hjálpa' or 'styrkja'.",
+   "pattern": "{LB}valdefl\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "hjálpa, styrkja",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[lemma=\"valdefla\"]",
+    "natural": "[lemma=\"styrkja\"]"
+   },
+   "examples": {
+    "bad": [
+     "Við valdeflum fyrirtæki."
+    ],
+    "good": [
+     "Við hjálpum fyrirtækjum."
+    ]
+   }
+  },
+  {
+   "id": "uppgotvadu",
+   "group": "ad-speak",
+   "why": "'Uppgötvaðu' copies the English ad opener 'Discover'. Say 'Kynntu þér' or 'Skoðaðu'.",
+   "pattern": "{LB}uppgötv(?:aðu|ið){RB}",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "Kynntu þér, Skoðaðu",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"uppgötvaðu\" %c]",
+    "natural": "[word=\"kynntu\" %c][word=\"þér\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Uppgötvaðu Ísland með okkur."
+    ],
+    "good": [
+     "Kynntu þér ferðirnar."
+    ]
+   }
+  },
+  {
+   "id": "kannadu",
+   "group": "ad-speak",
+   "why": "'Kannaðu' copies 'Explore'. Say 'Skoðaðu'.",
+   "pattern": "{LB}kann(?:aðu|ið){RB}",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "Skoðaðu",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"kannaðu\" %c]",
+    "natural": "[word=\"skoðaðu\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Kannaðu ferðirnar okkar."
+    ],
+    "good": [
+     "Skoðaðu ferðirnar."
+    ]
+   }
+  },
+  {
+   "id": "kafadu",
+   "group": "ad-speak",
+   "why": "'Kafaðu ofan í' copies 'dive into'. Say 'Kynntu þér'.",
+   "pattern": "{LB}kaf(?:aðu|ið|a)\\s+(?:ofan\\s+)?í{RB}",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "Kynntu þér",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"kafaðu\" %c][word=\"ofan\" %c][word=\"í\" %c]",
+    "natural": "[word=\"kynntu\" %c][word=\"þér\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Kafaðu ofan í söguna."
+    ],
+    "good": [
+     "Kynntu þér söguna."
+    ]
+   }
+  },
+  {
+   "id": "spennandi-taekifaeri",
+   "group": "ad-speak",
+   "why": "'Spennandi tækifæri' is filler.",
+   "pattern": "{LB}spennandi\\s+tækifær\\p{L}*",
+   "scope": "product",
+   "severity": "warning",
+   "suggest": "say what it is",
+   "basis": "native",
+   "origin": "ai",
+   "evidence": {
+    "flagged": "[word=\"spennandi\" %c][word=\"tækifæri\" %c]",
+    "natural": "[word=\"gott\" %c][word=\"tækifæri\" %c]"
+   },
+   "examples": {
+    "bad": [
+     "Spennandi tækifæri fyrir þig."
+    ],
+    "good": [
+     "Laust starf í móttöku."
+    ]
+   }
+  },
+  {
+   "id": "fragment-triplet",
+   "group": "ad-speak",
+   "why": "Three one-word sentences in a row ('Rautt ljós. Sveitt. Alvöru.') is a copywriting tic.",
+   "pattern": "(?:^|[.!?]\\s+)\\p{Lu}\\p{L}*(?:\\s\\p{L}+)?\\.\\s+\\p{Lu}\\p{L}*\\.\\s+\\p{Lu}\\p{L}*\\.",
+   "flags": "u",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "one full sentence",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Rautt ljós. Sveitt. Alvöru."
+    ],
+    "good": [
+     "Heitur salur og heit ljós."
+    ]
+   }
+  },
+  {
+   "id": "negation-list",
+   "group": "ad-speak",
+   "why": "A run of 'Ekki X, ekki Y, ekki Z' reads like a disclaimer. Say what it does.",
+   "pattern": "{LB}ekki\\s+\\p{L}+,\\s+ekki\\s+\\p{L}+(?:,|\\s+og|\\s+eða)\\s+ekki\\s+\\p{L}+",
+   "scope": "product",
+   "severity": "error",
+   "suggest": "say what it does",
+   "basis": "house",
+   "origin": "owner",
+   "examples": {
+    "bad": [
+     "Ekki verð, ekki aldurstakmark, ekki tíma."
+    ],
+    "good": [
+     "Hann svarar um verð og tíma."
+    ]
+   }
+  }
+ ]
+}

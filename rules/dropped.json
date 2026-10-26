@@ -1,0 +1,965 @@
+{
+ "_comment": "Candidate rules that recent native Icelandic did NOT back (the flagged form is about as common as, or more common than, the suggested one in the CC BY parts of the Icelandic Gigaword Corpus since 2018). Kept here so nobody adds them again without new evidence.",
+ "dropped": [
+  {
+   "id": "sjalfvirknivaeding",
+   "group": "coinage",
+   "pattern": "{LB}sjálfvirknivæð\\p{L}*",
+   "suggest": "sjálfvirkni",
+   "evidence": {
+    "flagged": "[lemma=\"sjálfvirknivæðing\"]",
+    "natural": "[lemma=\"sjálfvirkni\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 480,
+     "all": 516
+    },
+    "natural": {
+     "recent": 490,
+     "all": 722
+    }
+   }
+  },
+  {
+   "id": "samskiptaupplysingar",
+   "group": "coinage",
+   "pattern": "{LB}samskiptaupplýsing\\p{L}*",
+   "suggest": "netfang eða símanúmer",
+   "evidence": {
+    "flagged": "[lemma=\"samskiptaupplýsingar\"]",
+    "natural": "[word=\"netfang\" %c][word=\"eða\" %c][word=\"símanúmer\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 6,
+     "all": 7
+    },
+    "natural": {
+     "recent": 0,
+     "all": 9
+    }
+   }
+  },
+  {
+   "id": "eigin-overuse",
+   "group": "calque",
+   "pattern": "{LB}(?:þínum|þínu|þinni|þínar|þína|þeirra|sínu|sínum|sinni)\\s+eigin\\s+(?:tungumál|vef|síð|máli)\\p{L}*",
+   "suggest": "á þínu máli",
+   "evidence": {
+    "flagged": "[word=\"á\" %c][word=\"þínu\" %c][word=\"eigin\" %c][word=\"tungumáli\" %c]",
+    "natural": "[word=\"á\" %c][word=\"þínu\" %c][word=\"tungumáli\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 0,
+     "all": 4
+    },
+    "natural": {
+     "recent": 2,
+     "all": 15
+    }
+   }
+  },
+  {
+   "id": "reason-why",
+   "group": "calque",
+   "pattern": "{LB}(?:sem\\s+er|er|það\\s+er)\\s+(?:líka\\s+)?ástæðan\\s+fyrir\\s+því\\s+að",
+   "suggest": "þess vegna",
+   "evidence": {
+    "flagged": "[word=\"ástæðan\" %c][word=\"fyrir\" %c][word=\"því\" %c][word=\"að\" %c]",
+    "natural": "[word=\"og\" %c][word=\"þess\" %c][word=\"vegna\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 4979,
+     "all": 25008
+    },
+    "natural": {
+     "recent": 6221,
+     "all": 30759
+    }
+   }
+  },
+  {
+   "id": "ekki-hika",
+   "group": "calque",
+   "pattern": "{LB}ekki\\s+hika\\s+við{RB}",
+   "suggest": "Hafðu endilega samband",
+   "evidence": {
+    "flagged": "[word=\"ekki\" %c][word=\"hika\" %c][word=\"við\" %c]",
+    "natural": "[word=\"endilega\" %c][word=\"samband\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 455,
+     "all": 5821
+    },
+    "natural": {
+     "recent": 32,
+     "all": 550
+    }
+   }
+  },
+  {
+   "id": "hope-helps",
+   "group": "calque",
+   "pattern": "{LB}(?:ég|við)\\s+von(?:a|um)\\s+að\\s+þetta\\s+(?:hjálpi|aðstoði|komi\\s+að\\s+gagni){RB}",
+   "suggest": "Vonandi hjálpar þetta",
+   "evidence": {
+    "flagged": "[word=\"vona\" %c][word=\"að\" %c][word=\"þetta\" %c][word=\"hjálpi\" %c]",
+    "natural": "[word=\"vonandi\" %c][word=\"hjálpar\" %c][word=\"þetta\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 33,
+     "all": 2885
+    },
+    "natural": {
+     "recent": 36,
+     "all": 1612
+    }
+   }
+  },
+  {
+   "id": "at-this-point",
+   "group": "calque",
+   "pattern": "{LB}á\\s+þessum\\s+tímapunkti{RB}",
+   "suggest": "núna, eins og er",
+   "evidence": {
+    "flagged": "[word=\"á\" %c][word=\"þessum\" %c][word=\"tímapunkti\" %c]",
+    "natural": "[word=\"eins\" %c][word=\"og\" %c][word=\"er\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 3276,
+     "all": 6471
+    },
+    "natural": {
+     "recent": 5375,
+     "all": 35699
+    }
+   }
+  },
+  {
+   "id": "spila-hlutverk",
+   "group": "calque",
+   "pattern": "{LB}spil(?:a|ar|aði|að|ir)\\s+(?:stórt\\s+|mikilvægt\\s+|lykil|mikið\\s+)?hlutverk\\p{L}*",
+   "suggest": "skipta máli, leika hlutverk",
+   "evidence": {
+    "flagged": "[lemma=\"spila\"][]{0,1}[lemma=\"hlutverk\"]",
+    "natural": "[lemma=\"leika\"][]{0,1}[lemma=\"hlutverk\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 768,
+     "all": 1606
+    },
+    "natural": {
+     "recent": 929,
+     "all": 2238
+    }
+   }
+  },
+  {
+   "id": "perfect-for",
+   "group": "calque",
+   "pattern": "{LB}fullkomi(?:n|ð|nn)\\s+fyrir{RB}",
+   "suggest": "hentar vel fyrir",
+   "evidence": {
+    "flagged": "[word=\"fullkomin\" %c][word=\"fyrir\" %c]",
+    "natural": "[word=\"hentar\" %c][word=\"vel\" %c][word=\"fyrir\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 95,
+     "all": 345
+    },
+    "natural": {
+     "recent": 154,
+     "all": 501
+    }
+   }
+  },
+  {
+   "id": "any-questions",
+   "group": "calque",
+   "pattern": "{LB}ef\\s+(?:þú\\s+hefur|þið\\s+hafið|það\\s+eru)\\s+einhverjar\\s+(?:frekari\\s+)?spurningar{RB}",
+   "suggest": "Endilega spurðu ef eitthvað er",
+   "evidence": {
+    "flagged": "[word=\"ef\" %c][word=\"þú\" %c][word=\"hefur\" %c][word=\"einhverjar\" %c][word=\"spurningar\" %c]",
+    "natural": "[word=\"ef\" %c][word=\"þú\" %c][word=\"hefur\" %c][word=\"spurningar\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 5,
+     "all": 591
+    },
+    "natural": {
+     "recent": 4,
+     "all": 91
+    }
+   }
+  },
+  {
+   "id": "excited-to",
+   "group": "calque",
+   "pattern": "{LB}spennt(?:ur|ir|ar)?\\s+að\\s+(?:kynna|sjá|hitta|bjóða|byrja|vinna|taka){RB}",
+   "suggest": "hlökkum til að",
+   "evidence": {
+    "flagged": "[word=\"spennt|spenntur\"][word=\"að\"][word=\"sjá|kynna|hitta\"]",
+    "natural": "[word=\"hlakka|hlökkum\"][word=\"til\"][word=\"að\"][word=\"sjá|kynna|hitta\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 950,
+     "all": 2917
+    },
+    "natural": {
+     "recent": 1017,
+     "all": 4828
+    }
+   }
+  },
+  {
+   "id": "let-us",
+   "group": "calque",
+   "pattern": "{LB}leyfðu\\s+okkur\\s+að{RB}",
+   "suggest": "Við sjáum um",
+   "evidence": {
+    "flagged": "[word=\"leyfðu\" %c][word=\"okkur\" %c][word=\"að\" %c]",
+    "natural": "[word=\"við\" %c][word=\"sjáum\" %c][word=\"um\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 70,
+     "all": 839
+    },
+    "natural": {
+     "recent": 127,
+     "all": 372
+    }
+   }
+  },
+  {
+   "id": "thanks-for-choosing",
+   "group": "calque",
+   "pattern": "{LB}(?:takk|þakka\\p{L}*)\\s+fyrir\\s+að\\s+velja\\s+(?:okkur|\\p{Lu}\\p{L}+){RB}",
+   "suggest": "Takk fyrir bókunina",
+   "evidence": {
+    "flagged": "[word=\"takk\" %c][word=\"fyrir\" %c][word=\"að\" %c][word=\"velja\" %c]",
+    "natural": "[word=\"takk\" %c][word=\"fyrir\" %c][word=\"viðskiptin\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 22,
+     "all": 58
+    },
+    "natural": {
+     "recent": 17,
+     "all": 67
+    }
+   }
+  },
+  {
+   "id": "important-to-note",
+   "group": "calque",
+   "pattern": "{LB}(?:það\\s+er\\s+)?mikilvægt\\s+að\\s+(?:hafa\\s+í\\s+huga|athuga|nefna|taka\\s+fram)\\s+að{RB}",
+   "suggest": "say it directly",
+   "evidence": {
+    "flagged": "[word=\"mikilvægt\" %c][word=\"að\" %c][word=\"hafa\" %c][word=\"í\" %c][word=\"huga\" %c][word=\"að\" %c]",
+    "natural": "[word=\"hafðu\" %c][word=\"í\" %c][word=\"huga\" %c][word=\"að\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 300,
+     "all": 515
+    },
+    "natural": {
+     "recent": 39,
+     "all": 351
+    }
+   }
+  },
+  {
+   "id": "here-is-the-thing",
+   "group": "calque",
+   "pattern": "{LB}(?:hér\\s+er\\s+málið|svarið\\s+er\\s+einfalt|hér\\s+er\\s+það\\s+sem\\s+þú\\s+þarft\\s+að\\s+vita){RB}",
+   "suggest": "say the answer",
+   "evidence": {
+    "flagged": "[word=\"svarið\" %c][word=\"er\" %c][word=\"einfalt\" %c]",
+    "natural": "[word=\"einfaldlega\" %c][word=\"já\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 109,
+     "all": 454
+    },
+    "natural": {
+     "recent": 4,
+     "all": 27
+    }
+   }
+  },
+  {
+   "id": "in-a-world",
+   "group": "calque",
+   "pattern": "{LB}í\\s+(?:hröðum\\s+)?heimi\\s+(?:þar\\s+sem|nútímans){RB}",
+   "suggest": "start with the point",
+   "evidence": {
+    "flagged": "[word=\"í\" %c][word=\"heimi\" %c][word=\"þar\" %c][word=\"sem\" %c]",
+    "natural": "[word=\"nú\" %c][word=\"á\" %c][word=\"dögum\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 382,
+     "all": 1069
+    },
+    "natural": {
+     "recent": 233,
+     "all": 1125
+    }
+   }
+  },
+  {
+   "id": "velkomin-objects",
+   "group": "calque",
+   "pattern": "{LB}(?:kerrur|hjólastólar|hundar|gæludýr|börn|hjól|töskur)\\s+(?:eru|er)\\s+(?:velkomin|velkomnir|velkomnar|velkominn)\\p{L}*",
+   "suggest": "Það má koma með ...",
+   "evidence": {
+    "flagged": "[word=\"hundar|kerrur|gæludýr\"][word=\"eru\"][word=\"velkomnir|velkomnar|velkomin\"]",
+    "natural": "[word=\"má\"][word=\"koma\"][word=\"með\"][word=\"hunda|kerrur|gæludýr\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 1,
+     "all": 16
+    },
+    "natural": {
+     "recent": 0,
+     "all": 3
+    }
+   }
+  },
+  {
+   "id": "ad-eigin-vali",
+   "group": "calque",
+   "pattern": "{LB}að\\s+eigin\\s+vali{RB}",
+   "suggest": "sem þú velur",
+   "evidence": {
+    "flagged": "[word=\"að\" %c][word=\"eigin\" %c][word=\"vali\" %c]",
+    "natural": "[word=\"sem\" %c][word=\"þú\" %c][word=\"velur\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 493,
+     "all": 2399
+    },
+    "natural": {
+     "recent": 77,
+     "all": 1074
+    }
+   }
+  },
+  {
+   "id": "take-to-next-level",
+   "group": "calque",
+   "pattern": "{LB}(?:á|upp\\s+á)\\s+næsta\\s+stig{RB}",
+   "suggest": "bæta",
+   "evidence": {
+    "flagged": "[word=\"á\" %c][word=\"næsta\" %c][word=\"stig\" %c]",
+    "natural": "[word=\"á\" %c][word=\"hærra\" %c][word=\"plan\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 436,
+     "all": 890
+    },
+    "natural": {
+     "recent": 181,
+     "all": 615
+    }
+   }
+  },
+  {
+   "id": "take-control",
+   "group": "calque",
+   "pattern": "{LB}taktu\\s+stjórnina{RB}",
+   "suggest": "say what changes",
+   "evidence": {
+    "flagged": "[word=\"taktu\" %c][word=\"stjórnina\" %c]",
+    "natural": "[word=\"taktu\" %c][word=\"stjórn\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 2,
+     "all": 22
+    },
+    "natural": {
+     "recent": 1,
+     "all": 17
+    }
+   }
+  },
+  {
+   "id": "cant-wait",
+   "group": "calque",
+   "pattern": "{LB}(?:ég\\s+get|við\\s+getum)\\s+ekki\\s+beðið\\s+(?:eftir\\s+að|að){RB}",
+   "suggest": "Ég hlakka svo til",
+   "evidence": {
+    "flagged": "[word=\"ekki\"][word=\"beðið\"][word=\"eftir\"][word=\"að\"]",
+    "natural": "[word=\"hlakka|hlökkum\"][word=\"svo\"][word=\"til\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 1254,
+     "all": 6502
+    },
+    "natural": {
+     "recent": 520,
+     "all": 3674
+    }
+   }
+  },
+  {
+   "id": "eigi-sidar",
+   "group": "stiff",
+   "pattern": "{LB}eigi\\s+síðar\\s+en{RB}",
+   "suggest": "í síðasta lagi",
+   "evidence": {
+    "flagged": "[word=\"eigi\" %c][word=\"síðar\" %c][word=\"en\" %c]",
+    "natural": "[word=\"í\" %c][word=\"síðasta\" %c][word=\"lagi\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 717,
+     "all": 1825
+    },
+    "natural": {
+     "recent": 805,
+     "all": 3107
+    }
+   }
+  },
+  {
+   "id": "einnig",
+   "group": "stiff",
+   "pattern": "{LB}einnig{RB}",
+   "suggest": "líka",
+   "evidence": {
+    "flagged": "[word=\"einnig\" %c]",
+    "natural": "[word=\"líka\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 226223,
+     "all": 538179
+    },
+    "natural": {
+     "recent": 244219,
+     "all": 1822451
+    }
+   }
+  },
+  {
+   "id": "veita-thjonustu",
+   "group": "stiff",
+   "pattern": "{LB}veit(?:a|ir|um|ti|tum)\\s+(?:\\p{L}+\\s+)?þjónust\\p{L}*",
+   "suggest": "bjóða upp á",
+   "evidence": {
+    "flagged": "[lemma=\"veita\"][lemma=\"þjónusta\"]",
+    "natural": "[lemma=\"bjóða\"][word=\"upp\"][word=\"á\"][lemma=\"þjónusta\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 571,
+     "all": 1129
+    },
+    "natural": {
+     "recent": 133,
+     "all": 327
+    }
+   }
+  },
+  {
+   "id": "haegt-er-ad",
+   "group": "stiff",
+   "pattern": "(?:^|[.!?]\\s+)(?:Hægt|Ekki)\\s+er\\s+(?:hægt\\s+)?að{RB}",
+   "suggest": "Það er hægt að, Þú getur",
+   "evidence": {
+    "flagged": "[word=\"Hægt\"][word=\"er\"][word=\"að\"]",
+    "natural": "[word=\"Það\"][word=\"er\"][word=\"hægt\"][word=\"að\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 11065,
+     "all": 26082
+    },
+    "natural": {
+     "recent": 3756,
+     "all": 24310
+    }
+   }
+  },
+  {
+   "id": "hafa-ber-i-huga",
+   "group": "stiff",
+   "pattern": "{LB}hafa\\s+ber\\s+í\\s+huga{RB}",
+   "suggest": "Hafðu í huga",
+   "evidence": {
+    "flagged": "[word=\"hafa\" %c][word=\"ber\" %c][word=\"í\" %c][word=\"huga\" %c]",
+    "natural": "[word=\"hafðu\" %c][word=\"í\" %c][word=\"huga\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 345,
+     "all": 906
+    },
+    "natural": {
+     "recent": 47,
+     "all": 411
+    }
+   }
+  },
+  {
+   "id": "ther-er-bent",
+   "group": "stiff",
+   "pattern": "{LB}(?:þér|yður|ykkur|gestum)\\s+er\\s+bent\\s+á{RB}",
+   "suggest": "Athugaðu",
+   "evidence": {
+    "flagged": "[word=\"er\" %c][word=\"bent\" %c][word=\"á\" %c]",
+    "natural": "[word=\"athugaðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 2600,
+     "all": 6757
+    },
+    "natural": {
+     "recent": 309,
+     "all": 10398
+    }
+   }
+  },
+  {
+   "id": "gjordu-svo-vel",
+   "group": "stiff",
+   "pattern": "{LB}gjörðu\\s+svo\\s+vel{RB}",
+   "suggest": "Gerðu svo vel",
+   "evidence": {
+    "flagged": "[word=\"gjörðu\" %c][word=\"svo\" %c][word=\"vel\" %c]",
+    "natural": "[word=\"gerðu\" %c][word=\"svo\" %c][word=\"vel\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 353,
+     "all": 2810
+    },
+    "natural": {
+     "recent": 24,
+     "all": 303
+    }
+   }
+  },
+  {
+   "id": "passive-lokad-hefur",
+   "group": "stiff",
+   "pattern": "(?:^|[.!?]\\s+)(?:Lokað|Opnað|Bætt|Breytt)\\s+hefur\\s+verið{RB}",
+   "suggest": "Það er lokað fyrir ...",
+   "evidence": {
+    "flagged": "[word=\"Lokað\"][word=\"hefur\"][word=\"verið\"]",
+    "natural": "[word=\"Það\"][word=\"er\"][word=\"lokað\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 100,
+     "all": 208
+    },
+    "natural": {
+     "recent": 58,
+     "all": 327
+    }
+   }
+  },
+  {
+   "id": "uncontracted-getur",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)getur\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Geturðu",
+   "evidence": {
+    "flagged": "[word=\"getur\" %c][word=\"þú\"]",
+    "natural": "[word=\"geturðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 3541,
+     "all": 38634
+    },
+    "natural": {
+     "recent": 3763,
+     "all": 50919
+    }
+   }
+  },
+  {
+   "id": "uncontracted-hefur",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)hefur\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Hefurðu",
+   "evidence": {
+    "flagged": "[word=\"hefur\" %c][word=\"þú\"]",
+    "natural": "[word=\"hefurðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 3520,
+     "all": 39139
+    },
+    "natural": {
+     "recent": 3430,
+     "all": 39088
+    }
+   }
+  },
+  {
+   "id": "uncontracted-ætlar",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)ætlar\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Ætlarðu",
+   "evidence": {
+    "flagged": "[word=\"ætlar\" %c][word=\"þú\"]",
+    "natural": "[word=\"ætlarðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 1218,
+     "all": 10307
+    },
+    "natural": {
+     "recent": 1344,
+     "all": 12695
+    }
+   }
+  },
+  {
+   "id": "uncontracted-vildir",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)vildir\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Vildirðu",
+   "evidence": {
+    "flagged": "[word=\"vildir\" %c][word=\"þú\"]",
+    "natural": "[word=\"vildirðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 73,
+     "all": 603
+    },
+    "natural": {
+     "recent": 42,
+     "all": 499
+    }
+   }
+  },
+  {
+   "id": "uncontracted-gætir",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)gætir\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Gætirðu",
+   "evidence": {
+    "flagged": "[word=\"gætir\" %c][word=\"þú\"]",
+    "natural": "[word=\"gætirðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 534,
+     "all": 4776
+    },
+    "natural": {
+     "recent": 489,
+     "all": 6325
+    }
+   }
+  },
+  {
+   "id": "uncontracted-myndir",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)myndir\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Myndirðu",
+   "evidence": {
+    "flagged": "[word=\"myndir\" %c][word=\"þú\"]",
+    "natural": "[word=\"myndirðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 1945,
+     "all": 12522
+    },
+    "natural": {
+     "recent": 989,
+     "all": 8113
+    }
+   }
+  },
+  {
+   "id": "uncontracted-hefðir",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)hefðir\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Hefðirðu",
+   "evidence": {
+    "flagged": "[word=\"hefðir\" %c][word=\"þú\"]",
+    "natural": "[word=\"hefðirðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 342,
+     "all": 3171
+    },
+    "natural": {
+     "recent": 182,
+     "all": 1996
+    }
+   }
+  },
+  {
+   "id": "uncontracted-kemur",
+   "group": "contraction",
+   "pattern": "(?:^|[.!?]\\s+|,\\s*)kemur\\s+þú(?=\\s+\\p{L}+[^.!?]*\\?)",
+   "suggest": "Kemurðu",
+   "evidence": {
+    "flagged": "[word=\"kemur\" %c][word=\"þú\"]",
+    "natural": "[word=\"kemurðu\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 262,
+     "all": 2920
+    },
+    "natural": {
+     "recent": 247,
+     "all": 1938
+    }
+   }
+  },
+  {
+   "id": "en-dashboard",
+   "group": "jargon",
+   "pattern": "{LB}dashboard\\p{L}*",
+   "suggest": "stjórnborð",
+   "evidence": {
+    "flagged": "[word=\"dashboard.*\" %c]",
+    "natural": "[lemma=\"stjórnborð\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 46,
+     "all": 182
+    },
+    "natural": {
+     "recent": 68,
+     "all": 699
+    }
+   }
+  },
+  {
+   "id": "en-checkout",
+   "group": "jargon",
+   "pattern": "{LB}checkout\\p{L}*",
+   "suggest": "greiðsla, karfa",
+   "evidence": {
+    "flagged": "[word=\"checkout.*\" %c]",
+    "natural": "[lemma=\"greiðslusíða\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 32,
+     "all": 145
+    },
+    "natural": {
+     "recent": 24,
+     "all": 44
+    }
+   }
+  },
+  {
+   "id": "en-email",
+   "group": "jargon",
+   "pattern": "{LB}email\\p{L}*",
+   "suggest": "tölvupóstur, netfang",
+   "evidence": {
+    "flagged": "[word=\"email.*\" %c]",
+    "natural": "[lemma=\"tölvupóstur\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 5096,
+     "all": 22505
+    },
+    "natural": {
+     "recent": 9931,
+     "all": 30083
+    }
+   }
+  },
+  {
+   "id": "snidin-ad-thorfum",
+   "group": "ad-speak",
+   "pattern": "{LB}sniðin?\\p{L}*\\s+að\\s+(?:þínum|ykkar|þörfum)\\p{L}*",
+   "suggest": "eftir þínum óskum",
+   "evidence": {
+    "flagged": "[word=\"sniðin\" %c][word=\"að\" %c][word=\"þínum\" %c][word=\"þörfum\" %c]",
+    "natural": "[word=\"eftir\" %c][word=\"þínum\" %c][word=\"óskum\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 1,
+     "all": 4
+    },
+    "natural": {
+     "recent": 3,
+     "all": 38
+    }
+   }
+  },
+  {
+   "id": "lyftu",
+   "group": "ad-speak",
+   "pattern": "{LB}lyft(?:u|ið|ir|um|a)\\s+(?:fyrirtæk|rekstr|upplifun|þjónust|vörumerk)\\p{L}*",
+   "suggest": "bættu",
+   "evidence": {
+    "flagged": "[word=\"lyftu\" %c][lemma=\"fyrirtæki|rekstur|þjónusta\"]",
+    "natural": "[word=\"bættu\" %c][lemma=\"fyrirtæki|rekstur|þjónusta\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 0,
+     "all": 2
+    },
+    "natural": {
+     "recent": 2,
+     "all": 8
+    }
+   }
+  },
+  {
+   "id": "toframir-gerast",
+   "group": "ad-speak",
+   "pattern": "{LB}töfrarnir\\s+gerast{RB}",
+   "suggest": "say what happens",
+   "evidence": {
+    "flagged": "[word=\"töfrarnir\" %c][word=\"gerast\" %c]",
+    "natural": "[word=\"gerast\" %c][word=\"töfrarnir\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 15,
+     "all": 25
+    },
+    "natural": {
+     "recent": 16,
+     "all": 21
+    }
+   }
+  },
+  {
+   "id": "ad-veruleika",
+   "group": "ad-speak",
+   "pattern": "{LB}(?:draum\\p{L}*|hugmynd\\p{L}*|sýn\\p{L}*)\\s+að\\s+veruleika{RB}",
+   "suggest": "say what you build",
+   "evidence": {
+    "flagged": "[lemma=\"draumur\"][word=\"að\"][word=\"veruleika\"]",
+    "natural": "[lemma=\"draumur\"][word=\"rætist\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 30,
+     "all": 90
+    },
+    "natural": {
+     "recent": 53,
+     "all": 189
+    }
+   }
+  },
+  {
+   "id": "an-fyrirhafnar",
+   "group": "ad-speak",
+   "pattern": "{LB}(?:án\\s+(?:allrar\\s+)?fyrirhafnar|áreynslulaus\\p{L}*){RB}",
+   "suggest": "say how long it takes",
+   "evidence": {
+    "flagged": "[word=\"án\" %c][word=\"fyrirhafnar\" %c]",
+    "natural": "[word=\"lítil\" %c][word=\"fyrirhöfn\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 38,
+     "all": 234
+    },
+    "natural": {
+     "recent": 16,
+     "all": 77
+    }
+   }
+  },
+  {
+   "id": "svo-einfalt",
+   "group": "ad-speak",
+   "pattern": "{LB}svo\\s+einfalt\\s+er\\s+það{RB}",
+   "suggest": "drop it",
+   "evidence": {
+    "flagged": "[word=\"svo\" %c][word=\"einfalt\" %c][word=\"er\" %c][word=\"það\" %c]",
+    "natural": "[word=\"einfalt\" %c][word=\"mál\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 313,
+     "all": 3513
+    },
+    "natural": {
+     "recent": 368,
+     "all": 2326
+    }
+   }
+  },
+  {
+   "id": "stolt-ad-kynna",
+   "group": "ad-speak",
+   "pattern": "{LB}stolt\\p{L}*\\s+(?:af\\s+því\\s+)?að\\s+kynna{RB}",
+   "suggest": "Nú getur þú ...",
+   "evidence": {
+    "flagged": "[word=\"stolt|stoltir\"][word=\"af\"][word=\"því\"][word=\"að\"][word=\"kynna\"]",
+    "natural": "[word=\"kynnum\"][word=\"nýja|nýjan|nýtt\"]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 7,
+     "all": 18
+    },
+    "natural": {
+     "recent": 10,
+     "all": 42
+    }
+   }
+  },
+  {
+   "id": "imyndadu-ther",
+   "group": "ad-speak",
+   "pattern": "(?:^|[.!?]\\s+)Ímyndaðu\\s+þér{RB}",
+   "suggest": "start with the fact",
+   "evidence": {
+    "flagged": "[word=\"ímyndaðu\" %c][word=\"þér\" %c]",
+    "natural": "[word=\"hugsaðu\" %c][word=\"þér\" %c]"
+   },
+   "counts": {
+    "flagged": {
+     "recent": 419,
+     "all": 2301
+    },
+    "natural": {
+     "recent": 256,
+     "all": 2530
+    }
+   }
+  }
+ ]
+}

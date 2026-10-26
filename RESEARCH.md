@@ -34,3 +34,19 @@ The existing tools are strong at **grammar** (parsing, inflection, spelling) and
 - We do not ship BÍN data, Ritmyndir, or any part of Miðeind's code or data. We link to them.
 - No eval example comes from a real customer, guest, email, company file or phone call. Every example is written from scratch for this repo.
 - We do not claim to be a grammar checker. For grammar, use GreynirCorrect.
+
+## Native evidence for the style rules (2026-10-25)
+
+The style list (`rules/is/`) aims at modern everyday Icelandic: how people aged 20 to 40 write today on good business sites, in the news, on forums and in texts. Not formal or purist dictionary Icelandic, and not English said in Icelandic words.
+
+**Where the candidates came from.** Corrections the product owner has made to Icelandic copy over two months (origin `owner`), our own Icelandic output: site, guest-desk replies and prompts, demo answers and a plant app (origin `ours`), and patterns machine-written Icelandic is known for (origin `ai`). No customer text is quoted in the repo; every example sentence is written for it.
+
+**How each rule was checked.** Each `native` rule carries two corpus searches: the flagged form and the natural one. `scripts/native-evidence.mjs` counts both in the Icelandic Gigaword Corpus (Risamálheildin, Árni Magnússon Institute, https://igc.arnastofnun.is/) through its public Korp search at malheildir.arnastofnun.is, once for texts from 2018 and later and once for all years. The tests keep a `native` rule only while the natural form is at least twice as common since 2018 and has at least 10 hits. Rules with `basis: "house"` are the owner's brand decisions; `grammar` rules are standard spelling and grammar (for example "Ég vil", not "Ég vill").
+
+**Which texts were counted, and the licence.** Only the corpus parts published under CC BY 4.0: news part 1 (Vísir, RÚV, Fréttablaðið, Mannlíf, up to 2023) and the social part (Bland, Hugi, Málefnin forums and Twitter, up to 2021); about 1.1 billion words. News part 2 (mbl.is, DV, Heimildin and others) is under the corpus's own licence, which does not allow republishing, so it was left out. The repo stores only counts (`rules/evidence.json`), never corpus text.
+
+**What the counts overturned.** 48 of 214 candidates were dropped because recent Icelandic uses the flagged form as much as, or more than, the suggested one. For example "Hægt er að" (11,065 since 2018) beats "Það er hægt að" (3,756), "gjörðu svo vel" (353) beats "gerðu svo vel" (24), "ekki hika við" (455) and "að eigin vali" (493) are normal Icelandic, and "email" (5,096) is a loan word people really use. They are listed with their counts in `rules/dropped.json`.
+
+**What the counts confirmed, a few examples (flagged against natural, since 2018).** "skrunaðu/skruna" 96 against "skrolla" 790; "sjálfa" as a noun 1 against "selfie" 730; "Talaðu við okkur" 9 against "Hafðu samband" 1,228; "per manneskju/nótt" 135 against "á mann/nótt" 26,717; "heyra frá þér" 71 against "heyra í þér" 150.
+
+**Limits.** Counts compare word strings, not meanings, so a rule is only as good as its two searches; the forum part ends in 2021. A second, human-style native review of every rule is queued (rule by rule KEEP, FIX or DROP with sources).
